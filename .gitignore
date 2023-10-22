@@ -1,5 +1,10 @@
 **/.gradle
 **/.idea
 **/build
-**/kotlin-js-store
 **/local.properties
+
+**/Pods
+**/Podfile.lock
+**/*.podspec
+
+**/kotlin-js-store

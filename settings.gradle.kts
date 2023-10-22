@@ -19,6 +19,7 @@ dependencyResolutionManagement {
 rootProject.name = "CodeLab"
 include(
     ":target:androidApp",
+    ":target:iosApp",
     ":target:jvmApp",
     ":target:webApp",
 )

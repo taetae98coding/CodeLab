@@ -1,0 +1,6 @@
+framework module Pods_CodeLab {
+  umbrella header "Pods-CodeLab-umbrella.h"
+
+  export *
+  module * { export * }
+}
