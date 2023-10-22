@@ -13,4 +13,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "CodeLab"
-include(":target:androidApp")
+include(
+    ":target:androidApp",
+    ":target:jvmApp",
+)
