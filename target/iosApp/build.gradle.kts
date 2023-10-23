@@ -1,20 +1,10 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-
 plugins {
-    alias(libs.plugins.kotlin.multiplatform)
+    id("codelab.ios")
     alias(libs.plugins.kotlin.cocoapods)
     alias(libs.plugins.compose.multiplatform)
 }
 
 kotlin {
-    explicitApi()
-    jvmToolchain(17)
-
-    val isPhone = System.getenv("SDK_NAME")?.startsWith("iphoneos") ?: false
-    val iosTarget: (String) -> KotlinNativeTarget = if (isPhone) ::iosArm64 else ::iosSimulatorArm64
-
-    iosTarget("ios")
-
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
@@ -35,4 +25,3 @@ kotlin {
         }
     }
 }
-
