@@ -1,14 +1,10 @@
 plugins {
-    alias(libs.plugins.kotlin.multiplatform)
+    id("codelab.web")
     alias(libs.plugins.compose.multiplatform)
 }
 
 kotlin {
-    explicitApi()
-    jvmToolchain(17)
-
     js(IR) {
-        browser()
         binaries.executable()
     }
 

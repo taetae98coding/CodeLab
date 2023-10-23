@@ -29,6 +29,11 @@ gradlePlugin {
             implementationClass = "plugin.jvm.JvmPlugin"
         }
 
+        register("codelab.web") {
+            id = "codelab.web"
+            implementationClass = "plugin.web.WebPlugin"
+        }
+
         register("codelab.compose.android") {
             id = "codelab.compose.android"
             implementationClass = "plugin.compose.ComposeAndroidPlugin"
