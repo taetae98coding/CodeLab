@@ -20,7 +20,7 @@ kotlin {
         homepage = "Link to the Shared Module homepage"
         version = "1.0.0"
         ios.deploymentTarget = "17.0"
-        podfile = project.file("../../CodeLab/Podfile")
+        podfile = project.file("../../ios/Podfile")
         framework {
             baseName = "iosApp"
         }
