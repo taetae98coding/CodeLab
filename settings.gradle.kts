@@ -6,6 +6,8 @@ pluginManagement {
 
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
+
+    includeBuild("build-logic")
 }
 dependencyResolutionManagement {
     repositories {

@@ -1,31 +1,15 @@
 plugins {
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.android.application)
-}
-
-kotlin {
-    explicitApi()
-    jvmToolchain(17)
+    id("codelab.android.app")
+    id("codelab.compose.android")
 }
 
 android {
-    namespace = "com.taetae98.codelab"
-    compileSdk = 34
+    namespace = Build.NAMESPACE
 
     defaultConfig {
-        applicationId = "com.taetae98.codelab"
-        minSdk = 27
-        targetSdk = 34
+        applicationId = Build.NAMESPACE
         versionCode = 10000
         versionName = "1.0.0"
-    }
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.3"
     }
 }
 

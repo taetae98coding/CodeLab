@@ -13,6 +13,10 @@ compose-bom = "2023.10.01"                  # https://developer.android.com/jetp
 spotless = "6.22.0"                         # https://github.com/diffplug/spotless/tree/main/plugin-gradle
 
 [libraries]
+kotlin-gradle = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+
+android-gradle = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle" }
+
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
 
