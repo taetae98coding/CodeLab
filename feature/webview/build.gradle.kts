@@ -7,6 +7,7 @@ kotlin {
     sourceSets {
         getByName("commonMain") {
             dependencies {
+                implementation(project(":library:webview"))
                 implementation(compose.material3)
             }
         }

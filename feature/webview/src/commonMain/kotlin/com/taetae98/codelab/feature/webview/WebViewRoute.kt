@@ -1,13 +1,13 @@
 package com.taetae98.codelab.feature.webview
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.taetae98.codelab.library.webview.WebViewUiState
 
 @Composable
 internal fun WebViewRoute(modifier: Modifier = Modifier) {
-    Text(
+    WebViewScreen(
         modifier = modifier,
-        text = "WebView",
+        webViewUiState = WebViewUiState.Data("https://www.naver.com"),
     )
 }
