@@ -4,11 +4,18 @@ kotlin = "1.9.10"                           # https://github.com/JetBrains/kotli
 android-gradle = "8.1.2"                    # https://developer.android.com/build/releases/gradle-plugin
 
 material = "1.10.0"                         # https://github.com/material-components/material-components-android/releases
+activity = "1.8.0"                          # https://developer.android.com/jetpack/androidx/releases/activity
 
 compose-multiplatform = "1.5.3"             # https://github.com/JetBrains/compose-multiplatform/releases
+compose-compiler = "1.5.3"                  # https://developer.android.com/jetpack/androidx/releases/compose
+compose-bom = "2023.10.01"                  # https://developer.android.com/jetpack/compose/bom/bom-mapping
 
 [libraries]
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
+
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
 
 [plugins]
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
@@ -17,5 +24,6 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 
 android-application = { id = "com.android.application", version.ref = "android-gradle" }
+android-library = { id = "com.android.library", version.ref = "android-gradle" }
 
 compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }

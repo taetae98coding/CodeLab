@@ -15,7 +15,8 @@ kotlin {
     sourceSets {
         getByName("jsMain") {
             dependencies {
-                implementation(compose.material3)
+                implementation(project(":app"))
+                implementation(compose.ui)
             }
         }
     }

@@ -29,7 +29,8 @@ kotlin {
     sourceSets {
         getByName("iosMain") {
             dependencies {
-                implementation(compose.material3)
+                implementation(project(":app"))
+                implementation(compose.ui)
             }
         }
     }

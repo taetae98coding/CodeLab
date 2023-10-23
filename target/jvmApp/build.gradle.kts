@@ -9,7 +9,9 @@ kotlin {
 }
 
 dependencies {
+    implementation(project(":app"))
     implementation(compose.desktop.currentOs)
+    implementation(compose.ui)
 }
 
 compose.desktop {

@@ -18,30 +18,23 @@ android {
         targetSdk = 34
         versionCode = 10000
         versionName = "1.0.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
     }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
+    buildFeatures {
+        compose = true
     }
 
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.3"
     }
 }
 
 dependencies {
+    implementation(project(":app"))
+
     implementation(libs.material)
+    implementation(libs.activity.compose)
+
+    implementation(platform(libs.compose.bom))
+    implementation(libs.compose.ui)
 }
