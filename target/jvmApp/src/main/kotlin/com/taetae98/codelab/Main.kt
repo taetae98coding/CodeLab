@@ -2,7 +2,7 @@ package com.taetae98.codelab
 
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import com.taetae98.codelab.app.AppRoute
+import com.taetae98.codelab.app.CommonAppRoute
 
 internal fun main() {
     application {
@@ -10,7 +10,7 @@ internal fun main() {
             onCloseRequest = ::exitApplication,
             title = "CodeLab",
         ) {
-            AppRoute()
+            CommonAppRoute()
         }
     }
 }

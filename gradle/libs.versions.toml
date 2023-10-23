@@ -5,6 +5,7 @@ android-gradle = "8.1.2"                    # https://developer.android.com/buil
 
 material = "1.10.0"                         # https://github.com/material-components/material-components-android/releases
 activity = "1.8.0"                          # https://developer.android.com/jetpack/androidx/releases/activity
+navigation = "2.7.4"                        # https://developer.android.com/jetpack/androidx/releases/navigation
 
 compose-multiplatform = "1.5.3"             # https://github.com/JetBrains/compose-multiplatform/releases
 compose-compiler = "1.5.3"                  # https://developer.android.com/jetpack/androidx/releases/compose
@@ -19,6 +20,7 @@ android-gradle = { group = "com.android.tools.build", name = "gradle", version.r
 
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 compose-ui = { group = "androidx.compose.ui", name = "ui" }

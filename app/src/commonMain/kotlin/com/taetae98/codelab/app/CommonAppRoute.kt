@@ -8,7 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-public fun AppRoute(modifier: Modifier = Modifier) {
+public fun CommonAppRoute(modifier: Modifier = Modifier) {
     CodeLabTheme {
         Box(
             modifier = modifier.fillMaxSize(),

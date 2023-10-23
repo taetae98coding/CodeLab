@@ -28,3 +28,7 @@ include(
 )
 
 include(":app")
+
+include(
+    ":feature:webview",
+)

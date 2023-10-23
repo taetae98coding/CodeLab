@@ -7,7 +7,6 @@ kotlin {
     sourceSets {
         getByName("commonMain") {
             dependencies {
-                implementation(project(":feature:webview"))
                 implementation(compose.material3)
             }
         }
@@ -21,5 +20,5 @@ kotlin {
 }
 
 android {
-    namespace = "${Build.NAMESPACE}.app"
+    namespace = "${Build.NAMESPACE}.feature.webview"
 }
