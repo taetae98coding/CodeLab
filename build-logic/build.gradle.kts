@@ -34,6 +34,11 @@ gradlePlugin {
             implementationClass = "plugin.web.WebPlugin"
         }
 
+        register("codelab.multiplatform") {
+            id = "codelab.multiplatform"
+            implementationClass = "plugin.multiplatform.MultiplatformPlugin"
+        }
+
         register("codelab.compose.android") {
             id = "codelab.compose.android"
             implementationClass = "plugin.compose.ComposeAndroidPlugin"
