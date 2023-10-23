@@ -1,0 +1,7 @@
+root = true
+
+[*.{kt,kts}]
+max_line_length = 200
+ktlint_experimental = disabled
+ktlint_standard_function-naming = disabled
+

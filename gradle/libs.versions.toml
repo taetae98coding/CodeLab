@@ -10,6 +10,8 @@ compose-multiplatform = "1.5.3"             # https://github.com/JetBrains/compo
 compose-compiler = "1.5.3"                  # https://developer.android.com/jetpack/androidx/releases/compose
 compose-bom = "2023.10.01"                  # https://developer.android.com/jetpack/compose/bom/bom-mapping
 
+spotless = "6.22.0"                         # https://github.com/diffplug/spotless/tree/main/plugin-gradle
+
 [libraries]
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
@@ -27,3 +29,5 @@ android-application = { id = "com.android.application", version.ref = "android-g
 android-library = { id = "com.android.library", version.ref = "android-gradle" }
 
 compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
+
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }

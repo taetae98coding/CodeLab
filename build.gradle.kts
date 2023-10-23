@@ -8,4 +8,24 @@ plugins {
     alias(libs.plugins.android.library).apply(false)
 
     alias(libs.plugins.compose.multiplatform).apply(false)
+
+    alias(libs.plugins.spotless)
+}
+
+subprojects {
+    plugins.apply("com.diffplug.spotless")
+
+    spotless {
+        kotlin {
+            target("**/*.kt")
+            ktlint()
+            endWithNewline()
+            indentWithSpaces()
+            trimTrailingWhitespace()
+        }
+    }
+
+    afterEvaluate {
+        runCatching { tasks.getByPath("preBuild").dependsOn(tasks.spotlessApply) }
+    }
 }

@@ -7,14 +7,13 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
 @Composable
-internal fun CodeLabTheme(
-    content: @Composable () -> Unit,
-) {
-    val colorScheme = if (isSystemInDarkTheme()) {
-        darkColorScheme()
-    } else {
-        lightColorScheme()
-    }
+internal fun CodeLabTheme(content: @Composable () -> Unit) {
+    val colorScheme =
+        if (isSystemInDarkTheme()) {
+            darkColorScheme()
+        } else {
+            lightColorScheme()
+        }
 
     MaterialTheme(
         colorScheme = colorScheme,
