@@ -17,6 +17,13 @@ kotlin {
                 implementation(libs.navigation.compose)
             }
         }
+
+        maybeCreate("nonAndroid")
+        getByName("nonAndroid") {
+            dependencies {
+
+            }
+        }
     }
 }
 

@@ -24,7 +24,7 @@ public actual fun WebView(
         update = {
             when (uiState) {
                 is WebViewUiState.Url -> it.loadUrl(uiState.url)
-                is WebViewUiState.Data -> it.loadData(uiState.data, "text/html", "utf-8")
+                is WebViewUiState.Html -> it.loadData(uiState.html, "text/html", "utf-8")
             }
         },
     )

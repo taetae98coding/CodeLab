@@ -15,6 +15,7 @@ internal class AndroidPlugin : Plugin<Project> {
         compileSdk = Build.COMPILE_SDK
         defaultConfig {
             minSdk = Build.MIN_SDK
+            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         }
     }
 }

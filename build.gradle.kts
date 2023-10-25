@@ -18,7 +18,7 @@ subprojects {
     spotless {
         kotlin {
             target("**/*.kt")
-            ktlint()
+            ktlint("1.0.1")
             endWithNewline()
             indentWithSpaces()
             trimTrailingWhitespace()

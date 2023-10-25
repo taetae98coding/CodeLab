@@ -6,5 +6,8 @@ import androidx.compose.runtime.Immutable
 public sealed class WebViewUiState {
     public data class Url(val url: String) : WebViewUiState()
 
-    public data class Data(val data: String) : WebViewUiState()
+    public data class Html(
+        val html: String,
+        val baseUrl: String? = null,
+    ) : WebViewUiState()
 }

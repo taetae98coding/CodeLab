@@ -8,6 +8,6 @@ import com.taetae98.codelab.library.webview.WebViewUiState
 internal fun WebViewRoute(modifier: Modifier = Modifier) {
     WebViewScreen(
         modifier = modifier,
-        webViewUiState = WebViewUiState.Data("https://www.naver.com"),
+        webViewUiState = WebViewUiState.Html("https://www.naver.com"),
     )
 }
