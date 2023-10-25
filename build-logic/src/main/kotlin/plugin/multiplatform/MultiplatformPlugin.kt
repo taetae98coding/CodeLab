@@ -1,5 +1,6 @@
 package plugin.multiplatform
 
+import ext.sourceSets
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
@@ -23,5 +24,18 @@ internal class MultiplatformPlugin : Plugin<Project> {
     private fun applyKotlin(extension: KotlinMultiplatformExtension) = with(extension) {
         androidTarget()
         jvm()
+
+        sourceSets {
+            val commonMain = getByName("commonMain")
+            val nonAndroidMain = maybeCreate("nonAndroidMain")
+            val iosMain = getByName("iosMain")
+            val jvmMain = getByName("jvmMain")
+            val jsMain = getByName("jsMain")
+
+            nonAndroidMain.dependsOn(commonMain)
+            iosMain.dependsOn(nonAndroidMain)
+            jvmMain.dependsOn(nonAndroidMain)
+            jsMain.dependsOn(nonAndroidMain)
+        }
     }
 }

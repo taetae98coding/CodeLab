@@ -6,7 +6,7 @@ plugins {
 dependencies {
     implementation(project(":app"))
     implementation(compose.desktop.currentOs)
-    implementation(compose.ui)
+    implementation(compose.foundation)
 }
 
 compose.desktop {

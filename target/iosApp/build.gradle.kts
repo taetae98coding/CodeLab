@@ -20,7 +20,7 @@ kotlin {
         getByName("iosMain") {
             dependencies {
                 implementation(project(":app"))
-                implementation(compose.ui)
+                implementation(compose.foundation)
             }
         }
     }

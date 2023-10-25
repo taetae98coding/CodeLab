@@ -3,7 +3,7 @@ import iosApp
 
 struct ComposeView : UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
-        return KotlinEntryKt.compose()
+        return MainKt.compose()
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {

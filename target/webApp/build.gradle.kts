@@ -12,7 +12,7 @@ kotlin {
         getByName("jsMain") {
             dependencies {
                 implementation(project(":app"))
-                implementation(compose.ui)
+                implementation(compose.foundation)
             }
         }
     }
