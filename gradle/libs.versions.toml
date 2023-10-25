@@ -1,6 +1,8 @@
 [versions]
 kotlin = "1.9.10"                           # https://github.com/JetBrains/kotlin/releases
 
+javafx = "0.1.0"                            # https://github.com/openjfx/javafx-gradle-plugin/releases
+
 android-gradle = "8.1.2"                    # https://developer.android.com/build/releases/gradle-plugin
 
 material = "1.10.0"                         # https://github.com/material-components/material-components-android/releases
@@ -30,6 +32,8 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+
+javafx = { id = "org.openjfx.javafxplugin", version.ref = "javafx" }
 
 android-application = { id = "com.android.application", version.ref = "android-gradle" }
 android-library = { id = "com.android.library", version.ref = "android-gradle" }

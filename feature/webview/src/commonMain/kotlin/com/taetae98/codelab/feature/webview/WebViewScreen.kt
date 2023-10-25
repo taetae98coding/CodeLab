@@ -1,5 +1,6 @@
 package com.taetae98.codelab.feature.webview
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -16,7 +17,8 @@ internal fun WebViewScreen(
         modifier = modifier,
     ) {
         WebView(
-            modifier = Modifier.padding(it),
+            modifier = Modifier.fillMaxSize()
+                .padding(it),
             uiState = webViewUiState,
         )
     }
