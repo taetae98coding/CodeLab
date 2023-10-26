@@ -28,7 +28,10 @@ public actual fun WebView(
         update = {
             PlatformImpl.runAndWait {
                 val webView = it.scene.root as WebView
-                webView.engine.load("https://www.naver.com")
+                when(uiState) {
+                    is WebViewUiState.Url -> webView.engine.load(uiState.url)
+                    is WebViewUiState.Html -> webView.engine.loadContent(uiState.html, "text/html")
+                }
             }
         }
     )

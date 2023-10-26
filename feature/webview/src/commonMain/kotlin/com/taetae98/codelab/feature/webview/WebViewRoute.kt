@@ -9,6 +9,6 @@ import com.taetae98.codelab.library.webview.WebViewUiState
 internal fun WebViewRoute(modifier: Modifier = Modifier) {
     WebViewScreen(
         modifier = modifier.fillMaxSize(),
-        webViewUiState = WebViewUiState.Html("https://www.naver.com"),
+        webViewUiState = WebViewUiState.Url("https://www.naver.com"),
     )
 }
