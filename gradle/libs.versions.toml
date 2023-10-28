@@ -31,7 +31,7 @@ android-gradle = { group = "com.android.tools.build", name = "gradle", version.r
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
 
-#navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 compose-ui = { group = "androidx.compose.ui", name = "ui" }

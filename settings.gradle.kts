@@ -31,6 +31,7 @@ include(":app")
 
 include(
     ":navigation:core",
+    ":navigation:compose",
 )
 
 include(

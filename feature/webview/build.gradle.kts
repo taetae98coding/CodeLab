@@ -8,14 +8,16 @@ kotlin {
         getByName("commonMain") {
             dependencies {
                 implementation(project(":navigation:core"))
+                implementation(project(":navigation:compose"))
                 implementation(project(":library:webview"))
+
                 implementation(compose.material3)
             }
         }
 
         getByName("androidMain") {
             dependencies {
-//                implementation(libs.navigation.compose)
+                implementation(libs.navigation.compose)
             }
         }
     }

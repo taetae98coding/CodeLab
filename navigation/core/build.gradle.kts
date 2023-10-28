@@ -8,7 +8,6 @@ kotlin {
         getByName("commonMain") {
             dependencies {
                 implementation(libs.decompose)
-                implementation(libs.coroutines.core)
             }
         }
     }
