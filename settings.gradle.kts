@@ -30,6 +30,10 @@ include(
 include(":app")
 
 include(
+    ":navigation:core",
+)
+
+include(
     ":feature:main",
     ":feature:webview",
 )

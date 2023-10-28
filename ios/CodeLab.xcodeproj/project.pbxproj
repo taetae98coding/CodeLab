@@ -10,6 +10,8 @@
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* CodeLabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* CodeLabApp.swift */; };
+		3D64017C2AECF63800B5B0A4 /* ContextHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D64017B2AECF63800B5B0A4 /* ContextHolder.swift */; };
+		3D64017E2AECFB9800B5B0A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D64017D2AECFB9800B5B0A4 /* AppDelegate.swift */; };
 		3DFE42692AE5AFF00030AC52 /* ComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE42682AE5AFF00030AC52 /* ComposeView.swift */; };
 		F65335E0294D560FBC59C051 /* Pods_CodeLab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F32642EB3864921190E907B /* Pods_CodeLab.framework */; };
 /* End PBXBuildFile section */
@@ -19,6 +21,8 @@
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* CodeLabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeLabApp.swift; sourceTree = "<group>"; };
 		2F32642EB3864921190E907B /* Pods_CodeLab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeLab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D64017B2AECF63800B5B0A4 /* ContextHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextHolder.swift; sourceTree = "<group>"; };
+		3D64017D2AECFB9800B5B0A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DFE42682AE5AFF00030AC52 /* ComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeView.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* CodeLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 				2152FB032600AC8F00CF470E /* CodeLabApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 				3DFE42682AE5AFF00030AC52 /* ComposeView.swift */,
+				3D64017B2AECF63800B5B0A4 /* ContextHolder.swift */,
+				3D64017D2AECFB9800B5B0A4 /* AppDelegate.swift */,
 			);
 			path = CodeLab;
 			sourceTree = "<group>";
@@ -225,7 +231,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D64017E2AECFB9800B5B0A4 /* AppDelegate.swift in Sources */,
 				2152FB042600AC8F00CF470E /* CodeLabApp.swift in Sources */,
+				3D64017C2AECF63800B5B0A4 /* ContextHolder.swift in Sources */,
 				3DFE42692AE5AFF00030AC52 /* ComposeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

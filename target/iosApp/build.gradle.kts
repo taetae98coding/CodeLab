@@ -13,6 +13,10 @@ kotlin {
         podfile = project.file("../../ios/Podfile")
         framework {
             baseName = "iosApp"
+
+            export(project(":navigation:core"))
+            export(libs.decompose)
+            export(libs.essenty.lifecycle)
         }
     }
 
@@ -21,6 +25,10 @@ kotlin {
             dependencies {
                 implementation(project(":app"))
                 implementation(compose.ui)
+
+                api(project(":navigation:core"))
+                api(libs.decompose)
+                api(libs.essenty.lifecycle)
             }
         }
     }

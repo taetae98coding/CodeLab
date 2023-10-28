@@ -7,6 +7,7 @@ kotlin {
     sourceSets {
         getByName("commonMain") {
             dependencies {
+                implementation(project(":navigation:core"))
                 implementation(project(":library:webview"))
                 implementation(compose.material3)
             }
@@ -14,7 +15,7 @@ kotlin {
 
         getByName("androidMain") {
             dependencies {
-                implementation(libs.navigation.compose)
+//                implementation(libs.navigation.compose)
             }
         }
     }

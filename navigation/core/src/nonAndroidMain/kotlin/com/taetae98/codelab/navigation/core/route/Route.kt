@@ -1,0 +1,6 @@
+package com.taetae98.codelab.navigation.core.route
+
+import kotlinx.serialization.Serializable
+
+@Serializable
+internal sealed interface Route
