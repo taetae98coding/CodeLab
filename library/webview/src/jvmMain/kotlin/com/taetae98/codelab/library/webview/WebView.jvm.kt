@@ -28,11 +28,11 @@ public actual fun WebView(
         update = {
             PlatformImpl.runAndWait {
                 val webView = it.scene.root as WebView
-                when(uiState) {
+                when (uiState) {
                     is WebViewUiState.Url -> webView.engine.load(uiState.url)
                     is WebViewUiState.Html -> webView.engine.loadContent(uiState.html, "text/html")
                 }
             }
-        }
+        },
     )
 }

@@ -1,5 +1,6 @@
 [versions]
 kotlin = "1.9.10"                           # https://github.com/JetBrains/kotlin/releases
+kotlin-immutable = "0.3.6"                  # https://github.com/Kotlin/kotlinx.collections.immutable/releases
 
 javafx = "0.1.0"                            # https://github.com/openjfx/javafx-gradle-plugin/releases
 
@@ -17,6 +18,7 @@ spotless = "6.22.0"                         # https://github.com/diffplug/spotle
 
 [libraries]
 kotlin-gradle = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlin-immutable" }
 
 android-gradle = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle" }
 
@@ -25,7 +27,7 @@ activity-compose = { group = "androidx.activity", name = "activity-compose", ver
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
 
 [plugins]
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

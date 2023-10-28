@@ -16,7 +16,7 @@ public actual fun WebView(
         contentAlignment = Alignment.Center,
     ) {
         Text(
-            text = uiState.toString()
+            text = uiState.toString(),
         )
     }
 }

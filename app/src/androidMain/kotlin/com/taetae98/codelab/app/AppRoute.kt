@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.taetae98.codelab.feature.main.main
 import com.taetae98.codelab.feature.webview.webView
 
 @Composable
@@ -14,8 +15,9 @@ public fun AppRoute(modifier: Modifier = Modifier) {
         NavHost(
             modifier = modifier,
             navController = navController,
-            startDestination = "webview",
+            startDestination = "main",
         ) {
+            main(navController = navController)
             webView(navController = navController)
         }
     }

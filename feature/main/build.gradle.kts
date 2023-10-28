@@ -1,5 +1,6 @@
 plugins {
     id("codelab.multiplatform")
+    id("codelab.compose.android")
     alias(libs.plugins.compose.multiplatform)
 }
 
@@ -7,8 +8,7 @@ kotlin {
     sourceSets {
         getByName("commonMain") {
             dependencies {
-                implementation(project(":feature:main"))
-                implementation(project(":feature:webview"))
+                implementation(libs.kotlin.immutable)
                 implementation(compose.material3)
             }
         }
@@ -16,11 +16,12 @@ kotlin {
         getByName("androidMain") {
             dependencies {
                 implementation(libs.navigation.compose)
+                implementation(compose.uiTooling)
             }
         }
     }
 }
 
 android {
-    namespace = "${Build.NAMESPACE}.app"
+    namespace = "${Build.NAMESPACE}.feature.main"
 }

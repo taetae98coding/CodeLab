@@ -30,6 +30,7 @@ include(
 include(":app")
 
 include(
+    ":feature:main",
     ":feature:webview",
 )
 
