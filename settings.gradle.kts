@@ -39,6 +39,8 @@ include(
     ":feature:webview",
 )
 
+include(":compose")
+
 include(
     ":library:webview",
 )

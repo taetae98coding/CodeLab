@@ -4,5 +4,5 @@ import com.arkivanov.decompose.ComponentContext
 
 public class WebViewEntry(
     context: ComponentContext,
-    private val onNavigateUp: () -> Unit,
+    public val onNavigateUp: () -> Unit,
 )

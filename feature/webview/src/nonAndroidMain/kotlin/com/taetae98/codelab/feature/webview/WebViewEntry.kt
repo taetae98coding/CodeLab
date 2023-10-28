@@ -9,5 +9,8 @@ public fun WebViewEntry(
     modifier: Modifier = Modifier,
     entry: WebViewEntry,
 ) {
-    WebViewRoute(modifier = modifier)
+    WebViewRoute(
+        modifier = modifier,
+        onNavigateUp = entry.onNavigateUp,
+    )
 }

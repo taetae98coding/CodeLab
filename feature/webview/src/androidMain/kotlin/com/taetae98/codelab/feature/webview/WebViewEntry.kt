@@ -9,6 +9,8 @@ public fun NavGraphBuilder.webViewEntry(
     navController: NavController,
 ) {
     composable(WebViewEntry.ROUTE) {
-        WebViewRoute()
+        WebViewRoute(
+            onNavigateUp = navController::navigateUp,
+        )
     }
 }

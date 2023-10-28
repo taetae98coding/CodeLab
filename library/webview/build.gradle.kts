@@ -23,6 +23,7 @@ kotlin {
                     else -> throw IllegalStateException("Unknown OS: ${osdetector.classifier}")
                 }
 
+                implementation(compose.foundation)
                 implementation("org.openjfx:javafx-base:22-ea+11:$osSuffix")
                 implementation("org.openjfx:javafx-swing:22-ea+11:$osSuffix")
                 implementation("org.openjfx:javafx-graphics:22-ea+11:$osSuffix")
