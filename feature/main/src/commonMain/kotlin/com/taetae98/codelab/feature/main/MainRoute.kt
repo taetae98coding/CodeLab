@@ -17,6 +17,7 @@ import kotlinx.collections.immutable.persistentListOf
 internal fun MainRoute(
     modifier: Modifier = Modifier,
     onWebView: () -> Unit,
+    onMemo: () -> Unit,
 ) {
     Scaffold(
         modifier = modifier,
@@ -26,6 +27,7 @@ internal fun MainRoute(
             modifier = Modifier.padding(it)
                 .fillMaxSize(),
             onWebView = onWebView,
+            onMemo = onMemo,
         )
     }
 }
@@ -47,6 +49,7 @@ private fun TopBar(
 private fun MainItemColum(
     modifier: Modifier = Modifier,
     onWebView: () -> Unit,
+    onMemo: () -> Unit,
 ) {
     Column(
         modifier = modifier.padding(horizontal = 8.dp),
@@ -55,7 +58,17 @@ private fun MainItemColum(
         MainItem(
             title = "WebView CodeLab",
             platformList = persistentListOf(Platform.ANDROID, Platform.IOS, Platform.JVM),
+            description = "Platfrom WebView CodeLab",
             onClick = onWebView,
+        )
+
+        MainItem(
+            title = "Memo CodeLab",
+            platformList = persistentListOf(Platform.ANDROID, Platform.IOS, Platform.JVM, Platform.JS),
+            description = """
+                Platform Database CodeLab
+                """.trimIndent(),
+            onClick = onMemo,
         )
     }
 }

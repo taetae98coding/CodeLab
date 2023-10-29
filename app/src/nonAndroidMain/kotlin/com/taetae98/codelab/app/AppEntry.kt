@@ -5,9 +5,11 @@ import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
 import com.taetae98.codelab.feature.main.MainEntry
+import com.taetae98.codelab.feature.memo.MemoEntry
 import com.taetae98.codelab.feature.webview.WebViewEntry
 import com.taetae98.codelab.navigation.core.app.AppEntry
 import com.taetae98.codelab.navigation.core.main.MainEntry
+import com.taetae98.codelab.navigation.core.memo.MemoEntry
 import com.taetae98.codelab.navigation.core.webview.WebViewEntry
 
 @Composable
@@ -23,6 +25,7 @@ public fun AppEntry(
         when (val instance = it.instance) {
             is MainEntry -> MainEntry(entry = instance)
             is WebViewEntry -> WebViewEntry(entry = instance)
+            is MemoEntry -> MemoEntry(entry = instance)
         }
     }
 }

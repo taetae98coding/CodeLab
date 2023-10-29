@@ -12,5 +12,6 @@ public fun MainEntry(
     MainRoute(
         modifier = modifier,
         onWebView = entry.onWebView,
+        onMemo = entry.onMemo,
     )
 }

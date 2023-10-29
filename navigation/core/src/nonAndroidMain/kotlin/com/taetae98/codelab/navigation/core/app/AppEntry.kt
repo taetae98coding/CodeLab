@@ -8,7 +8,9 @@ import com.arkivanov.decompose.router.stack.pop
 import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
 import com.taetae98.codelab.navigation.core.main.MainEntry
+import com.taetae98.codelab.navigation.core.memo.MemoEntry
 import com.taetae98.codelab.navigation.core.route.MainRoute
+import com.taetae98.codelab.navigation.core.route.MemoRoute
 import com.taetae98.codelab.navigation.core.route.Route
 import com.taetae98.codelab.navigation.core.route.WebViewRoute
 import com.taetae98.codelab.navigation.core.webview.WebViewEntry
@@ -25,20 +27,25 @@ public class AppEntry(
         handleBackButton = true,
         childFactory = { route, context ->
             when (route) {
-                is MainRoute -> MainEntry(
-                    context = context,
+                MainRoute -> MainEntry(
                     onWebView = ::navigateToWebView,
+                    onMemo = ::navigateToMemo,
                 )
 
-                is WebViewRoute -> WebViewEntry(
-                    context = context,
+                WebViewRoute -> WebViewEntry(
                     onNavigateUp = navigation::pop,
                 )
+
+                MemoRoute -> MemoEntry(context = context)
             }
         },
     )
 
     private fun navigateToWebView() {
         navigation.push(WebViewRoute)
+    }
+
+    private fun navigateToMemo() {
+        navigation.push(MemoRoute)
     }
 }

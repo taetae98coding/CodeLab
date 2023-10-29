@@ -37,6 +37,7 @@ include(
 include(
     ":feature:main",
     ":feature:webview",
+    ":feature:memo",
 )
 
 include(":compose")
