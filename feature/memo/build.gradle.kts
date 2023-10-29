@@ -22,6 +22,7 @@ kotlin {
 
         getByName("nonAndroidMain") {
             dependencies {
+                implementation(project(":library:viewmodel"))
                 implementation(libs.decompose)
                 implementation(libs.decompose.compose)
             }

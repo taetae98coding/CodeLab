@@ -1,5 +1,7 @@
 package com.taetae98.codelab.navigation.core.memo
 
-import com.taetae98.codelab.navigation.core.Entry
+import com.arkivanov.decompose.ComponentContext
 
-public class MemoListEntry : Entry()
+public class MemoListEntry(
+    context: ComponentContext,
+) : ComponentContext by context

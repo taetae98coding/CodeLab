@@ -21,6 +21,12 @@ kotlin {
                 implementation(libs.navigation.compose)
             }
         }
+
+        getByName("nonAndroidMain") {
+            dependencies {
+                implementation(libs.decompose)
+            }
+        }
     }
 }
 

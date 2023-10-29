@@ -1,8 +1,9 @@
 package com.taetae98.codelab.navigation.core.main
 
-import com.taetae98.codelab.navigation.core.Entry
+import com.arkivanov.decompose.ComponentContext
 
 public class MainEntry(
+    context: ComponentContext,
     public val onWebView: () -> Unit,
     public val onMemo: () -> Unit,
-) : Entry()
+) : ComponentContext by context

@@ -7,7 +7,6 @@ import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.router.stack.pop
 import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
-import com.taetae98.codelab.navigation.core.Entry
 import com.taetae98.codelab.navigation.core.illegalRoute
 import com.taetae98.codelab.navigation.core.main.MainEntry
 import com.taetae98.codelab.navigation.core.memo.MemoEntry
@@ -19,10 +18,10 @@ import com.taetae98.codelab.navigation.core.webview.WebViewEntry
 
 public class AppEntry(
     context: ComponentContext,
-) : Entry() {
+) : ComponentContext by context {
     private val navigation = StackNavigation<Route>()
 
-    public val stack: Value<ChildStack<*, Entry>> = context.childStack(
+    public val stack: Value<ChildStack<*, ComponentContext>> = context.childStack(
         source = navigation,
         serializer = Route.serializer(),
         initialConfiguration = MainRoute,
@@ -30,11 +29,13 @@ public class AppEntry(
         childFactory = { route, context ->
             when (route) {
                 MainRoute -> MainEntry(
+                    context = context,
                     onWebView = ::navigateToWebView,
                     onMemo = ::navigateToMemo,
                 )
 
                 WebViewRoute -> WebViewEntry(
+                    context = context,
                     onNavigateUp = navigation::pop,
                 )
 

@@ -1,3 +1,8 @@
 package com.taetae98.codelab.feature.memo
 
-internal actual class MemoListViewModel
+import com.taetae98.codelab.library.viewmodel.ViewModel
+import kotlin.random.Random
+
+internal actual class MemoListViewModel : ViewModel() {
+    actual val randomInt: Int = Random.nextInt()
+}

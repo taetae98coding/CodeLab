@@ -22,6 +22,12 @@ kotlin {
                 implementation(compose.uiTooling)
             }
         }
+
+        getByName("nonAndroidMain") {
+            dependencies {
+                implementation(libs.decompose)
+            }
+        }
     }
 }
 
