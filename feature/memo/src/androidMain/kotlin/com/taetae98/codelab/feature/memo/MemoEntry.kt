@@ -1,5 +1,7 @@
 package com.taetae98.codelab.feature.memo
 
+import androidx.compose.material3.Text
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -15,6 +17,9 @@ public fun NavGraphBuilder.memoEntry(
         route = MemoEntry.ROUTE,
     ) {
         composable(MemoListEntry.ROUTE) {
+            val viewModel = hiltViewModel<MemoListViewModel>()
+
+            Text(text = viewModel.randomInt.toString())
         }
     }
 }

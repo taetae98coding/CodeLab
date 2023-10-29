@@ -11,6 +11,13 @@ kotlin {
             }
         }
 
+        getByName("androidMain") {
+            dependencies {
+                implementation(libs.lifecycle.viewmodel)
+                implementation(libs.lifecycle.savedstate)
+            }
+        }
+
         getByName("nonAndroidMain") {
             dependencies {
                 implementation(libs.decompose)

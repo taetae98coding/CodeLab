@@ -10,6 +10,7 @@ kotlin {
             dependencies {
                 implementation(project(":navigation:core"))
                 implementation(project(":compose"))
+                implementation(project(":library:viewmodel"))
                 implementation(compose.material3)
             }
         }
@@ -17,6 +18,7 @@ kotlin {
         getByName("androidMain") {
             dependencies {
                 implementation(libs.navigation.compose)
+                implementation(libs.hilt.compose)
                 implementation(compose.uiTooling)
             }
         }

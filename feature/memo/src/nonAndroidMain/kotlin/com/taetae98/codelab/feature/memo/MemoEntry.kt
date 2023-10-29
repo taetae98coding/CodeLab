@@ -18,7 +18,7 @@ import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.essenty.instancekeeper.getOrCreate
 import com.taetae98.codelab.compose.icon.AddIcon
 import com.taetae98.codelab.compose.icon.NavigateUpIcon
-import com.taetae98.codelab.library.viewmodel.SavedStateHandle
+import com.taetae98.codelab.library.viewmodel.KSavedStateHandle
 import com.taetae98.codelab.navigation.core.memo.MemoEntry
 import com.taetae98.codelab.navigation.core.memo.MemoListEntry
 import kotlinx.serialization.builtins.MapSerializer
@@ -93,13 +93,7 @@ private fun Content(
     ) {
         when (val instance = it.instance) {
             is MemoListEntry -> {
-                val map = instance.stateKeeper.consume(key = "hi", strategy = MapSerializer(String.serializer(), String.serializer()))?.toMutableMap() ?: HashMap()
-
-                LaunchedEffect(map) {
-                    instance.stateKeeper.register("hi", MapSerializer(String.serializer(), String.serializer())) { map }
-                }
-
-                MemoListRoute(memoListViewModel = instance.instanceKeeper.getOrCreate { MemoListViewModel(SavedStateHandle(map)) })
+                MemoListRoute(memoListViewModel = instance.instanceKeeper.getOrCreate { MemoListViewModel(KSavedStateHandle()) })
             }
         }
     }
