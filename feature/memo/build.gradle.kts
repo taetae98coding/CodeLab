@@ -9,6 +9,7 @@ kotlin {
         getByName("commonMain") {
             dependencies {
                 implementation(project(":navigation:core"))
+                implementation(project(":compose"))
                 implementation(compose.material3)
             }
         }
@@ -16,6 +17,13 @@ kotlin {
         getByName("androidMain") {
             dependencies {
                 implementation(compose.uiTooling)
+            }
+        }
+
+        getByName("nonAndroidMain") {
+            dependencies {
+                implementation(libs.decompose)
+                implementation(libs.decompose.compose)
             }
         }
     }

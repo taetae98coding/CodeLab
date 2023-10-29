@@ -13,8 +13,6 @@ kotlin {
 
                 implementation(libs.kotlin.immutable)
                 implementation(compose.material3)
-
-                implementation(libs.decompose)
             }
         }
 
