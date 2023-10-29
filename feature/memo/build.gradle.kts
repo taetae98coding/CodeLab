@@ -16,6 +16,7 @@ kotlin {
 
         getByName("androidMain") {
             dependencies {
+                implementation(libs.navigation.compose)
                 implementation(compose.uiTooling)
             }
         }

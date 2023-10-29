@@ -31,10 +31,8 @@ public class MemoEntry(
     }
 
     public fun navigateToMemoAdd() {
-
     }
 
     public fun navigateToTagAdd() {
-
     }
 }

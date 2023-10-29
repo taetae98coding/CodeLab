@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 
 @Composable
 public fun AddIcon(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Icon(
         modifier = modifier,

@@ -1,5 +1,6 @@
 plugins {
     id("codelab.multiplatform")
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -13,6 +14,7 @@ kotlin {
         getByName("nonAndroidMain") {
             dependencies {
                 implementation(libs.decompose)
+                implementation(libs.kotlin.serialization)
             }
         }
     }

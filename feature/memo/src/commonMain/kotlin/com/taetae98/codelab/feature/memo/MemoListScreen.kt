@@ -9,6 +9,5 @@ internal fun MemoListScreen(
     modifier: Modifier = Modifier,
 ) {
     LazyColumn {
-
     }
 }

@@ -67,7 +67,7 @@ private fun MainItemColum(
             platformList = persistentListOf(Platform.ANDROID, Platform.IOS, Platform.JVM, Platform.JS),
             description = """
                 Platform Database CodeLab
-                """.trimIndent(),
+            """.trimIndent(),
             onClick = onMemo,
         )
     }

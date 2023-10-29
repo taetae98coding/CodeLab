@@ -7,6 +7,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.ComponentContext
@@ -17,8 +18,11 @@ import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.essenty.instancekeeper.getOrCreate
 import com.taetae98.codelab.compose.icon.AddIcon
 import com.taetae98.codelab.compose.icon.NavigateUpIcon
+import com.taetae98.codelab.library.viewmodel.SavedStateHandle
 import com.taetae98.codelab.navigation.core.memo.MemoEntry
 import com.taetae98.codelab.navigation.core.memo.MemoListEntry
+import kotlinx.serialization.builtins.MapSerializer
+import kotlinx.serialization.builtins.serializer
 
 @Composable
 public fun MemoEntry(
@@ -37,7 +41,7 @@ public fun MemoEntry(
                 state = state,
                 onMemoAdd = entry::navigateToMemoAdd,
             )
-        }
+        },
     ) {
         Content(
             modifier = Modifier.padding(it),
@@ -59,7 +63,7 @@ private fun TopBar(
             IconButton(onClick = onNavigateUp) {
                 NavigateUpIcon()
             }
-        }
+        },
     )
 }
 
@@ -85,10 +89,18 @@ private fun Content(
     Children(
         modifier = modifier,
         stack = state.value,
-        animation = stackAnimation()
+        animation = stackAnimation(),
     ) {
         when (val instance = it.instance) {
-            is MemoListEntry -> MemoListRoute(memoListViewModel = instance.instanceKeeper.getOrCreate { MemoListViewModel() })
+            is MemoListEntry -> {
+                val map = instance.stateKeeper.consume(key = "hi", strategy = MapSerializer(String.serializer(), String.serializer()))?.toMutableMap() ?: HashMap()
+
+                LaunchedEffect(map) {
+                    instance.stateKeeper.register("hi", MapSerializer(String.serializer(), String.serializer())) { map }
+                }
+
+                MemoListRoute(memoListViewModel = instance.instanceKeeper.getOrCreate { MemoListViewModel(SavedStateHandle(map)) })
+            }
         }
     }
 }
