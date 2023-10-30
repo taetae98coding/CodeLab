@@ -5,6 +5,7 @@ kotlin-coroutines = "1.7.3"                         # https://github.com/Kotlin/
 kotlin-serialization = "1.6.0"                      # https://github.com/Kotlin/kotlinx.serialization/releases
 
 javafx = "0.1.0"                                    # https://github.com/openjfx/javafx-gradle-plugin/releases
+java-inject = "1"                                   # https://github.com/javax-inject/javax-inject/releases
 
 android-gradle = "8.1.2"                            # https://developer.android.com/build/releases/gradle-plugin
 
@@ -24,11 +25,14 @@ dagger = "2.48.1"                                   # https://github.com/google/
 hilt = "1.0.0"                                      # https://developer.android.com/jetpack/androidx/releases/hilt
 
 spotless = "6.22.0"                                 # https://github.com/diffplug/spotless/tree/main/plugin-gradle
+ksp = "1.9.10-1.0.13"                               # https://github.com/google/ksp/releases
 
 [libraries]
 kotlin-gradle = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlin-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlin-immutable" }
 kotlin-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlin-serialization" }
+
+java-inject = { group = "javax.inject", name = "javax.inject", version.ref = "java-inject" }
 
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
 
@@ -59,7 +63,6 @@ kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref 
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 
 javafx = { id = "org.openjfx.javafxplugin", version.ref = "javafx" }
 
@@ -70,3 +73,4 @@ compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose-m
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
 
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

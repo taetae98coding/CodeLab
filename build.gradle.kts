@@ -4,7 +4,6 @@ plugins {
     alias(libs.plugins.kotlin.jvm).apply(false)
     alias(libs.plugins.kotlin.cocoapods).apply(false)
     alias(libs.plugins.kotlin.serialization).apply(false)
-    alias(libs.plugins.kotlin.kapt).apply(false)
 
     alias(libs.plugins.javafx).apply(false)
 
@@ -15,6 +14,7 @@ plugins {
     alias(libs.plugins.hilt.android).apply(false)
 
     alias(libs.plugins.spotless)
+    alias(libs.plugins.ksp).apply(false)
 }
 
 subprojects {

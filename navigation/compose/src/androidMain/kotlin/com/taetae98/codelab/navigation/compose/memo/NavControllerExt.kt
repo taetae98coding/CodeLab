@@ -6,3 +6,7 @@ import com.taetae98.codelab.navigation.core.memo.MemoEntry
 public fun NavController.navigateToMemo() {
     navigate(MemoEntry.ROUTE)
 }
+
+public fun NavController.navigateToMemoAdd() {
+    navigate("memoAdd")
+}

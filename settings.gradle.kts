@@ -36,6 +36,10 @@ include(
 )
 
 include(
+    ":domain:usecase",
+)
+
+include(
     ":feature:main",
     ":feature:webview",
     ":feature:memo",
@@ -46,4 +50,5 @@ include(":compose")
 include(
     ":library:viewmodel",
     ":library:webview",
+    ":library:inject",
 )

@@ -2,6 +2,9 @@ plugins {
     id("codelab.multiplatform")
     id("codelab.compose.android")
     alias(libs.plugins.compose.multiplatform)
+
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -9,8 +12,13 @@ kotlin {
         getByName("commonMain") {
             dependencies {
                 implementation(project(":navigation:core"))
+                implementation(project(":navigation:compose"))
+
+                implementation(project(":domain:usecase"))
+
                 implementation(project(":compose"))
-                implementation(project(":library:viewmodel"))
+                implementation(project(":library:inject"))
+
                 implementation(compose.material3)
             }
         }
@@ -20,12 +28,12 @@ kotlin {
                 implementation(libs.navigation.compose)
                 implementation(libs.hilt.compose)
                 implementation(compose.uiTooling)
+                implementation(libs.hilt.android)
             }
         }
 
         getByName("nonAndroidMain") {
             dependencies {
-                implementation(project(":library:viewmodel"))
                 implementation(libs.decompose)
                 implementation(libs.decompose.compose)
             }
@@ -35,4 +43,8 @@ kotlin {
 
 android {
     namespace = "${Build.NAMESPACE}.feature.memo"
+}
+
+dependencies {
+    kspAndroid(libs.hilt.compiler)
 }

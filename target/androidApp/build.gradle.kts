@@ -1,8 +1,8 @@
 plugins {
     id("codelab.android.app")
     id("codelab.compose.android")
-    alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt.android)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -28,9 +28,5 @@ dependencies {
     implementation(libs.compose.ui)
 
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-}
-
-kapt {
-    correctErrorTypes = true
+    ksp(libs.hilt.compiler)
 }
