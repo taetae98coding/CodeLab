@@ -7,7 +7,6 @@ kotlin {
         getByName("androidMain") {
             dependencies {
                 api(libs.java.inject)
-                api(libs.hilt.android)
             }
         }
     }

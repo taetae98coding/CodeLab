@@ -17,15 +17,17 @@ public fun AppEntry(
     modifier: Modifier = Modifier,
     entry: AppEntry,
 ) {
-    Children(
-        modifier = modifier,
-        stack = entry.stack,
-        animation = stackAnimation(),
-    ) {
-        when (val instance = it.instance) {
-            is MainEntry -> MainEntry(entry = instance)
-            is WebViewEntry -> WebViewEntry(entry = instance)
-            is MemoEntry -> MemoEntry(entry = instance)
+    CodeLabTheme {
+        Children(
+            modifier = modifier,
+            stack = entry.stack,
+            animation = stackAnimation(),
+        ) {
+            when (val instance = it.instance) {
+                is MainEntry -> MainEntry(entry = instance)
+                is WebViewEntry -> WebViewEntry(entry = instance)
+                is MemoEntry -> MemoEntry(entry = instance)
+            }
         }
     }
 }

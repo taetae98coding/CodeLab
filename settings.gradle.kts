@@ -32,7 +32,6 @@ include(":app")
 include(
     ":navigation:core",
     ":navigation:compose",
-    ":navigation:koin",
 )
 
 include(
@@ -48,7 +47,6 @@ include(
 include(":compose")
 
 include(
-    ":library:viewmodel",
     ":library:webview",
     ":library:inject",
 )

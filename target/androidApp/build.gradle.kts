@@ -17,9 +17,7 @@ android {
 
 dependencies {
     implementation(project(":app"))
-
     implementation(project(":navigation:core"))
-    implementation(libs.decompose)
 
     implementation(libs.material)
     implementation(libs.activity.compose)

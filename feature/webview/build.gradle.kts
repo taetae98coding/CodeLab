@@ -8,7 +8,6 @@ kotlin {
         getByName("commonMain") {
             dependencies {
                 implementation(project(":navigation:core"))
-                implementation(project(":navigation:compose"))
                 implementation(project(":compose"))
                 implementation(project(":library:webview"))
 

@@ -17,7 +17,6 @@ kotlin {
                 implementation(project(":domain:usecase"))
 
                 implementation(project(":compose"))
-                implementation(project(":library:inject"))
 
                 implementation(compose.material3)
             }

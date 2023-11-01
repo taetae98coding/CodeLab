@@ -11,8 +11,8 @@ kotlin {
                 implementation(project(":feature:main"))
                 implementation(project(":feature:webview"))
                 implementation(project(":feature:memo"))
-                implementation(compose.material3)
 
+                implementation(compose.material3)
                 implementation(libs.decompose)
                 implementation(libs.decompose.compose)
             }

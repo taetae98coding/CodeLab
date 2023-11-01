@@ -16,14 +16,16 @@ public fun AppEntry(
 ) {
     val navController = rememberNavController()
 
-    NavHost(
-        modifier = modifier,
-        navController = navController,
-        startDestination = MainEntry.ROUTE,
-        route = AppEntry.ROUTE,
-    ) {
-        mainEntry(navController = navController)
-        webViewEntry(navController = navController)
-        memoEntry(navController = navController)
+    CodeLabTheme {
+        NavHost(
+            modifier = modifier,
+            navController = navController,
+            startDestination = MainEntry.ROUTE,
+            route = AppEntry.ROUTE,
+        ) {
+            mainEntry(navController = navController)
+            webViewEntry(navController = navController)
+            memoEntry(navController = navController)
+        }
     }
 }
