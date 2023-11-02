@@ -15,6 +15,7 @@ internal fun MemoAddRoute(
     MemoAddScreen(
         modifier = modifier,
         onNavigateUp = onNavigateUp,
+        uiState = viewModel.uiState,
         titleUiState = titleUiState,
     )
 }

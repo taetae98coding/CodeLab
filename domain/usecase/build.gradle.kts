@@ -6,6 +6,8 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(project(":domain:entity"))
+                implementation(project(":domain:exception"))
                 implementation(project(":library:inject"))
             }
         }

@@ -35,6 +35,8 @@ include(
 )
 
 include(
+    ":domain:entity",
+    ":domain:exception",
     ":domain:usecase",
 )
 

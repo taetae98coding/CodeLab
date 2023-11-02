@@ -5,6 +5,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 internal actual class MemoAddViewModel {
+    actual val uiState: MemoAddUiState = MemoAddUiState({})
+
     private val _titleUiState = MutableStateFlow(TextFieldUiState("", {}))
     actual val titleUiState = _titleUiState.asStateFlow()
 }

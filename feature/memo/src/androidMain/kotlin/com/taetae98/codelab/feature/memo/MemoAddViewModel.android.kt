@@ -4,11 +4,13 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.taetae98.codelab.compose.textfield.TextFieldUiState
+import com.taetae98.codelab.domain.entity.Memo
 import com.taetae98.codelab.domain.usecase.memo.MemoUpsertUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,8 +18,11 @@ internal actual class MemoAddViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
     private val memoUpsertUseCase: MemoUpsertUseCase,
 ) : ViewModel() {
-    private val title = savedStateHandle.getStateFlow(TITLE, "")
+    actual val uiState = MemoAddUiState(
+        onUpsert = ::upsert,
+    )
 
+    private val title = savedStateHandle.getStateFlow(TITLE, "")
     actual val titleUiState = title.map {
         TextFieldUiState(
             value = it,
@@ -34,6 +39,17 @@ internal actual class MemoAddViewModel @Inject constructor(
 
     private fun setTitle(title: String) {
         savedStateHandle[TITLE] = title
+    }
+
+    private fun upsert() {
+        viewModelScope.launch {
+            val memo = Memo(
+                id = 0L,
+                title = title.value,
+            )
+
+            memoUpsertUseCase(memo)
+        }
     }
 
     companion object {

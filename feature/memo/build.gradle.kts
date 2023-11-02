@@ -14,6 +14,7 @@ kotlin {
                 implementation(project(":navigation:core"))
                 implementation(project(":navigation:compose"))
 
+                implementation(project(":domain:entity"))
                 implementation(project(":domain:usecase"))
 
                 implementation(project(":library:lifecycle-compose"))
