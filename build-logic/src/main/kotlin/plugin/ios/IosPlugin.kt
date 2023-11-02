@@ -16,9 +16,9 @@ internal class IosPlugin : Plugin<Project> {
     }
 
     private fun applyKotlin(extension: KotlinMultiplatformExtension) = with(extension) {
-        val isPhone = System.getenv("SDK_NAME")?.startsWith("iphoneos") ?: false
-        val iosTarget: (String) -> KotlinNativeTarget = if (isPhone) ::iosArm64 else ::iosSimulatorArm64
+        iosArm64()
+        iosSimulatorArm64()
 
-        iosTarget("ios")
+        applyDefaultHierarchyTemplate()
     }
 }

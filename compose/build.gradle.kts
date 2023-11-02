@@ -5,7 +5,7 @@ plugins {
 
 kotlin {
     sourceSets {
-        getByName("commonMain") {
+        commonMain {
             dependencies {
                 implementation(compose.material3)
                 implementation(compose.materialIconsExtended)

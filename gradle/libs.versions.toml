@@ -1,5 +1,5 @@
 [versions]
-kotlin = "1.9.10"                                   # https://github.com/JetBrains/kotlin/releases
+kotlin = "1.9.20"                                   # https://github.com/JetBrains/kotlin/releases
 kotlin-immutable = "0.3.6"                          # https://github.com/Kotlin/kotlinx.collections.immutable/releases
 kotlin-coroutines = "1.7.3"                         # https://github.com/Kotlin/kotlinx.coroutines/releases
 kotlin-serialization = "1.6.0"                      # https://github.com/Kotlin/kotlinx.serialization/releases
@@ -11,21 +11,21 @@ android-gradle = "8.1.2"                            # https://developer.android.
 
 material = "1.10.0"                                 # https://github.com/material-components/material-components-android/releases
 activity = "1.8.0"                                  # https://developer.android.com/jetpack/androidx/releases/activity
-navigation = "2.7.4"                                # https://developer.android.com/jetpack/androidx/releases/navigation
+navigation = "2.7.5"                                # https://developer.android.com/jetpack/androidx/releases/navigation
 lifecycle = "2.6.2"                                 # https://developer.android.com/jetpack/androidx/releases/lifecycle
 
-compose-multiplatform = "1.5.3"                     # https://github.com/JetBrains/compose-multiplatform/releases
+compose-multiplatform = "1.5.10"                    # https://github.com/JetBrains/compose-multiplatform/releases
 compose-compiler = "1.5.3"                          # https://developer.android.com/jetpack/androidx/releases/compose
 compose-bom = "2023.10.01"                          # https://developer.android.com/jetpack/compose/bom/bom-mapping
 
-decompose = "2.2.0-compose-experimental-alpha02"    # https://github.com/arkivanov/Decompose/releases
+decompose = "2.2.0-compose-experimental-alpha03"    # https://github.com/arkivanov/Decompose/releases
 essenty = "1.3.0-alpha02"                           # https://github.com/arkivanov/Essenty/releases
 
 dagger = "2.48.1"                                   # https://github.com/google/dagger/releases
-hilt = "1.0.0"                                      # https://developer.android.com/jetpack/androidx/releases/hilt
+hilt = "1.1.0"                                      # https://developer.android.com/jetpack/androidx/releases/hilt
 
 spotless = "6.22.0"                                 # https://github.com/diffplug/spotless/tree/main/plugin-gradle
-ksp = "1.9.10-1.0.13"                               # https://github.com/google/ksp/releases
+ksp = "1.9.20-1.0.13"                               # https://github.com/google/ksp/releases
 
 [libraries]
 kotlin-gradle = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }

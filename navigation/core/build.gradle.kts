@@ -5,7 +5,7 @@ plugins {
 
 kotlin {
     sourceSets {
-        getByName("nonAndroidMain") {
+        nonAndroidMain {
             dependencies {
                 implementation(libs.decompose)
             }

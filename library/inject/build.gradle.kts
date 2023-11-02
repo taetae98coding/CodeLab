@@ -4,7 +4,7 @@ plugins {
 
 kotlin {
     sourceSets {
-        getByName("androidMain") {
+        androidMain {
             dependencies {
                 api(libs.java.inject)
             }

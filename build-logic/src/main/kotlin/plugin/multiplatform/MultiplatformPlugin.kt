@@ -26,16 +26,12 @@ internal class MultiplatformPlugin : Plugin<Project> {
         jvm()
 
         sourceSets {
-            val commonMain = getByName("commonMain")
             val nonAndroidMain = maybeCreate("nonAndroidMain")
-            val iosMain = getByName("iosMain")
-            val jvmMain = getByName("jvmMain")
-            val jsMain = getByName("jsMain")
 
-            nonAndroidMain.dependsOn(commonMain)
-            iosMain.dependsOn(nonAndroidMain)
-            jvmMain.dependsOn(nonAndroidMain)
-            jsMain.dependsOn(nonAndroidMain)
+            nonAndroidMain.dependsOn(commonMain.get())
+            iosMain.get().dependsOn(nonAndroidMain)
+            jvmMain.get().dependsOn(nonAndroidMain)
+            jsMain.get().dependsOn(nonAndroidMain)
         }
     }
 }

@@ -9,7 +9,7 @@ plugins {
 
 kotlin {
     sourceSets {
-        getByName("commonMain") {
+        commonMain {
             dependencies {
                 implementation(project(":navigation:core"))
                 implementation(project(":navigation:compose"))
@@ -22,7 +22,7 @@ kotlin {
             }
         }
 
-        getByName("androidMain") {
+        androidMain {
             dependencies {
                 implementation(libs.navigation.compose)
                 implementation(libs.hilt.compose)
@@ -31,7 +31,7 @@ kotlin {
             }
         }
 
-        getByName("nonAndroidMain") {
+        nonAndroidMain {
             dependencies {
                 implementation(libs.decompose)
                 implementation(libs.decompose.compose)

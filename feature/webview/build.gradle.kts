@@ -5,7 +5,7 @@ plugins {
 
 kotlin {
     sourceSets {
-        getByName("commonMain") {
+        commonMain {
             dependencies {
                 implementation(project(":navigation:core"))
                 implementation(project(":compose"))
@@ -15,13 +15,13 @@ kotlin {
             }
         }
 
-        getByName("androidMain") {
+        androidMain {
             dependencies {
                 implementation(libs.navigation.compose)
             }
         }
 
-        getByName("nonAndroidMain") {
+        nonAndroidMain {
             dependencies {
                 implementation(libs.decompose)
             }

@@ -9,7 +9,7 @@ kotlin {
     }
 
     sourceSets {
-        getByName("jsMain") {
+        jsMain {
             dependencies {
                 implementation(project(":app"))
                 implementation(project(":navigation:core"))

@@ -6,13 +6,13 @@ plugins {
 
 kotlin {
     sourceSets {
-        getByName("commonMain") {
+        commonMain {
             dependencies {
                 implementation(compose.ui)
             }
         }
 
-        getByName("jvmMain") {
+        jvmMain {
             dependencies {
                 val osSuffix = when (osdetector.classifier) {
                     "linux-x86_64" -> "linux"
@@ -33,7 +33,7 @@ kotlin {
             }
         }
 
-        getByName("jsMain") {
+        jsMain {
             dependencies {
                 implementation(compose.material3)
             }
