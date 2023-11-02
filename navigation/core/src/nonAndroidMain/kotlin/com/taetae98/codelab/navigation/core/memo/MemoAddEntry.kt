@@ -2,7 +2,7 @@ package com.taetae98.codelab.navigation.core.memo
 
 import com.arkivanov.decompose.ComponentContext
 
-public class MemoListEntry(
+public class MemoAddEntry(
     context: ComponentContext,
-    public val onNavigateToMemoAdd: () -> Unit,
+    public val onNavigateUp: () -> Unit,
 ) : ComponentContext by context

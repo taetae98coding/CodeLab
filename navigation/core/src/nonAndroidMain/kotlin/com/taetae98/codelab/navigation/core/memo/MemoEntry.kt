@@ -4,8 +4,11 @@ import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.router.stack.StackNavigation
 import com.arkivanov.decompose.router.stack.childStack
+import com.arkivanov.decompose.router.stack.pop
+import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
 import com.taetae98.codelab.navigation.core.illegalRoute
+import com.taetae98.codelab.navigation.core.route.MemoAddRoute
 import com.taetae98.codelab.navigation.core.route.MemoListRoute
 import com.taetae98.codelab.navigation.core.route.Route
 
@@ -24,15 +27,19 @@ public class MemoEntry(
         when (route) {
             MemoListRoute -> MemoListEntry(
                 context = context,
+                onNavigateToMemoAdd = ::navigateToMemoAdd,
+            )
+
+            MemoAddRoute -> MemoAddEntry(
+                context = context,
+                onNavigateUp = navigation::pop,
             )
 
             else -> illegalRoute(route)
         }
     }
 
-    public fun navigateToMemoAdd() {
-    }
-
-    public fun navigateToTagAdd() {
+    private fun navigateToMemoAdd() {
+        navigation.push(MemoAddRoute)
     }
 }
