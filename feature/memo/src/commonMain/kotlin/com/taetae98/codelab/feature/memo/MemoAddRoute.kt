@@ -2,6 +2,7 @@ package com.taetae98.codelab.feature.memo
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.taetae98.codelab.library.lifecycle.compose.collectAsStateLifecycle
 
 @Composable
 internal fun MemoAddRoute(
@@ -9,8 +10,11 @@ internal fun MemoAddRoute(
     onNavigateUp: () -> Unit,
     viewModel: MemoAddViewModel,
 ) {
+    val titleUiState = viewModel.titleUiState.collectAsStateLifecycle()
+
     MemoAddScreen(
         modifier = modifier,
         onNavigateUp = onNavigateUp,
+        titleUiState = titleUiState,
     )
 }

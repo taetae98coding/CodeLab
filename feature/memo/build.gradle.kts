@@ -16,6 +16,8 @@ kotlin {
 
                 implementation(project(":domain:usecase"))
 
+                implementation(project(":library:lifecycle-compose"))
+
                 implementation(project(":compose"))
 
                 implementation(compose.material3)

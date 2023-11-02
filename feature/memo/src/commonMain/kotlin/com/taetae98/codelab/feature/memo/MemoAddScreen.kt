@@ -1,22 +1,36 @@
 package com.taetae98.codelab.feature.memo
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.taetae98.codelab.compose.icon.NavigateUpIcon
+import com.taetae98.codelab.compose.textfield.TextFieldUiState
+import com.taetae98.codelab.compose.textfield.TitleTextField
 
 @Composable
 internal fun MemoAddScreen(
     modifier: Modifier = Modifier,
     onNavigateUp: () -> Unit,
+    titleUiState: State<TextFieldUiState>,
 ) {
     Scaffold(
         modifier = modifier,
         topBar = { TopBar(onNavigateUp = onNavigateUp) },
     ) {
+        Content(
+            modifier = Modifier.padding(it),
+            titleUiState = titleUiState,
+        )
     }
 }
 
@@ -35,4 +49,30 @@ private fun TopBar(
             }
         },
     )
+}
+
+@Composable
+private fun Content(
+    modifier: Modifier = Modifier,
+    titleUiState: State<TextFieldUiState>,
+) {
+    Column(
+        modifier = modifier.padding(6.dp),
+        verticalArrangement = Arrangement.spacedBy(6.dp),
+    ) {
+        Title(uiState = titleUiState)
+    }
+}
+
+@Composable
+private fun Title(
+    modifier: Modifier = Modifier,
+    uiState: State<TextFieldUiState>,
+) {
+    Card {
+        TitleTextField(
+            modifier = modifier.fillMaxWidth(),
+            uiState = uiState.value,
+        )
+    }
 }
