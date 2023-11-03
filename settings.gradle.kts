@@ -35,8 +35,13 @@ include(
 )
 
 include(
+    ":data:repository",
+)
+
+include(
     ":domain:entity",
     ":domain:exception",
+    ":domain:repository",
     ":domain:usecase",
 )
 

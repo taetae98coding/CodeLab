@@ -20,6 +20,7 @@ kotlin {
 
         androidMain {
             dependencies {
+                implementation(project(":data:repository"))
                 implementation(libs.navigation.compose)
             }
         }
