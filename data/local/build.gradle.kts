@@ -1,5 +1,7 @@
 plugins {
     id("codelab.multiplatform")
+    alias(libs.plugins.room)
+    alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
 }
 
@@ -9,14 +11,12 @@ kotlin {
             dependencies {
                 implementation(project(":library:inject"))
                 implementation(project(":data:dto"))
-                implementation(project(":data:local"))
-                implementation(project(":domain:entity"))
-                implementation(project(":domain:repository"))
             }
         }
 
         androidMain {
             dependencies {
+                implementation(libs.bundles.room)
                 implementation(libs.hilt.android)
             }
         }
@@ -24,9 +24,14 @@ kotlin {
 }
 
 android {
-    namespace = "${Build.NAMESPACE}.data.repository"
+    namespace = "${Build.NAMESPACE}.data.local"
 }
 
 dependencies {
+    kspAndroid(libs.room.compiler)
     kspAndroid(libs.hilt.compiler)
+}
+
+room {
+    schemaDirectory("$projectDir/schemas/")
 }

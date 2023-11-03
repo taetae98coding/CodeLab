@@ -35,7 +35,9 @@ include(
 )
 
 include(
+    ":data:dto",
     ":data:repository",
+    ":data:local",
 )
 
 include(

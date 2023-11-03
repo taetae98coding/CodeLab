@@ -1,7 +1,7 @@
 plugins {
     id("codelab.android.app")
 //    id("codelab.compose.android")
-    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
     alias(libs.plugins.compose.multiplatform)
 }
