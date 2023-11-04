@@ -24,7 +24,7 @@ internal class MultiplatformPlugin : Plugin<Project> {
     private fun applyKotlin(extension: KotlinMultiplatformExtension) = with(extension) {
         androidTarget()
         jvm()
-
+        applyDefaultHierarchyTemplate()
         sourceSets {
             val nonAndroidMain = maybeCreate("nonAndroidMain")
 

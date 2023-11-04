@@ -11,7 +11,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal class LocalDataProvidesModule {
+internal class LocalDataSourceProvidesModule {
     @Provides
     @Singleton
     fun providesMemoDatabase(
