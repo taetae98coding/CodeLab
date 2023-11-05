@@ -1,6 +1,8 @@
 plugins {
     id("codelab.multiplatform")
     id("codelab.compose.android")
+    id("codelab.koin.multiplatform")
+
     alias(libs.plugins.compose.multiplatform)
 
     alias(libs.plugins.hilt)
@@ -39,10 +41,7 @@ kotlin {
                 implementation(libs.decompose)
                 implementation(libs.decompose.compose)
                 implementation(project.dependencies.platform(libs.koin.bom))
-                implementation(libs.koin.core)
                 implementation(libs.koin.compose)
-                implementation(project.dependencies.platform(libs.koin.annotations.bom))
-                implementation(libs.koin.annotations)
             }
         }
     }
@@ -54,10 +53,4 @@ android {
 
 dependencies {
     kspAndroid(libs.hilt.compiler)
-    kspIosMain(project.dependencies.platform(libs.koin.annotations.bom))
-    kspIosMain(libs.koin.compiler)
-    kspJvm(project.dependencies.platform(libs.koin.annotations.bom))
-    kspJvm(libs.koin.compiler)
-    kspJs(project.dependencies.platform(libs.koin.annotations.bom))
-    kspJs(libs.koin.compiler)
 }

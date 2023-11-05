@@ -1,5 +1,6 @@
 plugins {
     id("codelab.multiplatform")
+    id("codelab.koin.multiplatform")
     alias(libs.plugins.compose.multiplatform)
     alias(libs.plugins.ksp)
 }
@@ -28,10 +29,6 @@ kotlin {
 
         nonAndroidMain {
             dependencies {
-                implementation(project.dependencies.platform(libs.koin.bom))
-                implementation(libs.koin.core)
-                implementation(project.dependencies.platform(libs.koin.annotations.bom))
-                implementation(libs.koin.annotations)
                 implementation(libs.decompose)
                 implementation(libs.decompose.compose)
             }
@@ -41,13 +38,4 @@ kotlin {
 
 android {
     namespace = "${Build.NAMESPACE}.app"
-}
-
-dependencies {
-    kspIosMain(project.dependencies.platform(libs.koin.annotations.bom))
-    kspIosMain(libs.koin.compiler)
-    kspJvm(project.dependencies.platform(libs.koin.annotations.bom))
-    kspJvm(libs.koin.compiler)
-    kspJs(project.dependencies.platform(libs.koin.annotations.bom))
-    kspJs(libs.koin.compiler)
 }

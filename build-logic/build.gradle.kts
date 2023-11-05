@@ -10,6 +10,7 @@ kotlin {
 dependencies {
     compileOnly(libs.kotlin.gradle)
     compileOnly(libs.android.gradle)
+    compileOnly(libs.ksp.gradle)
 }
 
 gradlePlugin {
@@ -42,6 +43,11 @@ gradlePlugin {
         register("codelab.compose.android") {
             id = "codelab.compose.android"
             implementationClass = "plugin.compose.ComposeAndroidPlugin"
+        }
+
+        register("codelab.koin.multiplatform") {
+            id = "codelab.koin.multiplatform"
+            implementationClass = "plugin.koin.KoinMultiplatformPlugin"
         }
     }
 }
