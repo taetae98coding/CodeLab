@@ -5,14 +5,13 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.serialization.json.JsonPrimitive
 
-
-public class SavedStateHandle(
-    private val map: MutableMap<String, JsonPrimitive>
+public actual class KSavedStateHandle(
+    private val map: MutableMap<String, JsonPrimitive>,
 ) {
     private val flowMap = mutableMapOf<String, MutableStateFlow<Any?>>()
 
     @Suppress("UNCHECKED_CAST")
-    public fun getStateFlow(key: String, initialValue: String): StateFlow<String> {
+    public actual fun getStateFlow(key: String, initialValue: String): StateFlow<String> {
         return flowMap.getOrPut(key) {
             if (!map.contains(key)) {
                 map[key] = JsonPrimitive(initialValue)
@@ -22,7 +21,7 @@ public class SavedStateHandle(
         }.asStateFlow() as StateFlow<String>
     }
 
-    public operator fun set(key: String, value: String?) {
+    public actual operator fun set(key: String, value: String) {
         map[key] = JsonPrimitive(value)
         flowMap[key]?.value = value
     }
