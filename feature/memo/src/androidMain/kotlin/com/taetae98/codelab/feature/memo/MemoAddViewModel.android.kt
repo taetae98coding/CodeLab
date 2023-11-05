@@ -7,7 +7,9 @@ import com.taetae98.codelab.compose.textfield.TextFieldUiState
 import com.taetae98.codelab.domain.entity.Memo
 import com.taetae98.codelab.domain.usecase.memo.MemoUpsertUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -37,6 +39,9 @@ internal actual class MemoAddViewModel @Inject constructor(
         ),
     )
 
+    private val _messageUiState = MutableStateFlow(MemoMessageUiState(message = null, onMessageShow = ::updateMessage))
+    actual val messageUiState = _messageUiState.asStateFlow()
+
     private fun setTitle(title: String) {
         savedStateHandle[TITLE] = title
     }
@@ -49,6 +54,14 @@ internal actual class MemoAddViewModel @Inject constructor(
             )
 
             memoUpsertUseCase(memo)
+                .onSuccess { setTitle("") }
+                .onSuccess { updateMessage(MemoMessage.Upsert) }
+        }
+    }
+
+    private fun updateMessage(message: MemoMessage? = null) {
+        viewModelScope.launch {
+            _messageUiState.emit(_messageUiState.value.copy(message = message))
         }
     }
 

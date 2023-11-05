@@ -11,11 +11,13 @@ internal fun MemoAddRoute(
     viewModel: MemoAddViewModel,
 ) {
     val titleUiState = viewModel.titleUiState.collectAsStateLifecycle()
+    val messageUiState = viewModel.messageUiState.collectAsStateLifecycle()
 
     MemoAddScreen(
         modifier = modifier,
         onNavigateUp = onNavigateUp,
         uiState = viewModel.uiState,
         titleUiState = titleUiState,
+        messageUiState = messageUiState,
     )
 }

@@ -14,4 +14,7 @@ internal actual class MemoAddViewModel(
 
     private val _titleUiState = MutableStateFlow(TextFieldUiState("", {}))
     actual val titleUiState = _titleUiState.asStateFlow()
+
+    private val _messageUiState = MutableStateFlow(MemoMessageUiState(null, {}))
+    actual val messageUiState = _messageUiState.asStateFlow()
 }

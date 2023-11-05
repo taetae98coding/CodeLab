@@ -9,9 +9,13 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.State
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.taetae98.codelab.compose.icon.AddIcon
@@ -25,16 +29,29 @@ internal fun MemoAddScreen(
     onNavigateUp: () -> Unit,
     uiState: MemoAddUiState,
     titleUiState: State<TextFieldUiState>,
+    messageUiState: State<MemoMessageUiState>,
 ) {
+    val hostState = remember { SnackbarHostState() }
+
     Scaffold(
         modifier = modifier,
         topBar = { TopBar(onNavigateUp = onNavigateUp) },
         floatingActionButton = { FloatingButton(uiState = uiState) },
+        snackbarHost = { SnackbarHost(hostState) },
     ) {
         Content(
             modifier = Modifier.padding(it),
             titleUiState = titleUiState,
         )
+    }
+
+    LaunchedEffect(messageUiState.value.message) {
+        when (messageUiState.value.message) {
+            MemoMessage.Upsert -> hostState.showSnackbar("Add memo.")
+            else -> Unit
+        }
+
+        messageUiState.value.onMessageShow()
     }
 }
 
