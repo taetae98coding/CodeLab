@@ -12,6 +12,6 @@ import org.koin.core.annotation.Module
         RepositoryModule::class,
         UseCaseModule::class,
         MemoModule::class,
-    ]
+    ],
 )
 public class AppModule

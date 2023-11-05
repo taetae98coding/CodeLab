@@ -9,8 +9,9 @@ kotlin {
 
 dependencies {
     compileOnly(libs.kotlin.gradle)
-    compileOnly(libs.android.gradle)
     compileOnly(libs.ksp.gradle)
+    compileOnly(libs.android.gradle)
+    compileOnly(libs.hilt.gradle)
 }
 
 gradlePlugin {
@@ -48,6 +49,16 @@ gradlePlugin {
         register("codelab.koin.multiplatform") {
             id = "codelab.koin.multiplatform"
             implementationClass = "plugin.koin.KoinMultiplatformPlugin"
+        }
+
+        register("codelab.hilt.android") {
+            id = "codelab.hilt.android"
+            implementationClass = "plugin.hilt.HiltAndroidPlugin"
+        }
+
+        register("codelab.hilt.multiplatform") {
+            id = "codelab.hilt.multiplatform"
+            implementationClass = "plugin.hilt.HiltMultiplatformPlugin"
         }
     }
 }

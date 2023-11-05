@@ -1,8 +1,7 @@
 plugins {
     id("codelab.android.app")
+    id("codelab.hilt.android")
 //    id("codelab.compose.android")
-    alias(libs.plugins.hilt)
-    alias(libs.plugins.ksp)
     alias(libs.plugins.compose.multiplatform)
 }
 
@@ -26,7 +25,4 @@ dependencies {
 //    implementation(platform(libs.compose.bom))
 //    implementation(libs.compose.ui)
     implementation(compose.ui)
-
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
 }

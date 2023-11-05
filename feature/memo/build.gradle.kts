@@ -1,12 +1,10 @@
 plugins {
     id("codelab.multiplatform")
     id("codelab.compose.android")
+    id("codelab.hilt.multiplatform")
     id("codelab.koin.multiplatform")
 
     alias(libs.plugins.compose.multiplatform)
-
-    alias(libs.plugins.hilt)
-    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -32,7 +30,6 @@ kotlin {
                 implementation(libs.navigation.compose)
                 implementation(libs.hilt.compose)
                 implementation(compose.uiTooling)
-                implementation(libs.hilt.android)
             }
         }
 
@@ -49,8 +46,4 @@ kotlin {
 
 android {
     namespace = "${Build.NAMESPACE}.feature.memo"
-}
-
-dependencies {
-    kspAndroid(libs.hilt.compiler)
 }

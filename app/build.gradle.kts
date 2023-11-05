@@ -2,7 +2,6 @@ plugins {
     id("codelab.multiplatform")
     id("codelab.koin.multiplatform")
     alias(libs.plugins.compose.multiplatform)
-    alias(libs.plugins.ksp)
 }
 
 kotlin {

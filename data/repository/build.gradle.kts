@@ -1,7 +1,7 @@
 plugins {
     id("codelab.multiplatform")
+    id("codelab.hilt.multiplatform")
     id("codelab.koin.multiplatform")
-    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -15,19 +15,9 @@ kotlin {
                 implementation(project(":domain:repository"))
             }
         }
-
-        androidMain {
-            dependencies {
-                implementation(libs.hilt.android)
-            }
-        }
     }
 }
 
 android {
     namespace = "${Build.NAMESPACE}.data.repository"
-}
-
-dependencies {
-    kspAndroid(libs.hilt.compiler)
 }

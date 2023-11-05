@@ -1,8 +1,8 @@
 plugins {
     id("codelab.multiplatform")
+    id("codelab.hilt.multiplatform")
     id("codelab.koin.multiplatform")
     alias(libs.plugins.room)
-    alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
 }
 
@@ -18,7 +18,6 @@ kotlin {
         androidMain {
             dependencies {
                 implementation(libs.bundles.room)
-                implementation(libs.hilt.android)
             }
         }
     }
@@ -30,7 +29,6 @@ android {
 
 dependencies {
     kspAndroid(libs.room.compiler)
-    kspAndroid(libs.hilt.compiler)
 }
 
 room {
