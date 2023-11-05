@@ -41,6 +41,7 @@ ksp-gradle = { group = "com.google.devtools.ksp", name = "com.google.devtools.ks
 java-inject = { group = "javax.inject", name = "javax.inject", version.ref = "java-inject" }
 
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
+coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlin-coroutines" }
 
 android-gradle = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle" }
 
@@ -49,6 +50,7 @@ activity-compose = { group = "androidx.activity", name = "activity-compose", ver
 
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 
+lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 lifecycle-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
 
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }

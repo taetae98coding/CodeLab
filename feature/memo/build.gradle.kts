@@ -17,6 +17,8 @@ kotlin {
                 implementation(project(":domain:entity"))
                 implementation(project(":domain:usecase"))
 
+                implementation(project(":library:inject-compose"))
+                implementation(project(":library:lifecycle"))
                 implementation(project(":library:lifecycle-compose"))
 
                 implementation(project(":compose"))

@@ -57,6 +57,8 @@ include(":compose")
 
 include(
     ":library:inject",
+    ":library:inject-compose",
+    ":library:lifecycle",
     ":library:lifecycle-compose",
     ":library:webview",
 )

@@ -4,10 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
+import com.taetae98.codelab.library.inject.compose.koinInject
 import com.taetae98.codelab.navigation.core.memo.MemoAddEntry
 import com.taetae98.codelab.navigation.core.memo.MemoEntry
 import com.taetae98.codelab.navigation.core.memo.MemoListEntry
-import org.koin.compose.koinInject
 
 @Composable
 public fun MemoEntry(
@@ -29,7 +29,7 @@ public fun MemoEntry(
             is MemoAddEntry -> {
                 MemoAddRoute(
                     onNavigateUp = instance.onNavigateUp,
-                    viewModel = koinInject(),
+                    viewModel = instance.koinInject(),
                 )
             }
         }
