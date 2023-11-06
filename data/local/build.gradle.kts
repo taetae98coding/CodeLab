@@ -1,8 +1,9 @@
 plugins {
     id("codelab.multiplatform")
-    id("codelab.hilt.multiplatform")
     id("codelab.koin.multiplatform")
+    id("codelab.hilt.multiplatform")
     alias(libs.plugins.room)
+    alias(libs.plugins.sqldelight)
     alias(libs.plugins.ksp)
 }
 
@@ -20,6 +21,19 @@ kotlin {
                 implementation(libs.bundles.room)
             }
         }
+
+        jvmMain {
+            dependencies {
+                implementation(libs.sqldelight.sqlite.driver)
+            }
+        }
+
+        jsMain {
+            dependencies {
+                implementation("app.cash.sqldelight:web-worker-driver:2.0.0")
+                implementation(devNpm("copy-webpack-plugin", "9.1.0"))
+            }
+        }
     }
 }
 
@@ -32,5 +46,19 @@ dependencies {
 }
 
 room {
-    schemaDirectory("$projectDir/schemas/")
+    schemaDirectory("$projectDir/room/schemas/")
+}
+
+sqldelight {
+    databases {
+        create("MemoDatabase") {
+            packageName.set("${Build.NAMESPACE}.core.database")
+            verifyMigrations.set(true)
+            schemaOutputDirectory.set(file("$projectDir/sqldelight/schemas"))
+            generateAsync.set(true)
+
+            dialect(libs.sqldelight.dialect)
+            srcDirs("src/nonAndroidMain/memo")
+        }
+    }
 }

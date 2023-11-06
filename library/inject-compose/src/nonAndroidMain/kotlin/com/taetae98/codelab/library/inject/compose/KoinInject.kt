@@ -19,14 +19,14 @@ public inline fun <reified T : KViewModel> ComponentContext.koinInject(): T {
     val scope = getKoinScope()
     val map = remember(this) {
         stateKeeper.consume(
-            key = requireNotNull(getKClassForKViewModel<T>().qualifiedName),
+            key = requireNotNull(getKClassForKViewModel<T>().simpleName),
             strategy = MapSerializer(String.serializer(), JsonPrimitive.serializer()),
         )?.toMutableMap() ?: mutableMapOf()
     }
 
     LaunchedEffect(this) {
         stateKeeper.register(
-            key = requireNotNull(getKClassForKViewModel<T>().qualifiedName),
+            key = requireNotNull(getKClassForKViewModel<T>().simpleName),
             strategy = MapSerializer(String.serializer(), JsonPrimitive.serializer()),
             supplier = { map },
         )
