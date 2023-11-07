@@ -21,6 +21,11 @@ gradlePlugin {
             implementationClass = "plugin.android.AndroidAppPlugin"
         }
 
+        register("codelab.android.library") {
+            id = "codelab.android.library"
+            implementationClass = "plugin.android.AndroidLibraryPlugin"
+        }
+
         register("codelab.ios") {
             id = "codelab.ios"
             implementationClass = "plugin.ios.IosPlugin"

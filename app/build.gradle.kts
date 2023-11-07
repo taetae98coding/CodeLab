@@ -13,6 +13,7 @@ kotlin {
                 implementation(project(":feature:webview"))
                 implementation(project(":feature:memo"))
                 implementation(project(":data:local"))
+                implementation(project(":data:sqldelight"))
                 implementation(project(":data:repository"))
                 implementation(project(":domain:usecase"))
 
@@ -22,12 +23,14 @@ kotlin {
 
         androidMain {
             dependencies {
+                implementation(project(":data:room"))
                 implementation(libs.navigation.compose)
             }
         }
 
         nonAndroidMain {
             dependencies {
+                implementation(project(":data:sqldelight"))
                 implementation(libs.decompose)
                 implementation(libs.decompose.compose)
             }

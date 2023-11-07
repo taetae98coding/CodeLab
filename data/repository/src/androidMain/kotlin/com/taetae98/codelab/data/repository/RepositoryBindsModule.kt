@@ -8,7 +8,7 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal interface RepositoryBindsModule {
+public abstract class RepositoryBindsModule {
     @Binds
-    fun bindsMemoRepository(repository: MemoRepositoryImpl): MemoRepository
+    internal abstract fun bindsMemoRepository(repository: MemoRepositoryImpl): MemoRepository
 }
