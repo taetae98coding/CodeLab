@@ -1,10 +1,6 @@
 package com.taetae98.codelab.data.sqldelight
 
+import org.koin.core.annotation.Module
+
 @Module
-@ComponentScan
-public actual class SqldelightModule {
-    @Singleton
-    internal actual fun providesMemoDatabase(): MemoDatabase {
-        TODO("Not yet implemented")
-    }
-}
+internal actual class SqldelightModule

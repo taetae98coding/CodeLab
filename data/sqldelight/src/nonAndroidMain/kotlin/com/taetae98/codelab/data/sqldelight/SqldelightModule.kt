@@ -1,8 +1,10 @@
 package com.taetae98.codelab.data.sqldelight
 
-import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Module
+import org.koin.core.annotation.Singleton
 
 @Module
-@ComponentScan
-public expect class SqldelightModule
+internal expect class SqldelightModule {
+    @Singleton
+    fun providesMemoDatabase(): MemoDatabase
+}

@@ -1,6 +1,5 @@
 package com.taetae98.codelab.data.sqldelight
 
-import com.taetae98.codelab.core.database.MemoDatabase
 import com.taetae98.codelab.data.dto.MemoDto
 import com.taetae98.codelab.data.local.MemoLocalDataSource
 import org.koin.core.annotation.Factory

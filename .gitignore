@@ -8,3 +8,5 @@
 **/*.podspec
 
 **/kotlin-js-store
+
+**/*.db
