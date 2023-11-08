@@ -13,6 +13,7 @@ kotlin {
         podfile = project.file("../../ios/Podfile")
         framework {
             baseName = "iosApp"
+            isStatic = true
 
             export(project(":navigation:core"))
             export(libs.decompose)
