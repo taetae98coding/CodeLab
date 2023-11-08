@@ -13,6 +13,12 @@ kotlin {
             }
         }
 
+        iosMain {
+            dependencies {
+                implementation(libs.sqldelight.native.driver)
+            }
+        }
+
         jvmMain {
             dependencies {
                 implementation(libs.sqldelight.sqlite.driver)
@@ -36,6 +42,8 @@ sqldelight {
     databases {
         create("MemoDatabase") {
             packageName.set("${Build.NAMESPACE}.data.sqldelight")
+            schemaOutputDirectory.set(file("src/main/memo/scheme"))
+            verifyMigrations.set(true)
 
             dialect(libs.sqldelight.dialect)
             srcDirs("$projectDir/src/nonAndroidMain/memo")
