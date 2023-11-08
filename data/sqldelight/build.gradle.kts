@@ -35,8 +35,6 @@ sqldelight {
     databases {
         create("MemoDatabase") {
             packageName.set("${Build.NAMESPACE}.data.sqldelight")
-            schemaOutputDirectory.set(file("src/main/memo/scheme"))
-            verifyMigrations.set(true)
 
             dialect(libs.sqldelight.dialect)
             srcDirs("$projectDir/src/nonAndroidMain/memo")
