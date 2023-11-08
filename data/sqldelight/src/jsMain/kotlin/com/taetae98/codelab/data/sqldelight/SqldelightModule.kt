@@ -7,6 +7,6 @@ import org.koin.core.annotation.Singleton
 internal actual class SqldelightModule {
     @Singleton
     actual fun providesMemoDatabase(): MemoDatabase {
-        TODO()
+        TODO("JS 공부 후 적용")
     }
 }

@@ -24,13 +24,6 @@ kotlin {
                 implementation(libs.sqldelight.sqlite.driver)
             }
         }
-
-        jsMain {
-            dependencies {
-                implementation("app.cash.sqldelight:web-worker-driver:2.0.0")
-                implementation(devNpm("copy-webpack-plugin", "9.1.0"))
-            }
-        }
     }
 }
 
