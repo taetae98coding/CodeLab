@@ -11,8 +11,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import org.koin.core.annotation.Factory
 
-internal abstract class MemoAddViewModel(
+@Factory
+internal open class MemoAddViewModel(
     private val kSavedStateHandle: KSavedStateHandle,
     private val memoUpsertUseCase: MemoUpsertUseCase,
 ) : KViewModel() {

@@ -6,8 +6,10 @@ import app.cash.paging.map
 import com.taetae98.codelab.domain.usecase.memo.PageMemoUseCase
 import com.taetae98.codelab.library.lifecycle.KViewModel
 import kotlinx.coroutines.flow.mapLatest
+import org.koin.core.annotation.Factory
 
-internal abstract class MemoListViewModel(
+@Factory
+internal open class MemoListViewModel(
     pageMemoUseCase: PageMemoUseCase,
 ) : KViewModel() {
     private val paging = pageMemoUseCase(Unit).mapLatest { it.getOrDefault(PagingData.empty()) }
