@@ -23,6 +23,7 @@ public fun MemoEntry(
             is MemoListEntry -> {
                 MemoListRoute(
                     onAdd = instance.onNavigateToMemoAdd,
+                    viewModel = instance.koinInject(),
                 )
             }
 

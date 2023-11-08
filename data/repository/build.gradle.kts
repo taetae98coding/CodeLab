@@ -13,6 +13,9 @@ kotlin {
                 implementation(project(":data:local"))
                 implementation(project(":domain:entity"))
                 implementation(project(":domain:repository"))
+
+                implementation(libs.coroutines.core)
+                implementation(libs.paging.common)
             }
         }
     }

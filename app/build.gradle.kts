@@ -18,6 +18,7 @@ kotlin {
                 implementation(project(":domain:usecase"))
 
                 implementation(compose.material3)
+                implementation(libs.coroutines.core)
             }
         }
 

@@ -10,6 +10,10 @@ kotlin {
             dependencies {
                 implementation(project(":data:dto"))
                 implementation(project(":data:local"))
+
+                implementation(libs.sqldelight.paging)
+                implementation(libs.coroutines.core)
+                implementation(libs.paging.common)
             }
         }
 

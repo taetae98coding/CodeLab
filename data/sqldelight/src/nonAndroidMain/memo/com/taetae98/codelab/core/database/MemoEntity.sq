@@ -3,8 +3,20 @@ CREATE TABLE MemoEntity (
     title TEXT NOT NULL
 );
 
+insert:
+INSERT INTO MemoEntity(id, title)
+VALUES (?, ?);
+
 upsert:
 INSERT INTO MemoEntity
 VALUES ?
 ON CONFLICT (id) DO
 UPDATE SET title = excluded.title;
+
+count:
+SELECT count(*) FROM MemoEntity;
+
+paging:
+SELECT *
+FROM MemoEntity
+LIMIT :limit OFFSET :offset;

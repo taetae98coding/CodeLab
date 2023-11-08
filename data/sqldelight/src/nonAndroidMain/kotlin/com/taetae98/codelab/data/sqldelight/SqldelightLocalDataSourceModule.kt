@@ -7,4 +7,8 @@ import org.koin.core.annotation.Module
     includes = [SqldelightModule::class]
 )
 @ComponentScan
-public class SqldelightLocalDataSourceModule
+public class SqldelightLocalDataSourceModule {
+    public companion object {
+        public const val DATABASE_DISPATCHER: String = "databaseDispatcher"
+    }
+}

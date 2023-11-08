@@ -7,6 +7,9 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(project(":domain:entity"))
+
+                implementation(libs.coroutines.core)
+                implementation(libs.paging.common)
             }
         }
     }

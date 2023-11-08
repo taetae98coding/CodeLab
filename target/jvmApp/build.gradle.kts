@@ -6,6 +6,7 @@ plugins {
 dependencies {
     implementation(project(":app"))
     implementation(project(":navigation:core"))
+    implementation(project(":data:sqldelight"))
 
     implementation(compose.desktop.currentOs)
     implementation(compose.ui)

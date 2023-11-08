@@ -9,3 +9,10 @@ internal fun Memo.toDto(): MemoDto {
         title = title,
     )
 }
+
+internal fun MemoDto.toDomain(): Memo {
+    return Memo(
+        id = id,
+        title = title,
+    )
+}

@@ -11,6 +11,9 @@ kotlin {
                 implementation(project(":domain:exception"))
                 implementation(project(":domain:repository"))
                 implementation(project(":library:inject"))
+
+                implementation(libs.coroutines.core)
+                implementation(libs.paging.common)
             }
         }
     }

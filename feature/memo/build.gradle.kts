@@ -24,6 +24,7 @@ kotlin {
                 implementation(project(":compose"))
 
                 implementation(compose.material3)
+                implementation(libs.paging.compose)
             }
         }
 
