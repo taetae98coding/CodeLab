@@ -19,6 +19,7 @@ kotlin {
 
         iosMain {
             dependencies {
+                implementation("co.touchlab:stately-iso-collections:2.0.5")
                 implementation(libs.sqldelight.native.driver)
             }
         }
