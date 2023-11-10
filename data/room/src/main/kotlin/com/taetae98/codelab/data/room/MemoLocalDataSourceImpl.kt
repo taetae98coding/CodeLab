@@ -17,6 +17,10 @@ public class MemoLocalDataSourceImpl @Inject internal constructor(
         memoDatabase.memo().upsert(memo.toEntity())
     }
 
+    override suspend fun delete(id: Long) {
+        memoDatabase.memo().delete(id)
+    }
+
     override fun page(): Flow<PagingData<MemoDto>> {
         val pager = Pager(
             config = PagingConfig(

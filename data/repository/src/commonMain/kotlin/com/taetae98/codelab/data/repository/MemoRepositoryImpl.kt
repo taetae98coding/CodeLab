@@ -20,6 +20,7 @@ internal class MemoRepositoryImpl @KInject constructor(
     }
 
     override suspend fun delete(id: Long) {
+        memoLocalDataSource.delete(id)
     }
 
     override fun page(): Flow<PagingData<Memo>> {

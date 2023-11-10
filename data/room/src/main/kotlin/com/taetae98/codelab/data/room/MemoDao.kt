@@ -10,6 +10,9 @@ internal interface MemoDao {
     @Upsert
     suspend fun upsert(memo: MemoEntity)
 
+    @Query("DELETE FROM MemoEntity WHERE id = :id")
+    suspend fun delete(id: Long)
+
     @Query("SELECT * FROM MemoEntity")
     fun page(): PagingSource<Int, MemoEntity>
 }

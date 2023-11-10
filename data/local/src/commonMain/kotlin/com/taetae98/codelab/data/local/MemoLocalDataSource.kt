@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 public interface MemoLocalDataSource {
     public suspend fun upsert(memo: MemoDto)
+    public suspend fun delete(id: Long)
 
     public fun page(): Flow<PagingData<MemoDto>>
 }
