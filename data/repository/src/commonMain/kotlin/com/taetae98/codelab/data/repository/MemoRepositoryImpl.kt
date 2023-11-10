@@ -19,6 +19,9 @@ internal class MemoRepositoryImpl @KInject constructor(
         memoLocalDataSource.upsert(memo.toDto())
     }
 
+    override suspend fun delete(id: Long) {
+    }
+
     override fun page(): Flow<PagingData<Memo>> {
         return memoLocalDataSource.page()
             .map { it.map(MemoDto::toDomain) }

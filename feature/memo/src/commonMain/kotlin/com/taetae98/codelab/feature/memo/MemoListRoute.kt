@@ -10,6 +10,7 @@ internal fun MemoListRoute(modifier: Modifier = Modifier, onNavigateUp: () -> Un
         modifier = modifier,
         onNavigateUp = onNavigateUp,
         onAdd = onAdd,
-        viewModel.memoItems.collectAsLazyPagingItems(),
+        memoItems = viewModel.memoItems.collectAsLazyPagingItems(),
+        onDelete = viewModel::onDelete,
     )
 }
