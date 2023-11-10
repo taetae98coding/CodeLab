@@ -10,10 +10,7 @@ import javafx.scene.Scene
 import javafx.scene.web.WebView
 
 @Composable
-public actual fun WebView(
-    modifier: Modifier,
-    uiState: WebViewUiState,
-) {
+public actual fun WebView(modifier: Modifier, uiState: WebViewUiState) {
     Box(modifier = modifier) {
         SwingPanel(
             factory = {

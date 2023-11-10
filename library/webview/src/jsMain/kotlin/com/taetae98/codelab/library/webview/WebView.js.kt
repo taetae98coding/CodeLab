@@ -7,10 +7,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-public actual fun WebView(
-    modifier: Modifier,
-    uiState: WebViewUiState,
-) {
+public actual fun WebView(modifier: Modifier, uiState: WebViewUiState) {
     Box(
         modifier = modifier,
         contentAlignment = Alignment.Center,

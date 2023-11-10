@@ -24,13 +24,7 @@ import com.taetae98.codelab.compose.textfield.TextFieldUiState
 import com.taetae98.codelab.compose.textfield.TitleTextField
 
 @Composable
-internal fun MemoAddScreen(
-    modifier: Modifier = Modifier,
-    onNavigateUp: () -> Unit,
-    uiState: MemoAddUiState,
-    titleUiState: State<TextFieldUiState>,
-    messageUiState: State<MemoMessageUiState>,
-) {
+internal fun MemoAddScreen(modifier: Modifier = Modifier, onNavigateUp: () -> Unit, uiState: MemoAddUiState, titleUiState: State<TextFieldUiState>, messageUiState: State<MemoMessageUiState>) {
     val hostState = remember { SnackbarHostState() }
 
     Scaffold(
@@ -57,10 +51,7 @@ internal fun MemoAddScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun TopBar(
-    modifier: Modifier = Modifier,
-    onNavigateUp: () -> Unit,
-) {
+private fun TopBar(modifier: Modifier = Modifier, onNavigateUp: () -> Unit) {
     TopAppBar(
         modifier = modifier,
         title = {},
@@ -73,10 +64,7 @@ private fun TopBar(
 }
 
 @Composable
-private fun FloatingButton(
-    modifier: Modifier = Modifier,
-    uiState: MemoAddUiState,
-) {
+private fun FloatingButton(modifier: Modifier = Modifier, uiState: MemoAddUiState) {
     FloatingActionButton(
         modifier = modifier,
         onClick = uiState.onUpsert,
@@ -86,10 +74,7 @@ private fun FloatingButton(
 }
 
 @Composable
-private fun Content(
-    modifier: Modifier = Modifier,
-    titleUiState: State<TextFieldUiState>,
-) {
+private fun Content(modifier: Modifier = Modifier, titleUiState: State<TextFieldUiState>) {
     Column(
         modifier = modifier.padding(6.dp),
         verticalArrangement = Arrangement.spacedBy(6.dp),
@@ -99,10 +84,7 @@ private fun Content(
 }
 
 @Composable
-private fun Title(
-    modifier: Modifier = Modifier,
-    uiState: State<TextFieldUiState>,
-) {
+private fun Title(modifier: Modifier = Modifier, uiState: State<TextFieldUiState>) {
     Card {
         TitleTextField(
             modifier = modifier.fillMaxWidth(),

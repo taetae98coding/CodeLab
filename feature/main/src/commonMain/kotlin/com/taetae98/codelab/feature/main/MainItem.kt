@@ -20,13 +20,7 @@ import kotlinx.collections.immutable.persistentListOf
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun MainItem(
-    modifier: Modifier = Modifier,
-    title: String,
-    platformList: ImmutableList<Platform> = persistentListOf(),
-    description: String? = null,
-    onClick: () -> Unit,
-) {
+internal fun MainItem(modifier: Modifier = Modifier, title: String, platformList: ImmutableList<Platform> = persistentListOf(), description: String? = null, onClick: () -> Unit) {
     Card(
         modifier = modifier,
         onClick = onClick,
@@ -42,12 +36,7 @@ internal fun MainItem(
 }
 
 @Composable
-private fun Content(
-    modifier: Modifier = Modifier,
-    title: String,
-    platformList: ImmutableList<Platform>,
-    description: String?,
-) {
+private fun Content(modifier: Modifier = Modifier, title: String, platformList: ImmutableList<Platform>, description: String?) {
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(4.dp),
@@ -59,10 +48,7 @@ private fun Content(
 }
 
 @Composable
-private fun Title(
-    modifier: Modifier = Modifier,
-    title: String,
-) {
+private fun Title(modifier: Modifier = Modifier, title: String) {
     if (title.isNotEmpty()) {
         Text(
             modifier = modifier,
@@ -75,10 +61,7 @@ private fun Title(
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun PlatformList(
-    modifier: Modifier = Modifier,
-    platformList: ImmutableList<Platform>,
-) {
+private fun PlatformList(modifier: Modifier = Modifier, platformList: ImmutableList<Platform>) {
     if (platformList.isNotEmpty()) {
         FlowRow(
             modifier = modifier,
@@ -100,10 +83,7 @@ private fun PlatformList(
 }
 
 @Composable
-private fun Description(
-    modifier: Modifier = Modifier,
-    description: String?,
-) {
+private fun Description(modifier: Modifier = Modifier, description: String?) {
     if (description != null) {
         Text(
             modifier = modifier,

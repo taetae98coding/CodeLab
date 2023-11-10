@@ -7,9 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-public fun ClearIcon(
-    modifier: Modifier = Modifier,
-) {
+public fun ClearIcon(modifier: Modifier = Modifier) {
     Icon(
         modifier = modifier,
         imageVector = Icons.Rounded.Clear,

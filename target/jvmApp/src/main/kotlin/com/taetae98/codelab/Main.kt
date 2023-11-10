@@ -21,8 +21,12 @@ internal fun main() {
         modules(
             AppModule().module,
             module {
-                single(qualifier = StringQualifier(SqldelightLocalDataSourceModule.DATABASE_DISPATCHER)) { Dispatchers.IO }
-            }
+                single(
+                    qualifier = StringQualifier(SqldelightLocalDataSourceModule.DATABASE_DISPATCHER),
+                ) {
+                    Dispatchers.IO
+                }
+            },
         )
     }
 

@@ -7,7 +7,8 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 
 public actual open class KViewModel : InstanceKeeper.Instance {
-    public actual val kViewModelScope: CoroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+    public actual val kViewModelScope: CoroutineScope =
+        CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
     override fun onDestroy() {
         super.onDestroy()

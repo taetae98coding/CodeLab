@@ -14,11 +14,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.collections.immutable.persistentListOf
 
 @Composable
-internal fun MainRoute(
-    modifier: Modifier = Modifier,
-    onWebView: () -> Unit,
-    onMemo: () -> Unit,
-) {
+internal fun MainRoute(modifier: Modifier = Modifier, onWebView: () -> Unit, onMemo: () -> Unit) {
     Scaffold(
         modifier = modifier,
         topBar = { TopBar() },
@@ -34,9 +30,7 @@ internal fun MainRoute(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun TopBar(
-    modifier: Modifier = Modifier,
-) {
+private fun TopBar(modifier: Modifier = Modifier) {
     TopAppBar(
         modifier = modifier,
         title = {
@@ -46,11 +40,7 @@ private fun TopBar(
 }
 
 @Composable
-private fun MainItemColum(
-    modifier: Modifier = Modifier,
-    onWebView: () -> Unit,
-    onMemo: () -> Unit,
-) {
+private fun MainItemColum(modifier: Modifier = Modifier, onWebView: () -> Unit, onMemo: () -> Unit) {
     Column(
         modifier = modifier.padding(horizontal = 8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -64,7 +54,12 @@ private fun MainItemColum(
 
         MainItem(
             title = "Memo CodeLab",
-            platformList = persistentListOf(Platform.ANDROID, Platform.IOS, Platform.JVM, Platform.JS),
+            platformList = persistentListOf(
+                Platform.ANDROID,
+                Platform.IOS,
+                Platform.JVM,
+                Platform.JS,
+            ),
             description = """
                 Platform Database CodeLab
             """.trimIndent(),

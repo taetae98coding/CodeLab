@@ -7,10 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
 @Composable
-public fun TitleTextField(
-    modifier: Modifier = Modifier,
-    uiState: TextFieldUiState,
-) {
+public fun TitleTextField(modifier: Modifier = Modifier, uiState: TextFieldUiState) {
     ClearTextField(
         modifier = modifier,
         uiState = uiState,

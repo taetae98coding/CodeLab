@@ -38,7 +38,8 @@ internal open class MemoAddViewModel(
         ),
     )
 
-    private val _messageUiState = MutableStateFlow(MemoMessageUiState(message = null, onMessageShow = ::updateMessage))
+    private val _messageUiState =
+        MutableStateFlow(MemoMessageUiState(message = null, onMessageShow = ::updateMessage))
     val messageUiState = _messageUiState.asStateFlow()
 
     private fun setTitle(title: String) {

@@ -10,9 +10,7 @@ import com.taetae98.codelab.navigation.core.memo.MemoAddEntry
 import com.taetae98.codelab.navigation.core.memo.MemoEntry
 import com.taetae98.codelab.navigation.core.memo.MemoListEntry
 
-public fun NavGraphBuilder.memoEntry(
-    navController: NavController,
-) {
+public fun NavGraphBuilder.memoEntry(navController: NavController) {
     navigation(
         startDestination = MemoListEntry.ROUTE,
         route = MemoEntry.ROUTE,

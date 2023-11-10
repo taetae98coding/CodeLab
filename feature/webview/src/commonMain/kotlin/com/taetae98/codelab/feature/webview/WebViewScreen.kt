@@ -35,11 +35,9 @@ import com.taetae98.codelab.library.webview.WebView
 import com.taetae98.codelab.library.webview.WebViewUiState
 
 @Composable
-internal fun WebViewScreen(
-    modifier: Modifier = Modifier,
-    onNavigateUp: () -> Unit,
-) {
-    val uiState = remember { mutableStateOf<WebViewUiState>(WebViewUiState.Url("https://www.naver.com")) }
+internal fun WebViewScreen(modifier: Modifier = Modifier, onNavigateUp: () -> Unit) {
+    val uiState =
+        remember { mutableStateOf<WebViewUiState>(WebViewUiState.Url("https://www.naver.com")) }
     val webViewDialogVisibleState = remember { mutableStateOf(false) }
 
     Scaffold(
@@ -66,11 +64,7 @@ internal fun WebViewScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun TopBar(
-    modifier: Modifier = Modifier,
-    onNavigateUp: () -> Unit,
-    onNavigation: () -> Unit,
-) {
+private fun TopBar(modifier: Modifier = Modifier, onNavigateUp: () -> Unit, onNavigation: () -> Unit) {
     TopAppBar(
         modifier = modifier,
         title = {},
@@ -88,10 +82,7 @@ private fun TopBar(
 }
 
 @Composable
-private fun WebViewDialog(
-    uiState: MutableState<WebViewUiState>,
-    visibleState: MutableState<Boolean>,
-) {
+private fun WebViewDialog(uiState: MutableState<WebViewUiState>, visibleState: MutableState<Boolean>) {
     if (visibleState.value) {
         Dialog(
             onDismissRequest = { visibleState.value = false },
@@ -106,11 +97,7 @@ private fun WebViewDialog(
 }
 
 @Composable
-private fun DialogContent(
-    modifier: Modifier = Modifier,
-    uiState: MutableState<WebViewUiState>,
-    visibleState: MutableState<Boolean>,
-) {
+private fun DialogContent(modifier: Modifier = Modifier, uiState: MutableState<WebViewUiState>, visibleState: MutableState<Boolean>) {
     Card {
         Column(
             modifier = modifier,
@@ -141,10 +128,7 @@ private fun DialogContent(
 }
 
 @Composable
-private fun DialogTypeRadioGroup(
-    modifier: Modifier = Modifier,
-    type: MutableState<WebViewType>,
-) {
+private fun DialogTypeRadioGroup(modifier: Modifier = Modifier, type: MutableState<WebViewType>) {
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -170,11 +154,7 @@ private fun DialogTypeRadioGroup(
 }
 
 @Composable
-private fun DialogDataTextField(
-    modifier: Modifier = Modifier,
-    type: State<WebViewType>,
-    data: MutableState<String>,
-) {
+private fun DialogDataTextField(modifier: Modifier = Modifier, type: State<WebViewType>, data: MutableState<String>) {
     val isSingleLine = type.value == WebViewType.URL
     val lines = if (type.value == WebViewType.URL) {
         1
@@ -199,13 +179,7 @@ private fun DialogDataTextField(
 }
 
 @Composable
-private fun DialogButtonLayout(
-    modifier: Modifier = Modifier,
-    visibleState: MutableState<Boolean>,
-    type: State<WebViewType>,
-    data: State<String>,
-    uiState: MutableState<WebViewUiState>,
-) {
+private fun DialogButtonLayout(modifier: Modifier = Modifier, visibleState: MutableState<Boolean>, type: State<WebViewType>, data: State<String>, uiState: MutableState<WebViewUiState>) {
     TextButton(
         modifier = modifier.fillMaxWidth(),
         onClick = {

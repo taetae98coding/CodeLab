@@ -7,9 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-public fun NavigateUpIcon(
-    modifier: Modifier = Modifier,
-) {
+public fun NavigateUpIcon(modifier: Modifier = Modifier) {
     Icon(
         modifier = modifier,
         imageVector = Icons.Rounded.ArrowBack,

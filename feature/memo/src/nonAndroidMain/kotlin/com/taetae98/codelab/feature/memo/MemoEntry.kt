@@ -10,10 +10,7 @@ import com.taetae98.codelab.navigation.core.memo.MemoEntry
 import com.taetae98.codelab.navigation.core.memo.MemoListEntry
 
 @Composable
-public fun MemoEntry(
-    modifier: Modifier = Modifier,
-    entry: MemoEntry,
-) {
+public fun MemoEntry(modifier: Modifier = Modifier, entry: MemoEntry) {
     Children(
         modifier = modifier,
         stack = entry.stack,

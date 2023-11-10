@@ -7,9 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-public fun AddIcon(
-    modifier: Modifier = Modifier,
-) {
+public fun AddIcon(modifier: Modifier = Modifier) {
     Icon(
         modifier = modifier,
         imageVector = Icons.Rounded.Add,

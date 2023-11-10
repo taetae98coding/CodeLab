@@ -9,10 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 
 @Composable
-public actual fun WebView(
-    modifier: Modifier,
-    uiState: WebViewUiState,
-) {
+public actual fun WebView(modifier: Modifier, uiState: WebViewUiState) {
     AndroidView(
         modifier = modifier,
         factory = {

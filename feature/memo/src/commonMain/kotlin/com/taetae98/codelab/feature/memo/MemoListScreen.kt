@@ -10,11 +10,7 @@ import app.cash.paging.compose.LazyPagingItems
 import com.taetae98.codelab.compose.icon.AddIcon
 
 @Composable
-internal fun MemoListScreen(
-    modifier: Modifier = Modifier,
-    onAdd: () -> Unit,
-    memoItems: LazyPagingItems<String>,
-) {
+internal fun MemoListScreen(modifier: Modifier = Modifier, onAdd: () -> Unit, memoItems: LazyPagingItems<String>) {
     Scaffold(
         modifier = modifier,
         floatingActionButton = {
@@ -30,10 +26,7 @@ internal fun MemoListScreen(
 }
 
 @Composable
-private fun AddButton(
-    modifier: Modifier = Modifier,
-    onAdd: () -> Unit,
-) {
+private fun AddButton(modifier: Modifier = Modifier, onAdd: () -> Unit) {
     FloatingActionButton(
         modifier = modifier,
         onClick = onAdd,

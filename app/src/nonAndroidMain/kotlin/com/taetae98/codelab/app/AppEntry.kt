@@ -13,10 +13,7 @@ import com.taetae98.codelab.navigation.core.memo.MemoEntry
 import com.taetae98.codelab.navigation.core.webview.WebViewEntry
 
 @Composable
-public fun AppEntry(
-    modifier: Modifier = Modifier,
-    entry: AppEntry,
-) {
+public fun AppEntry(modifier: Modifier = Modifier, entry: AppEntry) {
     CodeLabTheme {
         Children(
             modifier = modifier,

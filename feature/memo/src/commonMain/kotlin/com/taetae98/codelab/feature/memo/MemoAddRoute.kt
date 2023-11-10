@@ -5,11 +5,7 @@ import androidx.compose.ui.Modifier
 import com.taetae98.codelab.library.lifecycle.compose.collectAsStateLifecycle
 
 @Composable
-internal fun MemoAddRoute(
-    modifier: Modifier = Modifier,
-    onNavigateUp: () -> Unit,
-    viewModel: MemoAddViewModel,
-) {
+internal fun MemoAddRoute(modifier: Modifier = Modifier, onNavigateUp: () -> Unit, viewModel: MemoAddViewModel) {
     val titleUiState = viewModel.titleUiState.collectAsStateLifecycle()
     val messageUiState = viewModel.messageUiState.collectAsStateLifecycle()
 

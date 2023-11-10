@@ -7,9 +7,7 @@ import com.taetae98.codelab.navigation.compose.memo.navigateToMemo
 import com.taetae98.codelab.navigation.compose.webview.navigateToWebView
 import com.taetae98.codelab.navigation.core.main.MainEntry
 
-public fun NavGraphBuilder.mainEntry(
-    navController: NavController,
-) {
+public fun NavGraphBuilder.mainEntry(navController: NavController) {
     composable(MainEntry.ROUTE) {
         MainRoute(
             onWebView = navController::navigateToWebView,

@@ -11,9 +11,7 @@ import com.taetae98.codelab.navigation.core.AppEntry
 import com.taetae98.codelab.navigation.core.main.MainEntry
 
 @Composable
-public fun AppEntry(
-    modifier: Modifier = Modifier,
-) {
+public fun AppEntry(modifier: Modifier = Modifier) {
     val navController = rememberNavController()
 
     CodeLabTheme {

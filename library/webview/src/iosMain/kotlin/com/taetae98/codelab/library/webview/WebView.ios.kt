@@ -10,10 +10,7 @@ import platform.WebKit.WKWebView
 
 @OptIn(ExperimentalForeignApi::class)
 @Composable
-public actual fun WebView(
-    modifier: Modifier,
-    uiState: WebViewUiState,
-) {
+public actual fun WebView(modifier: Modifier, uiState: WebViewUiState) {
     UIKitView(
         modifier = modifier,
         factory = {
