@@ -17,6 +17,7 @@ public fun NavGraphBuilder.memoEntry(navController: NavController) {
     ) {
         composable(MemoListEntry.ROUTE) {
             MemoListRoute(
+                onNavigateUp = navController::navigateUp,
                 onAdd = navController::navigateToMemoAdd,
                 viewModel = hiltViewModel<MemoListViewModelImpl>(),
             )

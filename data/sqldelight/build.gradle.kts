@@ -29,6 +29,12 @@ kotlin {
                 implementation(libs.sqldelight.sqlite.driver)
             }
         }
+
+        jsMain {
+            dependencies {
+                implementation("co.touchlab:stately-iso-collections:2.0.5")
+            }
+        }
     }
 }
 

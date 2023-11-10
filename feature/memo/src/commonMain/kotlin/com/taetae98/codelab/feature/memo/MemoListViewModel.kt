@@ -15,5 +15,12 @@ internal open class MemoListViewModel(
     private val paging = pageMemoUseCase(Unit).mapLatest { it.getOrDefault(PagingData.empty()) }
         .cachedIn(scope = kViewModelScope)
 
-    val memoItems = paging.mapLatest { it.map { it.title } }
+    val memoItems = paging.mapLatest { pagingData ->
+        pagingData.map {
+            MemoUiState(
+                id = it.id,
+                title = it.title,
+            )
+        }
+    }
 }

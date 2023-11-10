@@ -1,27 +1,41 @@
 package com.taetae98.codelab.feature.memo
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import app.cash.paging.compose.LazyPagingItems
+import app.cash.paging.compose.itemContentType
+import app.cash.paging.compose.itemKey
 import com.taetae98.codelab.compose.icon.AddIcon
+import com.taetae98.codelab.compose.icon.NavigateUpIcon
 
 @Composable
-internal fun MemoListScreen(modifier: Modifier = Modifier, onAdd: () -> Unit, memoItems: LazyPagingItems<String>) {
+internal fun MemoListScreen(modifier: Modifier = Modifier, onNavigateUp: () -> Unit, onAdd: () -> Unit, memoItems: LazyPagingItems<MemoUiState>) {
     Scaffold(
         modifier = modifier,
         floatingActionButton = {
             AddButton(onAdd = onAdd)
         },
+        topBar = {
+            TopBar(onNavigateUp = onNavigateUp)
+        },
     ) {
-        LazyColumn {
-            items(count = memoItems.itemCount) {
-                Text(memoItems[it].orEmpty())
-            }
-        }
+        Content(
+            modifier = Modifier.padding(it),
+            memoItems = memoItems,
+        )
     }
 }
 
@@ -32,5 +46,43 @@ private fun AddButton(modifier: Modifier = Modifier, onAdd: () -> Unit) {
         onClick = onAdd,
     ) {
         AddIcon()
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun TopBar(modifier: Modifier = Modifier, onNavigateUp: () -> Unit) {
+    TopAppBar(
+        modifier = modifier,
+        title = {},
+        navigationIcon = {
+            IconButton(onClick = onNavigateUp) {
+                NavigateUpIcon()
+            }
+        },
+    )
+}
+
+@Composable
+private fun Content(modifier: Modifier = Modifier, memoItems: LazyPagingItems<MemoUiState>) {
+    LazyColumn(
+        modifier = modifier,
+        contentPadding = PaddingValues(12.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        items(
+            count = memoItems.itemCount,
+            key = memoItems.itemKey { it.id },
+            contentType = memoItems.itemContentType { "Memo" },
+        ) {
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Text(
+                    modifier = Modifier.padding(12.dp),
+                    text = memoItems[it]?.title.orEmpty(),
+                )
+            }
+        }
     }
 }

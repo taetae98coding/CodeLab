@@ -27,6 +27,7 @@ public class MemoEntry(
         when (route) {
             MemoListRoute -> MemoListEntry(
                 context = context,
+                onNavigateUp = navigation::pop,
                 onNavigateToMemoAdd = ::navigateToMemoAdd,
             )
 
