@@ -15,6 +15,8 @@ dependencies {
 
     implementation(libs.bundles.room)
     ksp(libs.room.compiler)
+
+    implementation(libs.paging.common)
 }
 
 room {

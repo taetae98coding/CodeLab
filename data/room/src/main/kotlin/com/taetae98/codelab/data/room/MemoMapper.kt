@@ -8,3 +8,10 @@ internal fun MemoDto.toEntity(): MemoEntity {
         title = title,
     )
 }
+
+internal fun MemoEntity.toDto(): MemoDto {
+    return MemoDto(
+        id = id,
+        title = title,
+    )
+}

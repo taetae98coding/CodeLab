@@ -20,15 +20,14 @@ public fun NavGraphBuilder.memoEntry(
         composable(MemoListEntry.ROUTE) {
             MemoListRoute(
                 onAdd = navController::navigateToMemoAdd,
+                viewModel = hiltViewModel<MemoListViewModelImpl>(),
             )
         }
 
         composable(MemoAddEntry.ROUTE) {
-            val viewModel = hiltViewModel<MemoAddViewModelImpl>()
-
             MemoAddRoute(
                 onNavigateUp = navController::navigateUp,
-                viewModel = viewModel,
+                viewModel = hiltViewModel<MemoAddViewModelImpl>(),
             )
         }
     }

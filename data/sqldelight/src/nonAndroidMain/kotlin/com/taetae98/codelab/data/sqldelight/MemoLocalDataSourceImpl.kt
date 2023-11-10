@@ -42,9 +42,9 @@ internal class MemoLocalDataSourceImpl(
                     countQuery = queries.count(),
                     transacter = queries,
                     context = databaseDispatcher,
-                    queryProvider = queries::paging
+                    queryProvider = queries::paging,
                 )
-            }
+            },
         )
 
         return pager.flow.map { it.map(MemoEntity::toDto) }
