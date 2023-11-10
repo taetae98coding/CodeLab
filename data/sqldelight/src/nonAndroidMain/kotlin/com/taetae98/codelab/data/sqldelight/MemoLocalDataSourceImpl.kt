@@ -31,6 +31,12 @@ internal class MemoLocalDataSourceImpl(
         }
     }
 
+    override suspend fun delete(id: Long) {
+        withContext(databaseDispatcher) {
+            memoDatabase.memoEntityQueries.delete(id)
+        }
+    }
+
     override fun page(): Flow<PagingData<MemoDto>> {
         val pager = createPager(
             config = createPagingConfig(pageSize = PAGE_SIZE),

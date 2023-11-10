@@ -13,6 +13,10 @@ VALUES ?
 ON CONFLICT (id) DO
 UPDATE SET title = excluded.title;
 
+delete:
+DELETE FROM MemoEntity
+WHERE id = ?;
+
 count:
 SELECT count(*) FROM MemoEntity;
 
