@@ -8,7 +8,7 @@ import com.taetae98.codelab.library.inject.KInject
 import org.koin.core.annotation.Factory
 
 @Factory
-public class MemoUpsertUseCase @KInject internal constructor(
+public class UpsertMemoUseCase @KInject internal constructor(
     private val memoRepository: MemoRepository,
 ) : UseCase<Memo, Unit>() {
     override suspend fun execute(params: Memo) {

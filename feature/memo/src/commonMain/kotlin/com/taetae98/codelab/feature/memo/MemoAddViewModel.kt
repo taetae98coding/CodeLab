@@ -2,7 +2,7 @@ package com.taetae98.codelab.feature.memo
 
 import com.taetae98.codelab.compose.textfield.TextFieldUiState
 import com.taetae98.codelab.domain.entity.Memo
-import com.taetae98.codelab.domain.usecase.memo.MemoUpsertUseCase
+import com.taetae98.codelab.domain.usecase.memo.UpsertMemoUseCase
 import com.taetae98.codelab.library.lifecycle.KSavedStateHandle
 import com.taetae98.codelab.library.lifecycle.KViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,7 +16,7 @@ import org.koin.core.annotation.Factory
 @Factory
 internal open class MemoAddViewModel(
     private val kSavedStateHandle: KSavedStateHandle,
-    private val memoUpsertUseCase: MemoUpsertUseCase,
+    private val upsertMemoUseCase: UpsertMemoUseCase,
 ) : KViewModel() {
 
     val uiState = MemoAddUiState(
@@ -53,7 +53,7 @@ internal open class MemoAddViewModel(
                 title = title.value,
             )
 
-            memoUpsertUseCase(memo)
+            upsertMemoUseCase(memo)
                 .onSuccess { setTitle("") }
                 .onSuccess { updateMessage(MemoMessage.Upsert) }
         }

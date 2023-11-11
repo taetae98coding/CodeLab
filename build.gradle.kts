@@ -16,6 +16,8 @@ plugins {
     alias(libs.plugins.hilt).apply(false)
     alias(libs.plugins.room).apply(false)
 
+    alias(libs.plugins.kotest.multiplatform).apply(false)
+
     alias(libs.plugins.spotless)
     alias(libs.plugins.ksp).apply(false)
 }
