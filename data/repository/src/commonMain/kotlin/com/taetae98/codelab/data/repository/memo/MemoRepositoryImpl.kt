@@ -1,6 +1,8 @@
 package com.taetae98.codelab.data.repository.memo
 
 import app.cash.paging.PagingData
+import app.cash.paging.createPager
+import app.cash.paging.createPagingConfig
 import app.cash.paging.map
 import com.taetae98.codelab.data.dto.MemoDto
 import com.taetae98.codelab.data.local.MemoLocalDataSource
@@ -24,7 +26,19 @@ internal class MemoRepositoryImpl @KInject constructor(
     }
 
     override fun page(): Flow<PagingData<Memo>> {
-        return memoLocalDataSource.page()
-            .map { it.map(MemoDto::toDomain) }
+        val pager = createPager(
+            config = createPagingConfig(
+                pageSize = PAGE_SIZE
+            ),
+            pagingSourceFactory = {
+                memoLocalDataSource.page()
+            },
+        )
+
+        return pager.flow.map { it.map(MemoDto::toDomain) }
+    }
+
+    companion object {
+        private const val PAGE_SIZE = 30
     }
 }

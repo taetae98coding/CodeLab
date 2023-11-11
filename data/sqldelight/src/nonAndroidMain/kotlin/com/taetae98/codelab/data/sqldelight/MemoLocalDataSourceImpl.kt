@@ -1,16 +1,10 @@
 package com.taetae98.codelab.data.sqldelight
 
-import app.cash.paging.PagingData
-import app.cash.paging.createPager
-import app.cash.paging.createPagingConfig
-import app.cash.paging.map
+import app.cash.paging.PagingSource
 import app.cash.sqldelight.paging3.QueryPagingSource
-import com.taetae98.codelab.core.database.MemoEntity
 import com.taetae98.codelab.data.dto.MemoDto
 import com.taetae98.codelab.data.local.MemoLocalDataSource
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import org.koin.core.annotation.Factory
 import org.koin.core.annotation.Named
@@ -37,26 +31,16 @@ internal class MemoLocalDataSourceImpl(
         }
     }
 
-    override fun page(): Flow<PagingData<MemoDto>> {
-        val pager = createPager(
-            config = createPagingConfig(pageSize = PAGE_SIZE),
-            initialKey = null,
-            pagingSourceFactory = {
-                val queries = memoDatabase.memoEntityQueries
+    override fun page(): PagingSource<Int, MemoDto> {
+        val queries = memoDatabase.memoEntityQueries
 
-                QueryPagingSource(
-                    countQuery = queries.count(),
-                    transacter = queries,
-                    context = databaseDispatcher,
-                    queryProvider = queries::paging,
-                )
+        return QueryPagingSource(
+            countQuery = queries.count(),
+            transacter = queries,
+            context = databaseDispatcher,
+            queryProvider = { limit, offset ->
+                queries.paging(limit, offset, ::MemoDto)
             },
         )
-
-        return pager.flow.map { it.map(MemoEntity::toDto) }
-    }
-
-    companion object {
-        private const val PAGE_SIZE = 30
     }
 }
