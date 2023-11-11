@@ -32,6 +32,7 @@ public class AppEntry(
                     context = context,
                     onWebView = ::navigateToWebView,
                     onMemo = ::navigateToMemo,
+                    onPoke = ::navigateToPoke,
                 )
 
                 WebViewRoute -> WebViewEntry(
@@ -55,5 +56,8 @@ public class AppEntry(
 
     private fun navigateToMemo() {
         navigation.push(MemoRoute)
+    }
+
+    private fun navigateToPoke() {
     }
 }

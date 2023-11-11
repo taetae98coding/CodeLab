@@ -10,5 +10,6 @@ public fun MainEntry(modifier: Modifier = Modifier, entry: MainEntry) {
         modifier = modifier,
         onWebView = entry.onWebView,
         onMemo = entry.onMemo,
+        onPoke = entry.onPoke,
     )
 }

@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.collections.immutable.persistentListOf
 
 @Composable
-internal fun MainRoute(modifier: Modifier = Modifier, onWebView: () -> Unit, onMemo: () -> Unit) {
+internal fun MainRoute(modifier: Modifier = Modifier, onWebView: () -> Unit, onMemo: () -> Unit, onPoke: () -> Unit) {
     Scaffold(
         modifier = modifier,
         topBar = { TopBar() },
@@ -24,6 +24,7 @@ internal fun MainRoute(modifier: Modifier = Modifier, onWebView: () -> Unit, onM
                 .fillMaxSize(),
             onWebView = onWebView,
             onMemo = onMemo,
+            onPoke = onPoke,
         )
     }
 }
@@ -40,7 +41,7 @@ private fun TopBar(modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun MainItemColum(modifier: Modifier = Modifier, onWebView: () -> Unit, onMemo: () -> Unit) {
+private fun MainItemColum(modifier: Modifier = Modifier, onWebView: () -> Unit, onMemo: () -> Unit, onPoke: () -> Unit) {
     Column(
         modifier = modifier.padding(horizontal = 8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -58,12 +59,33 @@ private fun MainItemColum(modifier: Modifier = Modifier, onWebView: () -> Unit, 
                 Platform.ANDROID,
                 Platform.IOS,
                 Platform.JVM,
+            ),
+            description = """
+                Database CodeLab
+                - Android : Room
+                - Non android : SQLDelight
+
+                Simple memo app.
+            """.trimIndent(),
+            onClick = onMemo,
+        )
+
+        MainItem(
+            title = "Poke CodeLab",
+            platformList = persistentListOf(
+                Platform.ANDROID,
+                Platform.IOS,
+                Platform.JVM,
                 Platform.JS,
             ),
             description = """
-                Platform Database CodeLab
+                Network, Paging API CodeLab
+                - Paging3
+                - Ktor
+
+                Poke list.
             """.trimIndent(),
-            onClick = onMemo,
+            onClick = onPoke,
         )
     }
 }
