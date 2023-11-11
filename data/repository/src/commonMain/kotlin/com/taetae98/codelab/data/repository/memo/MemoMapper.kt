@@ -1,4 +1,4 @@
-package com.taetae98.codelab.data.repository
+package com.taetae98.codelab.data.repository.memo
 
 import com.taetae98.codelab.data.dto.MemoDto
 import com.taetae98.codelab.domain.entity.Memo

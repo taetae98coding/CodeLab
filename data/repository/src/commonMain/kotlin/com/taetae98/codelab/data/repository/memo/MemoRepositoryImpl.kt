@@ -1,4 +1,4 @@
-package com.taetae98.codelab.data.repository
+package com.taetae98.codelab.data.repository.memo
 
 import app.cash.paging.PagingData
 import app.cash.paging.map
