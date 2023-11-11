@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-public class MemoLocalDataSourceImpl @Inject internal constructor(
+internal class MemoLocalDataSourceImpl @Inject internal constructor(
     private val memoDatabase: MemoDatabase,
 ) : MemoLocalDataSource {
     override suspend fun upsert(memo: MemoDto) {

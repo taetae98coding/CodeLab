@@ -38,6 +38,7 @@ include(
     ":data:dto",
     ":data:repository",
     ":data:local",
+    ":data:remote",
     ":data:room",
     ":data:sqldelight",
 )
