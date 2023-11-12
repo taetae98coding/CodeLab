@@ -6,7 +6,7 @@ import org.koin.core.annotation.Factory
 
 @Factory
 public class PokeRemoteDataSource @KInject internal constructor(
-    
+    private val pokeService: PokeService,
 ) {
     public suspend fun page(limit: Int, offset: Int): List<PokeDto> {
         return emptyList()
