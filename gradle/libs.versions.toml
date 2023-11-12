@@ -26,6 +26,7 @@ hilt = "1.1.0"                                      # https://developer.android.
 
 sqldelight = "2.0.0"                                # https://github.com/cashapp/sqldelight
 paging = "3.3.0-alpha02-0.4.0"                      # https://github.com/cashapp/multiplatform-paging/releases
+ktor = "2.3.6"                                      # https://github.com/ktorio/ktor/releases
 
 koin = "3.5.1"                                      # https://github.com/InsertKoinIO/koin/releases
 koin-annotations = "1.3.0"                          # https://github.com/InsertKoinIO/koin-annotations/releases
@@ -90,6 +91,12 @@ sqldelight-dialect = { group = "app.cash.sqldelight", name = "sqlite-3-38-dialec
 
 paging-common = { group = "app.cash.paging", name = "paging-common", version.ref = "paging" }
 paging-compose = { group = "app.cash.paging", name = "paging-compose-common", version.ref = "paging" }
+
+ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
+ktor-cio = { group = "io.ktor", name = "ktor-client-cio", version.ref = "ktor" }
+ktor-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-mock = { group = "io.ktor", name = "ktor-client-mock", version.ref = "ktor" }
 
 kotest-framework = { group = "io.kotest", name = "kotest-framework-engine", version.ref = "kotest" }
 kotest-junit5 = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
