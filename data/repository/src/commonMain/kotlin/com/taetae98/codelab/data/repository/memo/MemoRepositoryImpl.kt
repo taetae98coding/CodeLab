@@ -28,7 +28,7 @@ internal class MemoRepositoryImpl @KInject constructor(
     override fun page(): Flow<PagingData<Memo>> {
         val pager = createPager(
             config = createPagingConfig(
-                pageSize = PAGE_SIZE
+                pageSize = PAGE_SIZE,
             ),
             pagingSourceFactory = {
                 memoLocalDataSource.page()

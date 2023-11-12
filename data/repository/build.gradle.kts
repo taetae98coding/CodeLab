@@ -19,6 +19,12 @@ kotlin {
                 implementation(libs.paging.common)
             }
         }
+
+        androidMain {
+            dependencies {
+                implementation("androidx.paging:paging-common:3.3.0-alpha02")
+            }
+        }
     }
 }
 
