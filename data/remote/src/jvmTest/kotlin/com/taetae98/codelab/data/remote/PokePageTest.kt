@@ -11,7 +11,6 @@ import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
 import io.ktor.http.HttpHeaders
 import io.ktor.http.headersOf
-import org.koin.core.qualifier.StringQualifier
 import org.koin.dsl.module
 import org.koin.ksp.generated.module
 import org.koin.test.KoinTest
@@ -22,7 +21,7 @@ class PokePageTest : BehaviorSpec(), KoinTest {
         val modules = listOf(
             RemoteDataSourceModule().module,
             module {
-                single<HttpClientEngine>(qualifier = StringQualifier(HttpClientModule.CLIENT_ENGINE)) {
+                single<HttpClientEngine> {
                     MockEngine {
                         respond(
                             content = fileAsText("poke/poke_list.json"),

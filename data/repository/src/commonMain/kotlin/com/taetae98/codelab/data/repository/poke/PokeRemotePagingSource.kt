@@ -24,6 +24,6 @@ internal class PokeRemotePagingSource(
             data = data,
             prevKey = null,
             nextKey = null,
-        )
+        ) as PagingSourceLoadResult<Int, PokeDto>
     }
 }

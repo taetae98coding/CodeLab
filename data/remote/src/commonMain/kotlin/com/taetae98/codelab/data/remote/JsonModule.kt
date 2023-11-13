@@ -8,8 +8,8 @@ import org.koin.core.annotation.Singleton
 @Module
 internal class JsonModule {
 
-    @Singleton
     @Named(POKE_JSON)
+    @Singleton
     fun providesPokeJson(): Json {
         return Json {
             ignoreUnknownKeys = true

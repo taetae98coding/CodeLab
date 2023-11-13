@@ -15,7 +15,6 @@ internal class HttpClientModule {
     @Singleton
     @Named(POKE_CLIENT)
     fun providesPokeHttpClient(
-        @Named(CLIENT_ENGINE)
         engine: HttpClientEngine,
         @Named(JsonModule.POKE_JSON)
         json: Json,
@@ -32,7 +31,6 @@ internal class HttpClientModule {
     }
 
     companion object {
-        const val CLIENT_ENGINE = "clientEngine"
         const val POKE_CLIENT = "pokeClient"
     }
 }

@@ -1,6 +1,7 @@
 
 plugins {
     id("codelab.multiplatform")
+    id("codelab.hilt.multiplatform")
     id("codelab.koin.multiplatform")
     alias(libs.plugins.kotlin.serialization)
 }
@@ -30,6 +31,12 @@ kotlin {
             }
         }
 
+        androidMain {
+            dependencies {
+                implementation(libs.ktor.okhttp)
+            }
+        }
+
         iosMain {
             dependencies {
                 implementation(libs.ktor.darwin)
@@ -38,7 +45,7 @@ kotlin {
 
         jvmMain {
             dependencies {
-                implementation(libs.ktor.java)
+                implementation(libs.ktor.okhttp)
             }
         }
 
