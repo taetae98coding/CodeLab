@@ -133,4 +133,5 @@ spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 [bundles]
+decompose = ["decompose", "decompose-compose"]
 room = ["room-runtime", "room-ktx", "room-paging"]

@@ -38,8 +38,7 @@ kotlin {
 
         nonAndroidMain {
             dependencies {
-                implementation(libs.decompose)
-                implementation(libs.decompose.compose)
+                implementation(libs.bundles.decompose)
                 implementation(project.dependencies.platform(libs.koin.bom))
                 implementation(libs.koin.compose)
             }

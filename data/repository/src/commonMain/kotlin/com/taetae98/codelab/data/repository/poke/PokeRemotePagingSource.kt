@@ -29,6 +29,6 @@ internal class PokeRemotePagingSource(
             )
         } catch (e: Exception) {
             PagingSourceLoadResultError(throwable = e)
-        } as PagingSourceLoadResult<Int, PokeDto>
+        }
     }
 }

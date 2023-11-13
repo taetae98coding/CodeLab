@@ -10,8 +10,10 @@ import com.arkivanov.decompose.value.Value
 import com.taetae98.codelab.navigation.core.illegalRoute
 import com.taetae98.codelab.navigation.core.main.MainEntry
 import com.taetae98.codelab.navigation.core.memo.MemoEntry
+import com.taetae98.codelab.navigation.core.poke.PokeEntry
 import com.taetae98.codelab.navigation.core.route.MainRoute
 import com.taetae98.codelab.navigation.core.route.MemoRoute
+import com.taetae98.codelab.navigation.core.route.PokeRoute
 import com.taetae98.codelab.navigation.core.route.Route
 import com.taetae98.codelab.navigation.core.route.WebViewRoute
 import com.taetae98.codelab.navigation.core.webview.WebViewEntry
@@ -45,6 +47,11 @@ public class AppEntry(
                     onNavigateUp = navigation::pop,
                 )
 
+                PokeRoute -> PokeEntry(
+                    context = context,
+                    onNavigateUp = navigation::pop,
+                )
+
                 else -> illegalRoute(route)
             }
         },
@@ -59,5 +66,6 @@ public class AppEntry(
     }
 
     private fun navigateToPoke() {
+        navigation.push(PokeRoute)
     }
 }

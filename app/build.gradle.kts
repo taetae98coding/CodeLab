@@ -9,13 +9,14 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(project(":navigation:core"))
-                implementation(project(":feature:main"))
-                implementation(project(":feature:webview"))
-                implementation(project(":feature:memo"))
                 implementation(project(":data:local"))
                 implementation(project(":data:remote"))
                 implementation(project(":data:repository"))
                 implementation(project(":domain:usecase"))
+                implementation(project(":feature:main"))
+                implementation(project(":feature:webview"))
+                implementation(project(":feature:memo"))
+                implementation(project(":feature:poke"))
 
                 implementation(compose.material3)
                 implementation(libs.coroutines.core)
