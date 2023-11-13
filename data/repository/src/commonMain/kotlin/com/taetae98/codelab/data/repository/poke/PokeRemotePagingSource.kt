@@ -17,18 +17,14 @@ internal class PokeRemotePagingSource(
     }
 
     override suspend fun load(params: PagingSourceLoadParams<Int>): PagingSourceLoadResult<Int, PokeDto> {
-        return try {
-            val limit = params.key ?: 0
-            val offset = params.loadSize
-            val data = pokeRemoteDataSource.page(limit, offset)
+        val limit = params.key ?: 0
+        val offset = params.loadSize
+        val data = pokeRemoteDataSource.page(limit, offset)
 
-            PagingSourceLoadResultPage<Int, PokeDto>(
-                data = data,
-                prevKey = null,
-                nextKey = null,
-            )
-        } catch (e: Exception) {
-            PagingSourceLoadResultError<Int, PokeDto>(throwable = e)
-        } as PagingSourceLoadResult<Int, PokeDto>
+        return PagingSourceLoadResultPage<Int, PokeDto>(
+            data = data,
+            prevKey = null,
+            nextKey = null,
+        )
     }
 }

@@ -21,6 +21,7 @@ internal class PokeRepositoryImpl @KInject constructor(
         val pager = createPager(
             config = createPagingConfig(
                 pageSize = PAGE_SIZE,
+                initialLoadSize = PAGE_SIZE,
             ),
             pagingSourceFactory = {
                 PokeRemotePagingSource(pokeRemoteDataSource)

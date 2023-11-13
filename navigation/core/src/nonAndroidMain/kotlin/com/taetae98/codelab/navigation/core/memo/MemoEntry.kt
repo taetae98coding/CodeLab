@@ -14,7 +14,7 @@ import com.taetae98.codelab.navigation.core.route.Route
 
 public class MemoEntry(
     context: ComponentContext,
-    public val onNavigateUp: () -> Unit,
+    private val onNavigateUp: () -> Unit,
 ) : ComponentContext by context {
     private val navigation = StackNavigation<Route>()
 

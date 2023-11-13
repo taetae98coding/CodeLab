@@ -2,6 +2,7 @@ package com.taetae98.codelab.data.remote
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine
+import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
@@ -20,6 +21,10 @@ internal class HttpClientModule {
         json: Json,
     ): HttpClient {
         return HttpClient(engine) {
+            install(DefaultRequest) {
+                url("https://pokeapi.co/api/v2/")
+            }
+
             install(ContentNegotiation) {
                 json(json)
             }

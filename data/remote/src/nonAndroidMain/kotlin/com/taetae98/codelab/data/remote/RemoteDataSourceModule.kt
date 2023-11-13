@@ -6,6 +6,7 @@ import org.koin.core.annotation.Module
 @Module(
     includes = [
         JsonModule::class,
+        HttpClientEngineModule::class,
         HttpClientModule::class,
     ],
 )

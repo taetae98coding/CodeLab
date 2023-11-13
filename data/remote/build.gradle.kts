@@ -30,6 +30,12 @@ kotlin {
             }
         }
 
+        jvmMain {
+            dependencies {
+                implementation(libs.ktor.java)
+            }
+        }
+
         jvmTest {
             dependencies {
                 implementation(libs.kotest.junit5)
