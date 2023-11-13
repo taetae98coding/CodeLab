@@ -12,6 +12,7 @@ dependencies {
     compileOnly(libs.ksp.gradle)
     compileOnly(libs.android.gradle)
     compileOnly(libs.hilt.gradle)
+    compileOnly(libs.compose.multiplatform.gradle)
 }
 
 gradlePlugin {
@@ -44,6 +45,11 @@ gradlePlugin {
         register("codelab.multiplatform") {
             id = "codelab.multiplatform"
             implementationClass = "plugin.multiplatform.MultiplatformPlugin"
+        }
+
+        register("codelab.feature") {
+            id = "codelab.feature"
+            implementationClass = "plugin.multiplatform.FeaturePlugin"
         }
 
         register("codelab.compose.android") {

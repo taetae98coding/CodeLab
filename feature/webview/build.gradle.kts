@@ -1,29 +1,13 @@
 plugins {
-    id("codelab.multiplatform")
-    alias(libs.plugins.compose.multiplatform)
+    id("codelab.feature")
 }
 
 kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":navigation:core"))
-                implementation(project(":compose"))
                 implementation(project(":library:webview"))
-
                 implementation(compose.material3)
-            }
-        }
-
-        androidMain {
-            dependencies {
-                implementation(libs.navigation.compose)
-            }
-        }
-
-        nonAndroidMain {
-            dependencies {
-                implementation(libs.decompose)
             }
         }
     }

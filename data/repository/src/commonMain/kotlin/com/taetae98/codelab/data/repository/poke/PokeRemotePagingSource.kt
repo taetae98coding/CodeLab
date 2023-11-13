@@ -22,13 +22,13 @@ internal class PokeRemotePagingSource(
             val offset = params.loadSize
             val data = pokeRemoteDataSource.page(limit, offset)
 
-            PagingSourceLoadResultPage(
+            PagingSourceLoadResultPage<Int, PokeDto>(
                 data = data,
                 prevKey = null,
                 nextKey = null,
             )
         } catch (e: Exception) {
-            PagingSourceLoadResultError(throwable = e)
-        }
+            PagingSourceLoadResultError<Int, PokeDto>(throwable = e)
+        } as PagingSourceLoadResult<Int, PokeDto>
     }
 }
