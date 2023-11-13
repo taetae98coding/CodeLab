@@ -1,3 +1,4 @@
+
 plugins {
     id("codelab.multiplatform")
     id("codelab.koin.multiplatform")
@@ -32,6 +33,8 @@ kotlin {
         jvmTest {
             dependencies {
                 implementation(libs.kotest.junit5)
+                implementation(libs.kotest.koin)
+                implementation(libs.koin.testz)
             }
         }
     }

@@ -6,9 +6,11 @@ import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import org.koin.core.annotation.Factory
+import org.koin.core.annotation.Named
 
 @Factory
 internal class PokeService @KInject constructor(
+    @Named(HttpClientModule.POKE_CLIENT)
     private val client: HttpClient,
 ) {
     suspend fun page(limit: Int, offset: Int): PokePageEntity {

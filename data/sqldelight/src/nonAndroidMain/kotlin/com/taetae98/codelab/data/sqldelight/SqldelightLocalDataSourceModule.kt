@@ -9,6 +9,6 @@ import org.koin.core.annotation.Module
 @ComponentScan
 public class SqldelightLocalDataSourceModule {
     public companion object {
-        public const val DATABASE_DISPATCHER: String = "databaseDispatcher"
+        internal const val DATABASE_DISPATCHER: String = "databaseDispatcher"
     }
 }
