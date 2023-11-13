@@ -25,7 +25,6 @@ kotlin {
         iosMain {
             dependencies {
                 implementation(project(":app"))
-                implementation(project(":data:sqldelight"))
                 implementation(compose.ui)
 
                 implementation(project.dependencies.platform(libs.koin.bom))

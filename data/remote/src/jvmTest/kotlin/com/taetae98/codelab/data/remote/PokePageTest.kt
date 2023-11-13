@@ -17,7 +17,7 @@ class PokePageTest : BehaviorSpec({
         val engin = MockEngine {
             respond(
                 content = fileAsText("poke/poke_list.json"),
-                headers = headersOf(HttpHeaders.ContentType, "application/json")
+                headers = headersOf(HttpHeaders.ContentType, "application/json"),
             )
         }
         val client = HttpClient(engin) {
@@ -25,7 +25,7 @@ class PokePageTest : BehaviorSpec({
                 json(
                     Json {
                         ignoreUnknownKeys = true
-                    }
+                    },
                 )
             }
         }

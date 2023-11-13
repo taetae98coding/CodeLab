@@ -13,7 +13,7 @@ kotlin {
                 implementation(project(":feature:webview"))
                 implementation(project(":feature:memo"))
                 implementation(project(":data:local"))
-                implementation(project(":data:sqldelight"))
+                implementation(project(":data:remote"))
                 implementation(project(":data:repository"))
                 implementation(project(":domain:usecase"))
 
@@ -34,6 +34,12 @@ kotlin {
                 implementation(project(":data:sqldelight"))
                 implementation(libs.decompose)
                 implementation(libs.decompose.compose)
+            }
+        }
+
+        jvmMain {
+            dependencies {
+                implementation(libs.coroutines.swing)
             }
         }
     }
