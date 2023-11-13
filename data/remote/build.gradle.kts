@@ -30,6 +30,12 @@ kotlin {
             }
         }
 
+        iosMain {
+            dependencies {
+                implementation(libs.ktor.darwin)
+            }
+        }
+
         jvmMain {
             dependencies {
                 implementation(libs.ktor.java)
@@ -41,6 +47,12 @@ kotlin {
                 implementation(libs.kotest.junit5)
                 implementation(libs.kotest.koin)
                 implementation(libs.koin.testz)
+            }
+        }
+
+        jsMain {
+            dependencies {
+                implementation(libs.ktor.js)
             }
         }
     }

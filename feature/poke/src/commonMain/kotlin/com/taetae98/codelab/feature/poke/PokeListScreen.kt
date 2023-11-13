@@ -7,15 +7,12 @@ import androidx.compose.ui.Modifier
 import app.cash.paging.compose.LazyPagingItems
 
 @Composable
-internal fun PokeListScreen(
-    modifier: Modifier = Modifier,
-    pokeItems: LazyPagingItems<String>
-) {
+internal fun PokeListScreen(modifier: Modifier = Modifier, pokeItems: LazyPagingItems<String>) {
     LazyColumn(
         modifier = modifier,
     ) {
         items(
-            count = pokeItems.itemCount
+            count = pokeItems.itemCount,
         ) {
             Text(text = pokeItems[it].orEmpty())
         }
