@@ -71,5 +71,10 @@ gradlePlugin {
             id = "codelab.hilt.multiplatform"
             implementationClass = "plugin.hilt.HiltMultiplatformPlugin"
         }
+
+        register("codelab.kotest.multiplatform") {
+            id = "codelab.kotest.multiplatform"
+            implementationClass = "plugin.kotest.KotestMultiplatformPlugin"
+        }
     }
 }

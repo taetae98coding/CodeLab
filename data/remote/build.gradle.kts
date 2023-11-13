@@ -3,6 +3,7 @@ plugins {
     id("codelab.multiplatform")
     id("codelab.hilt.multiplatform")
     id("codelab.koin.multiplatform")
+    id("codelab.kotest.multiplatform")
     alias(libs.plugins.kotlin.serialization)
 }
 
@@ -13,20 +14,13 @@ kotlin {
                 implementation(project(":library:inject"))
                 implementation(project(":data:dto"))
 
-                implementation(libs.ktor.core)
-                implementation(libs.ktor.content.negotiation)
-                implementation(libs.ktor.serialization)
-
+                implementation(libs.bundles.ktor)
                 implementation(libs.kotlin.serialization)
             }
         }
 
         commonTest {
             dependencies {
-                implementation(libs.kotest.framework)
-                implementation(libs.kotest.assertions)
-                implementation(libs.kotest.property)
-
                 implementation(libs.ktor.mock)
             }
         }
@@ -51,9 +45,8 @@ kotlin {
 
         jvmTest {
             dependencies {
-                implementation(libs.kotest.junit5)
                 implementation(libs.kotest.koin)
-                implementation(libs.koin.testz)
+                implementation(libs.koin.test)
             }
         }
 
@@ -67,8 +60,18 @@ kotlin {
 
 android {
     namespace = "${Build.NAMESPACE}.data.remote"
+
+    defaultConfig {
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    testOptions {
+        unitTests.all {
+            it.useJUnitPlatform()
+        }
+    }
 }
 
-tasks.named<Test>("jvmTest") {
-    useJUnitPlatform()
+dependencies {
+    kspAndroidTest(libs.hilt.compiler)
 }

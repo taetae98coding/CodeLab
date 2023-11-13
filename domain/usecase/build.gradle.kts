@@ -1,7 +1,7 @@
 plugins {
     id("codelab.multiplatform")
     id("codelab.koin.multiplatform")
-    alias(libs.plugins.kotest.multiplatform)
+    id("codelab.kotest.multiplatform")
 }
 
 kotlin {
@@ -18,17 +18,8 @@ kotlin {
             }
         }
 
-        commonTest {
-            dependencies {
-                implementation(libs.kotest.framework)
-                implementation(libs.kotest.assertions)
-                implementation(libs.kotest.property)
-            }
-        }
-
         jvmTest {
             dependencies {
-                implementation(libs.kotest.junit5)
                 implementation(libs.mockk)
             }
         }
@@ -37,8 +28,4 @@ kotlin {
 
 android {
     namespace = "${Build.NAMESPACE}.domain.usecase"
-}
-
-tasks.named<Test>("jvmTest") {
-    useJUnitPlatform()
 }

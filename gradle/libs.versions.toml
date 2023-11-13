@@ -19,7 +19,7 @@ compose-multiplatform = "1.5.10"                    # https://github.com/JetBrai
 compose-bom = "2023.10.01"                          # https://developer.android.com/jetpack/compose/bom/bom-mapping
 
 decompose = "2.2.0-compose-experimental-alpha04"    # https://github.com/arkivanov/Decompose/releases
-essenty = "1.3.0-alpha03"                           # https://github.com/arkivanov/Essenty/releases
+essenty = "1.3.0-alpha04"                           # https://github.com/arkivanov/Essenty/releases
 
 dagger = "2.48.1"                                   # https://github.com/google/dagger/releases
 hilt = "1.1.0"                                      # https://developer.android.com/jetpack/androidx/releases/hilt
@@ -82,7 +82,7 @@ koin-compose = { group = "io.insert-koin", name = "koin-compose" }
 koin-annotations-bom = { group = "io.insert-koin", name = "koin-annotations-bom", version.ref = "koin-annotations" }
 koin-annotations = { group = "io.insert-koin", name = "koin-annotations" }
 koin-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler" }
-koin-testz = { group = "io.insert-koin", name = "koin-test" }
+koin-test = { group = "io.insert-koin", name = "koin-test" }
 
 decompose = { group = "com.arkivanov.decompose", name = "decompose", version.ref = "decompose" }
 decompose-compose = { group = "com.arkivanov.decompose", name = "extensions-compose-jetbrains", version.ref = "decompose" }
@@ -138,3 +138,5 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 [bundles]
 decompose = ["decompose", "decompose-compose"]
 room = ["room-runtime", "room-ktx", "room-paging"]
+ktor = ["ktor-core", "ktor-content-negotiation", "ktor-serialization"]
+kotest = ["kotest-framework", "kotest-assertions", "kotest-property"]

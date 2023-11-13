@@ -16,7 +16,7 @@ import org.koin.ksp.generated.module
 import org.koin.test.KoinTest
 import org.koin.test.inject
 
-class PokePageTest : BehaviorSpec(), KoinTest {
+class PokePageJvmTest : BehaviorSpec(), KoinTest {
     override fun extensions(): List<Extension> {
         val modules = listOf(
             RemoteDataSourceModule().module,
