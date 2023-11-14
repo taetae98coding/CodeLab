@@ -7,19 +7,18 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(compose.runtime)
-                implementation(libs.coroutines.core)
+                implementation(compose.ui)
             }
         }
 
         androidMain {
             dependencies {
-                implementation(libs.lifecycle.compose)
+                implementation(libs.coil.compose)
             }
         }
     }
 }
 
 android {
-    namespace = "${Build.NAMESPACE}.library.lifecycle.compose"
+    namespace = "${Build.NAMESPACE}.library.image"
 }

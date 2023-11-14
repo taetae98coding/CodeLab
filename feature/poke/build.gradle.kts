@@ -6,6 +6,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(project(":library:image"))
                 implementation(compose.material3)
                 implementation(libs.paging.compose)
             }

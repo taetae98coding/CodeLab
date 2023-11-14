@@ -1,6 +1,6 @@
 plugins {
     id("codelab.multiplatform")
-    alias(libs.plugins.compose.multiplatform)
+    id("codelab.compose.multiplatform")
     alias(libs.plugins.javafx)
 }
 

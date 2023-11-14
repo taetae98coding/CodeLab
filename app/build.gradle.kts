@@ -1,7 +1,7 @@
 plugins {
     id("codelab.multiplatform")
     id("codelab.koin.multiplatform")
-    alias(libs.plugins.compose.multiplatform)
+    id("codelab.compose.multiplatform")
 }
 
 kotlin {

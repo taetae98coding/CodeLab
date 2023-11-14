@@ -57,6 +57,11 @@ gradlePlugin {
             implementationClass = "plugin.compose.ComposeAndroidPlugin"
         }
 
+        register("codelab.compose.multiplatform") {
+            id = "codelab.compose.multiplatform"
+            implementationClass = "plugin.compose.ComposeMultiplatformPlugin"
+        }
+
         register("codelab.koin.multiplatform") {
             id = "codelab.koin.multiplatform"
             implementationClass = "plugin.koin.KoinMultiplatformPlugin"
