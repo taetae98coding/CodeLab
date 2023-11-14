@@ -27,12 +27,20 @@ internal class MultiplatformPlugin : Plugin<Project> {
         applyDefaultHierarchyTemplate()
         sourceSets {
             val nonAndroidMain = maybeCreate("nonAndroidMain")
+            val nonMobile = maybeCreate("nonMobileMain")
+            val iosTargetMain = getByName("iosTargetMain")
 
             nonAndroidMain.dependsOn(commonMain.get())
-            getByName("iosTargetMain").dependsOn(nonAndroidMain)
+            nonMobile.dependsOn(commonMain.get())
+            iosTargetMain.dependsOn(nonAndroidMain)
+
             iosMain.get().dependsOn(nonAndroidMain)
+
             jvmMain.get().dependsOn(nonAndroidMain)
+            jvmMain.get().dependsOn(nonMobile)
+
             jsMain.get().dependsOn(nonAndroidMain)
+            jsMain.get().dependsOn(nonMobile)
         }
     }
 }
