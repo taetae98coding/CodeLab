@@ -23,7 +23,7 @@ internal fun DependencyHandler.kspAndroidMain(
 public fun DependencyHandler.kspNonAndroidMain(
     dependencyNotation: Any,
 ) {
-    add("kspIosMain", dependencyNotation)
+    add("kspIosTarget", dependencyNotation)
     add("kspJvm", dependencyNotation)
     add("kspJs", dependencyNotation)
 }

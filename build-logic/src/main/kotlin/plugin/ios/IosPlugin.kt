@@ -19,6 +19,6 @@ internal class IosPlugin : Plugin<Project> {
         val isPhone = System.getenv("SDK_NAME")?.startsWith("iphoneos") ?: false
         val iosTarget: (String) -> KotlinNativeTarget = if (isPhone) ::iosArm64 else ::iosSimulatorArm64
 
-        iosTarget("iosMain")
+        iosTarget("iosTarget")
     }
 }
