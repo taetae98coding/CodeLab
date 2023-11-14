@@ -17,10 +17,16 @@ kotlin {
             }
         }
 
-        nonMobileMain {
+        nonAndroidMain {
             dependencies {
                 implementation(libs.ktor.core)
                 implementation(compose.foundation)
+            }
+        }
+
+        iosMain {
+            dependencies {
+                implementation(libs.ktor.darwin)
             }
         }
 

@@ -37,11 +37,13 @@ private fun getAsyncImage(uri: String): State<ImageBitmap?> {
     val state = remember { mutableStateOf<ImageBitmap?>(null) }
 
     LaunchedEffect(uri) {
-        val response = HttpClient().get(uri)
-        val bytes = response.bodyAsChannel().toByteArray()
-        val bitmap = Image.makeFromEncoded(bytes)
+        runCatching {
+            val response = HttpClient().get(uri)
+            val bytes = response.bodyAsChannel().toByteArray()
+            val bitmap = Image.makeFromEncoded(bytes)
 
-        state.value = bitmap.toComposeImageBitmap()
+            state.value = bitmap.toComposeImageBitmap()
+        }
     }
 
     return state
