@@ -1,6 +1,6 @@
 package com.taetae98.codelab.data.remote
 
-import com.taetae98.codelab.data.dto.PokeDto
+import com.taetae98.codelab.data.dto.PokePageDto
 import com.taetae98.codelab.library.inject.KInject
 import org.koin.core.annotation.Factory
 
@@ -8,14 +8,7 @@ import org.koin.core.annotation.Factory
 public class PokeRemoteDataSource @KInject internal constructor(
     private val pokeService: PokeService,
 ) {
-    public suspend fun page(limit: Int, offset: Int): List<PokeDto> {
-        return pokeService.page(limit, offset).data
-            .map {
-                PokeDto(
-                    id = it.id,
-                    name = it.name,
-                    image = "",
-                )
-            }
+    public suspend fun page(limit: Int, offset: Int): PokePageDto {
+        return pokeService.page(limit, offset).toDto()
     }
 }

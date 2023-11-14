@@ -16,7 +16,13 @@ internal open class PokeListViewModel(
         .mapLatest { it.getOrDefault(PagingData.empty()) }
         .cachedIn(kViewModelScope)
 
-    val pokeUiState = paging.mapLatest {
-        it.map { it.name }
+    val pokeUiState = paging.mapLatest { pagingData ->
+        pagingData.map {
+            PokeUiState(
+                id = it.id,
+                name = it.name,
+                image = it.image,
+            )
+        }
     }
 }

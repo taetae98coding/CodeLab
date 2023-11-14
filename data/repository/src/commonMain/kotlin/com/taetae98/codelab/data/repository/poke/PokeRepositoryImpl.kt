@@ -22,6 +22,7 @@ internal class PokeRepositoryImpl @KInject constructor(
             config = createPagingConfig(
                 pageSize = PAGE_SIZE,
                 initialLoadSize = PAGE_SIZE,
+                jumpThreshold = PAGE_SIZE * 3,
             ),
             pagingSourceFactory = {
                 PokeRemotePagingSource(pokeRemoteDataSource)
