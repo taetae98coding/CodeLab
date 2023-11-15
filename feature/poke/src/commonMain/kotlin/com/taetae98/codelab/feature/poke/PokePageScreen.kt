@@ -75,8 +75,6 @@ private fun Content(
     pagerState: PagerState,
     pokeItems: LazyPagingItems<PokeUiState>,
 ) {
-
-
     HorizontalPager(
         modifier = modifier,
         state = pagerState,

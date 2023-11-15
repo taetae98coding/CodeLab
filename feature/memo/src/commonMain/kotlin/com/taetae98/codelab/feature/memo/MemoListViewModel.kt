@@ -3,7 +3,7 @@ package com.taetae98.codelab.feature.memo
 import app.cash.paging.PagingData
 import app.cash.paging.cachedIn
 import com.taetae98.codelab.domain.usecase.memo.DeleteMemoUseCase
-import com.taetae98.codelab.domain.usecase.memo.MemoId
+import com.taetae98.codelab.domain.entity.MemoId
 import com.taetae98.codelab.domain.usecase.memo.PageMemoUseCase
 import com.taetae98.codelab.library.lifecycle.KViewModel
 import com.taetae98.codelab.library.paging.mapPagingLatest

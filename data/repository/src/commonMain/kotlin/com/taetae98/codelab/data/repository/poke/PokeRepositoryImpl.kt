@@ -7,6 +7,7 @@ import app.cash.paging.map
 import com.taetae98.codelab.data.dto.PokeDto
 import com.taetae98.codelab.data.remote.PokeRemoteDataSource
 import com.taetae98.codelab.domain.entity.Poke
+import com.taetae98.codelab.domain.entity.PokeDetail
 import com.taetae98.codelab.domain.repository.PokeRepository
 import com.taetae98.codelab.library.inject.KInject
 import kotlinx.coroutines.flow.Flow
@@ -30,6 +31,10 @@ internal class PokeRepositoryImpl @KInject constructor(
         )
 
         return pager.flow.map { it.map(PokeDto::toDomain) }
+    }
+
+    override suspend fun detail(id: Int): PokeDetail {
+        return pokeRemoteDataSource.detail(id).toDomain()
     }
 
     companion object {

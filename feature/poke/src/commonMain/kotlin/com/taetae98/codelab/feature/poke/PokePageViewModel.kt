@@ -2,6 +2,7 @@ package com.taetae98.codelab.feature.poke
 
 import app.cash.paging.PagingData
 import app.cash.paging.cachedIn
+import com.taetae98.codelab.domain.usecase.poke.GetPokeDetailUseCase
 import com.taetae98.codelab.domain.usecase.poke.PagePokeUseCase
 import com.taetae98.codelab.library.lifecycle.KSavedStateHandle
 import com.taetae98.codelab.library.lifecycle.KViewModel
@@ -14,6 +15,7 @@ import org.koin.core.annotation.Factory
 internal open class PokePageViewModel(
     kSavedStateHandle: KSavedStateHandle,
     pagePokeUseCase: PagePokeUseCase,
+    private val pokeDetailUseCase: GetPokeDetailUseCase,
 ) : KViewModel() {
     val initialIndex = kSavedStateHandle.getStateFlow(Parameter.INITIAL_INDEX, 0)
 

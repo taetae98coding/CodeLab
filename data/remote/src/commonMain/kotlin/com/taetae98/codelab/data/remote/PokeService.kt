@@ -22,4 +22,10 @@ internal class PokeService @KInject constructor(
 
         return response.body()
     }
+
+    suspend fun detail(id: Int): PokeDetailEntity {
+        val response = client.get("pokemon/$id")
+
+        return response.body()
+    }
 }

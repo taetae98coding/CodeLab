@@ -1,5 +1,6 @@
 package com.taetae98.codelab.domain.usecase.memo
 
+import com.taetae98.codelab.domain.entity.MemoId
 import com.taetae98.codelab.domain.repository.MemoRepository
 import com.taetae98.codelab.domain.usecase.core.UseCase
 import com.taetae98.codelab.library.inject.KInject

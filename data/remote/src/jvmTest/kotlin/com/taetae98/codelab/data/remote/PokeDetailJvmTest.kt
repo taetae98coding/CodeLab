@@ -5,6 +5,7 @@ import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.koin.KoinExtension
 import io.kotest.koin.KoinLifecycleMode
 import io.kotest.matchers.collections.shouldHaveSize
+import io.kotest.matchers.ints.shouldBeExactly
 import io.kotest.matchers.shouldBe
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.mock.MockEngine
@@ -16,7 +17,7 @@ import org.koin.ksp.generated.module
 import org.koin.test.KoinTest
 import org.koin.test.inject
 
-class PokePageJvmTest : BehaviorSpec(), KoinTest {
+class PokeDetailJvmTest : BehaviorSpec(), KoinTest {
     override fun extensions(): List<Extension> {
         val modules = listOf(
             RemoteDataSourceModule().module,
@@ -24,7 +25,7 @@ class PokePageJvmTest : BehaviorSpec(), KoinTest {
                 single<HttpClientEngine> {
                     MockEngine {
                         respond(
-                            content = fileAsText("poke/poke_list.json"),
+                            content = fileAsText("poke/poke_detail.json"),
                             headers = headersOf(HttpHeaders.ContentType, "application/json"),
                         )
                     }
@@ -38,13 +39,14 @@ class PokePageJvmTest : BehaviorSpec(), KoinTest {
     private val service by inject<PokeService>()
 
     init {
-        Given("PokeService page test.") {
-            When("Call limit : 20, offset : 0") {
-                val page = service.page(20, 0)
+        Given("PokeService detail test") {
+            When("Call id 132") {
+                val detail = service.detail(132)
 
                 Then("Total count should be set and data size is limit(20)") {
-                    page.count shouldBe 1292
-                    page.data shouldHaveSize 20
+                    detail.id shouldBeExactly 132
+                    detail.name shouldBe "ditto"
+                    detail.images() shouldHaveSize 77
                 }
             }
         }
