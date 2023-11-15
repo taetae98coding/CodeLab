@@ -6,7 +6,6 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(libs.kotlin.immutable)
                 implementation(compose.material3)
             }
         }

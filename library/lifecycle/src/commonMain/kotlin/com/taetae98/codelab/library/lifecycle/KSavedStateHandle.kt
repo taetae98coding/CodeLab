@@ -8,4 +8,6 @@ public expect class KSavedStateHandle {
     public fun getStateFlow(key: String, initialValue: Int): StateFlow<Int>
 
     public operator fun set(key: String, value: String)
+
+    public operator fun set(key: String, value: Int)
 }

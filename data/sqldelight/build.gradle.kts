@@ -13,13 +13,12 @@ kotlin {
 
                 implementation(libs.sqldelight.paging)
                 implementation(libs.coroutines.core)
-                implementation(libs.paging.common)
             }
         }
 
         iosMain {
             dependencies {
-                implementation("co.touchlab:stately-iso-collections:2.0.5")
+                implementation(libs.stately.collections)
                 implementation(libs.sqldelight.native.driver)
             }
         }
@@ -32,7 +31,7 @@ kotlin {
 
         jsMain {
             dependencies {
-                implementation("co.touchlab:stately-iso-collections:2.0.5")
+                implementation(libs.stately.collections)
             }
         }
     }

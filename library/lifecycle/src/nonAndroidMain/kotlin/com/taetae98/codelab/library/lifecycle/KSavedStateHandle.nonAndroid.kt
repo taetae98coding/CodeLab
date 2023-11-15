@@ -37,4 +37,9 @@ public actual class KSavedStateHandle(
         map[key] = JsonPrimitive(value)
         flowMap[key]?.value = value
     }
+
+    public actual operator fun set(key: String, value: Int) {
+        map[key] = JsonPrimitive(value)
+        flowMap[key]?.value = value
+    }
 }

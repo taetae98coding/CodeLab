@@ -10,7 +10,15 @@ public actual class KSavedStateHandle(
         return savedStateHandle.getStateFlow(key, initialValue)
     }
 
+    public actual fun getStateFlow(key: String, initialValue: Int): StateFlow<Int> {
+        return savedStateHandle.getStateFlow(key, initialValue)
+    }
+
     public actual operator fun set(key: String, value: String) {
+        savedStateHandle[key] = value
+    }
+
+    public actual operator fun set(key: String, value: Int) {
         savedStateHandle[key] = value
     }
 }

@@ -19,7 +19,6 @@ kotlin {
                 implementation(project(":feature:poke"))
 
                 implementation(compose.material3)
-                implementation(libs.coroutines.core)
             }
         }
 
@@ -35,12 +34,6 @@ kotlin {
                 implementation(project(":data:sqldelight"))
                 implementation(libs.decompose)
                 implementation(libs.decompose.compose)
-            }
-        }
-
-        jvmMain {
-            dependencies {
-                implementation(libs.coroutines.swing)
             }
         }
     }

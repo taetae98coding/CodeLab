@@ -43,6 +43,8 @@ internal class FeaturePlugin : Plugin<Project> {
                     implementation(project(":library:lifecycle-compose"))
 
                     implementation(project(":compose"))
+
+                    implementation(libs.findLibrary("kotlin-immutable").get())
                 }
             }
 
@@ -55,7 +57,7 @@ internal class FeaturePlugin : Plugin<Project> {
 
             getByName("nonAndroidMain") {
                 dependencies {
-                    implementation(libs.findBundle("decompose").get())
+                    implementation(libs.findLibrary("decompose-compose").get())
                     implementation(project.dependencies.platform(libs.findLibrary("koin-bom").get()))
                     implementation(libs.findLibrary("koin-compose").get())
                 }

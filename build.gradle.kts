@@ -35,7 +35,7 @@ subprojects {
         }
     }
 
-    afterEvaluate {
-        runCatching { tasks.getByPath("preBuild").dependsOn(tasks.spotlessApply) }
-    }
+//    afterEvaluate {
+//        runCatching { tasks.getByPath("preBuild").dependsOn(tasks.spotlessApply) }
+//    }
 }

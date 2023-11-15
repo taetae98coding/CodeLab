@@ -1,6 +1,5 @@
 plugins {
     id("codelab.multiplatform")
-    alias(libs.plugins.kotest.multiplatform)
 }
 
 android {

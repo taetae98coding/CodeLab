@@ -7,7 +7,7 @@ kotlin {
     sourceSets {
         nonAndroidMain {
             dependencies {
-                implementation(libs.decompose)
+                api(libs.decompose)
                 implementation(libs.kotlin.serialization)
             }
         }
