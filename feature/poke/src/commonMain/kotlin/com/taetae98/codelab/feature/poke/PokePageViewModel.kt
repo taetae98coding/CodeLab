@@ -2,10 +2,11 @@ package com.taetae98.codelab.feature.poke
 
 import app.cash.paging.PagingData
 import app.cash.paging.cachedIn
-import app.cash.paging.map
 import com.taetae98.codelab.domain.usecase.poke.PagePokeUseCase
 import com.taetae98.codelab.library.lifecycle.KSavedStateHandle
 import com.taetae98.codelab.library.lifecycle.KViewModel
+import com.taetae98.codelab.library.paging.mapPagingLatest
+import com.taetae98.codelab.navigation.core.const.Parameter
 import kotlinx.coroutines.flow.mapLatest
 import org.koin.core.annotation.Factory
 
@@ -14,19 +15,18 @@ internal open class PokePageViewModel(
     kSavedStateHandle: KSavedStateHandle,
     pagePokeUseCase: PagePokeUseCase,
 ) : KViewModel() {
-    private val paging = pagePokeUseCase(PagePokeUseCase.Params(0))
+    val initialIndex = kSavedStateHandle.getStateFlow(Parameter.INITIAL_INDEX, 0)
+
+    private val paging = pagePokeUseCase(PagePokeUseCase.Params(initialIndex.value))
         .mapLatest { it.getOrDefault(PagingData.empty()) }
         .cachedIn(kViewModelScope)
 
-    val initialIndex = kSavedStateHandle.getStateFlow("init", 0)
 
-    val pokeUiState = paging.mapLatest { pagingData ->
-        pagingData.map {
-            PokeUiState(
-                id = it.id,
-                name = it.name,
-                image = it.image,
-            )
-        }
-    }
+    val pokeUiState = paging.mapPagingLatest {
+        PokeUiState(
+            id = it.id,
+            name = it.name,
+            image = it.image,
+        )
+    }.cachedIn(kViewModelScope)
 }

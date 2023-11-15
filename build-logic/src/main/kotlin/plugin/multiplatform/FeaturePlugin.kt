@@ -26,8 +26,6 @@ internal class FeaturePlugin : Plugin<Project> {
         applySourceSets(target.extensions.getByType(), target.libs)
     }
 
-
-
     private fun applySourceSets(extension: KotlinMultiplatformExtension, libs: VersionCatalog) = with(extension) {
         sourceSets {
             commonMain {

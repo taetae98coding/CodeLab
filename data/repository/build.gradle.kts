@@ -8,6 +8,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(project(":library:paging"))
                 implementation(project(":library:inject"))
                 implementation(project(":data:dto"))
                 implementation(project(":data:local"))

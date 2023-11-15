@@ -66,4 +66,5 @@ include(
     ":library:lifecycle-compose",
     ":library:webview",
     ":library:image",
+    ":library:paging"
 )
