@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import app.cash.paging.compose.LazyPagingItems
 import com.taetae98.codelab.compose.icon.NavigateUpIcon
+import com.taetae98.codelab.library.paging.compose.safeGet
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -57,13 +58,7 @@ private fun TopBar(
     TopAppBar(
         modifier = modifier,
         title = {
-            val item = if (pokeItems.itemCount > pagerState.currentPage) {
-                pokeItems[pagerState.currentPage]
-            } else {
-                null
-            }
-
-            Text(text = item?.name.orEmpty())
+            Text(text = pokeItems.safeGet(pagerState.currentPage)?.name.orEmpty())
         },
         navigationIcon = {
             IconButton(onClick = onNavigateUp) {
