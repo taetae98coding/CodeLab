@@ -15,7 +15,7 @@ internal data class PokeDetailEntity(
     @SerialName("sprites")
     val sprites: JsonObject,
 ) {
-    fun images(): List<String> {
+    fun imageList(): List<String> {
         return sprites.flatMapImage()
     }
 

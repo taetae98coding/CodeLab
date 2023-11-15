@@ -17,6 +17,6 @@ internal fun PokeDetailDto.toDomain(): PokeDetail {
     return PokeDetail(
         id = id,
         name = name,
-        images = images,
+        imageList = imageList,
     )
 }

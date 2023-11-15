@@ -23,6 +23,6 @@ internal fun PokeDetailEntity.toDto(): PokeDetailDto {
     return PokeDetailDto(
         id = id,
         name = name,
-        images = images(),
+        imageList = imageList(),
     )
 }

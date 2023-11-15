@@ -10,6 +10,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.toComposeImageBitmap
+import androidx.compose.ui.layout.ContentScale
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsChannel
@@ -17,7 +18,11 @@ import io.ktor.util.toByteArray
 import org.jetbrains.skia.Image
 
 @Composable
-public actual fun UriImage(modifier: Modifier, uri: String) {
+public actual fun UriImage(
+    modifier: Modifier,
+    uri: String,
+    contentScale: ContentScale,
+) {
     val state = getAsyncImage(uri)
     val bitmap = state.value
 
@@ -28,6 +33,7 @@ public actual fun UriImage(modifier: Modifier, uri: String) {
             modifier = modifier,
             bitmap = bitmap,
             contentDescription = null,
+            contentScale = contentScale,
         )
     }
 }
