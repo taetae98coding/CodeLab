@@ -15,7 +15,9 @@ import org.koin.core.parameter.ParametersHolder
 import kotlin.reflect.KClass
 
 @Composable
-public inline fun <reified T : KViewModel> ComponentContext.koinInject(): T {
+public inline fun <reified T : KViewModel> ComponentContext.koinInject(
+    defaultMap: Map<String, JsonPrimitive> = emptyMap()
+): T {
     val key = remember { requireNotNull(getKClassForKViewModel<T>().simpleName) }
     val scope = getKoinScope()
 
@@ -23,7 +25,7 @@ public inline fun <reified T : KViewModel> ComponentContext.koinInject(): T {
         stateKeeper.consume(
             key = key,
             strategy = MapSerializer(String.serializer(), JsonPrimitive.serializer()),
-        )?.toMutableMap() ?: mutableMapOf()
+        )?.toMutableMap() ?: defaultMap.toMutableMap()
     }
 
     LaunchedEffect(this) {

@@ -17,6 +17,7 @@ public fun NavGraphBuilder.pokeEntry(navController: NavController) {
             PokeListRoute(
                 onNavigateUp = navController::navigateUp,
                 viewModel = hiltViewModel<PokeListViewModelImpl>(),
+                onPokeItem = {},
             )
         }
     }
