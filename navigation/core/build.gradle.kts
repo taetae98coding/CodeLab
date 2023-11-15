@@ -5,6 +5,12 @@ plugins {
 
 kotlin {
     sourceSets {
+        androidMain {
+            dependencies {
+                implementation(libs.navigation.common)
+            }
+        }
+
         nonAndroidMain {
             dependencies {
                 api(libs.decompose)

@@ -58,6 +58,7 @@ android-gradle = { group = "com.android.tools.build", name = "gradle", version.r
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
 
+navigation-common = { group = "androidx.navigation", name = "navigation-common-ktx", version.ref = "navigation" }
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 
 lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }

@@ -9,7 +9,7 @@ import com.taetae98.codelab.domain.usecase.poke.GetPokeDetailUseCase
 import com.taetae98.codelab.domain.usecase.poke.PagePokeUseCase
 import com.taetae98.codelab.library.lifecycle.KSavedStateHandle
 import com.taetae98.codelab.library.lifecycle.KViewModel
-import com.taetae98.codelab.navigation.core.const.Parameter
+import com.taetae98.codelab.navigation.core.Parameter
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
@@ -21,7 +21,7 @@ import org.koin.core.annotation.Factory
 internal open class PokePageViewModel(
     kSavedStateHandle: KSavedStateHandle,
     pagePokeUseCase: PagePokeUseCase,
-    private val pokeDetailUseCase: GetPokeDetailUseCase,
+    private val getPokeDetailUseCase: GetPokeDetailUseCase,
 ) : KViewModel() {
     val initialIndex = kSavedStateHandle.getStateFlow(Parameter.INITIAL_INDEX, 0)
 
@@ -55,7 +55,7 @@ internal open class PokePageViewModel(
 
     private fun fetchDetail(id: Int) {
         kViewModelScope.launch {
-            pokeDetailUseCase(PokeId(id)).onSuccess {
+            getPokeDetailUseCase(PokeId(id)).onSuccess {
                 detailMap.emit(
                     buildMap {
                         putAll(detailMap.value)

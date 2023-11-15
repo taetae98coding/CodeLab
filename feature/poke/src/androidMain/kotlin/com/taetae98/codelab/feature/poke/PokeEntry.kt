@@ -5,8 +5,10 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.taetae98.codelab.navigation.compose.poke.navigateToPokePage
 import com.taetae98.codelab.navigation.core.poke.PokeEntry
 import com.taetae98.codelab.navigation.core.poke.PokeListEntry
+import com.taetae98.codelab.navigation.core.poke.PokePageEntry
 
 public fun NavGraphBuilder.pokeEntry(navController: NavController) {
     navigation(
@@ -17,7 +19,17 @@ public fun NavGraphBuilder.pokeEntry(navController: NavController) {
             PokeListRoute(
                 onNavigateUp = navController::navigateUp,
                 viewModel = hiltViewModel<PokeListViewModelImpl>(),
-                onPokeItem = {},
+                onPokeItem = navController::navigateToPokePage,
+            )
+        }
+
+        composable(
+            route = PokePageEntry.ROUTE,
+            arguments = PokePageEntry.argument,
+        ) {
+            PokePageRoute(
+                onNavigateUp = navController::navigateUp,
+                viewModel = hiltViewModel<PokePageViewModelImpl>()
             )
         }
     }

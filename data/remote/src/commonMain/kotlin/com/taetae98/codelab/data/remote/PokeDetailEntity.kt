@@ -23,9 +23,13 @@ internal data class PokeDetailEntity(
         return values.flatMap {
             when (it) {
                 is JsonObject -> it.flatMapImage()
-                is JsonPrimitive -> listOfNotNull(it.contentOrNull)
+                is JsonPrimitive -> listOfNotNull(it.contentOrNull).filter(::isImage)
                 else -> emptyList()
             }
         }
+    }
+
+    private fun isImage(string: String): Boolean {
+        return string.endsWith("png")
     }
 }

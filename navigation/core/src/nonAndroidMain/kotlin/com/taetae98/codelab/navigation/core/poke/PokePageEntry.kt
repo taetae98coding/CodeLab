@@ -2,7 +2,7 @@ package com.taetae98.codelab.navigation.core.poke
 
 import com.arkivanov.decompose.ComponentContext
 import com.taetae98.codelab.navigation.core.Entry
-import com.taetae98.codelab.navigation.core.const.Parameter
+import com.taetae98.codelab.navigation.core.Parameter
 import kotlinx.serialization.json.JsonPrimitive
 
 public class PokePageEntry(
