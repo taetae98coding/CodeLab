@@ -8,8 +8,9 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":data:dto"))
                 implementation(project(":data:local"))
+
+                implementation(project(":data:dto"))
 
                 implementation(libs.sqldelight.paging)
                 implementation(libs.coroutines.core)

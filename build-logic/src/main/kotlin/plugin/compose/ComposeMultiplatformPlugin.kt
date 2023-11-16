@@ -25,7 +25,7 @@ internal class ComposeMultiplatformPlugin : Plugin<Project> {
         sourceSets {
             androidMain {
                 dependencies {
-                    implementation(compose.uiTooling)
+                    compileOnly(compose.uiTooling)
                 }
             }
         }

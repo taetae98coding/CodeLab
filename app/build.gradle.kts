@@ -9,10 +9,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(project(":navigation:core"))
-                implementation(project(":data:local"))
-                implementation(project(":data:remote"))
-                implementation(project(":data:repository"))
-                implementation(project(":domain:usecase"))
+
                 implementation(project(":feature:main"))
                 implementation(project(":feature:webview"))
                 implementation(project(":feature:memo"))
@@ -24,7 +21,9 @@ kotlin {
 
         androidMain {
             dependencies {
-                implementation(project(":data:room"))
+                runtimeOnly(project(":data:repository"))
+                runtimeOnly(project(":data:room"))
+
                 implementation(libs.navigation.compose)
             }
         }
@@ -32,6 +31,10 @@ kotlin {
         nonAndroidMain {
             dependencies {
                 implementation(project(":data:sqldelight"))
+                implementation(project(":data:remote"))
+                implementation(project(":data:repository"))
+                implementation(project(":domain:usecase"))
+
                 implementation(libs.decompose)
                 implementation(libs.decompose.compose)
             }

@@ -26,19 +26,19 @@ kotlin {
 
         iosMain {
             dependencies {
-                implementation(libs.ktor.darwin)
+                runtimeOnly(libs.ktor.darwin)
             }
         }
 
         jvmMain {
             dependencies {
-                implementation(libs.ktor.okhttp)
+                runtimeOnly(libs.ktor.okhttp)
             }
         }
 
         jsMain {
             dependencies {
-                implementation(libs.ktor.js)
+                runtimeOnly(libs.ktor.js)
             }
         }
     }

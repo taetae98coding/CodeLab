@@ -32,7 +32,7 @@ internal class KotestMultiplatformPlugin : Plugin<Project> {
 
             jvmTest {
                 dependencies {
-                    implementation(libs.findLibrary("kotest-junit5").get())
+                    runtimeOnly(libs.findLibrary("kotest-junit5").get())
                 }
             }
         }

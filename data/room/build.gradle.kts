@@ -10,8 +10,9 @@ android {
 }
 
 dependencies {
-    implementation(project(":data:dto"))
     implementation(project(":data:local"))
+
+    implementation(project(":data:dto"))
 
     implementation(libs.bundles.room)
     ksp(libs.room.compiler)
