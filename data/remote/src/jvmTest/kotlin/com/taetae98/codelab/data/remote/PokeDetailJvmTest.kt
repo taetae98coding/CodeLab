@@ -46,7 +46,7 @@ class PokeDetailJvmTest : BehaviorSpec(), KoinTest {
                 Then("Total count should be set and data size is limit(20)") {
                     detail.id shouldBeExactly 132
                     detail.name shouldBe "ditto"
-                    detail.imageList() shouldHaveSize 77
+                    detail.imageList() shouldHaveSize 72
                 }
             }
         }

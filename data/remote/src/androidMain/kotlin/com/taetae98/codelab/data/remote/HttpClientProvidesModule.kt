@@ -11,7 +11,7 @@ import kotlinx.serialization.json.Json
 
 @Module
 @InstallIn(SingletonComponent::class)
-public class HttpClientProvidesModule {
+internal class HttpClientProvidesModule {
     @Provides
     @PokeHttpClient
     @Singleton

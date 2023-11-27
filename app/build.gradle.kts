@@ -23,6 +23,7 @@ kotlin {
         androidMain {
             dependencies {
                 runtimeOnly(project(":data:repository"))
+                runtimeOnly(project(":data:datastore"))
                 runtimeOnly(project(":data:room"))
 
                 implementation(libs.navigation.compose)
@@ -31,6 +32,7 @@ kotlin {
 
         nonAndroidMain {
             dependencies {
+                implementation(project(":data:datastore"))
                 implementation(project(":data:sqldelight"))
                 implementation(project(":data:remote"))
                 implementation(project(":data:repository"))

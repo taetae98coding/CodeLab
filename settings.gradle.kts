@@ -37,8 +37,10 @@ include(
 include(
     ":data:dto",
     ":data:repository",
+    ":data:preference",
     ":data:local",
     ":data:remote",
+    ":data:datastore",
     ":data:room",
     ":data:sqldelight",
 )

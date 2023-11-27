@@ -11,6 +11,7 @@ kotlin {
                 implementation(project(":library:paging"))
                 implementation(project(":library:inject"))
                 implementation(project(":data:dto"))
+                implementation(project(":data:preference"))
                 implementation(project(":data:local"))
                 implementation(project(":data:remote"))
                 implementation(project(":domain:entity"))
