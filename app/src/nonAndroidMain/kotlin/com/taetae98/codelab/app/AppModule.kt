@@ -4,6 +4,7 @@ import com.taetae98.codelab.data.remote.RemoteDataSourceModule
 import com.taetae98.codelab.data.repository.RepositoryModule
 import com.taetae98.codelab.data.sqldelight.SqldelightLocalDataSourceModule
 import com.taetae98.codelab.domain.usecase.UseCaseModule
+import com.taetae98.codelab.feature.datastore.DatastoreModule
 import com.taetae98.codelab.feature.memo.MemoModule
 import com.taetae98.codelab.feature.poke.PokeModule
 import org.koin.core.annotation.Module
@@ -16,6 +17,7 @@ import org.koin.core.annotation.Module
         RemoteDataSourceModule::class,
         MemoModule::class,
         PokeModule::class,
+        DatastoreModule::class,
     ],
 )
 public class AppModule

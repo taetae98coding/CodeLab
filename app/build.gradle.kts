@@ -14,6 +14,7 @@ kotlin {
                 implementation(project(":feature:webview"))
                 implementation(project(":feature:memo"))
                 implementation(project(":feature:poke"))
+                implementation(project(":feature:datastore"))
 
                 implementation(compose.material3)
             }

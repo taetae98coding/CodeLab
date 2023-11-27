@@ -3,6 +3,7 @@ package com.taetae98.codelab.feature.main
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import com.taetae98.codelab.navigation.compose.datastore.navigateToDataStore
 import com.taetae98.codelab.navigation.compose.memo.navigateToMemo
 import com.taetae98.codelab.navigation.compose.poke.navigateToPoke
 import com.taetae98.codelab.navigation.compose.webview.navigateToWebView
@@ -14,6 +15,7 @@ public fun NavGraphBuilder.mainEntry(navController: NavController) {
             onWebView = navController::navigateToWebView,
             onMemo = navController::navigateToMemo,
             onPoke = navController::navigateToPoke,
+            onDatastore = navController::navigateToDataStore,
         )
     }
 }

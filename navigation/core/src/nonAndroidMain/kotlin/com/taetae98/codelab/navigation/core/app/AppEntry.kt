@@ -7,10 +7,12 @@ import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.router.stack.pop
 import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
+import com.taetae98.codelab.navigation.core.datastore.DatastoreEntry
 import com.taetae98.codelab.navigation.core.illegalRoute
 import com.taetae98.codelab.navigation.core.main.MainEntry
 import com.taetae98.codelab.navigation.core.memo.MemoEntry
 import com.taetae98.codelab.navigation.core.poke.PokeEntry
+import com.taetae98.codelab.navigation.core.route.DatastoreRoute
 import com.taetae98.codelab.navigation.core.route.MainRoute
 import com.taetae98.codelab.navigation.core.route.MemoRoute
 import com.taetae98.codelab.navigation.core.route.PokeRoute
@@ -35,6 +37,7 @@ public class AppEntry(
                     onWebView = ::navigateToWebView,
                     onMemo = ::navigateToMemo,
                     onPoke = ::navigateToPoke,
+                    onDatastore = ::navigateToDatastore,
                 )
 
                 WebViewRoute -> WebViewEntry(
@@ -48,6 +51,11 @@ public class AppEntry(
                 )
 
                 PokeRoute -> PokeEntry(
+                    context = context,
+                    onNavigateUp = navigation::pop,
+                )
+
+                DatastoreRoute -> DatastoreEntry(
                     context = context,
                     onNavigateUp = navigation::pop,
                 )
@@ -67,5 +75,9 @@ public class AppEntry(
 
     private fun navigateToPoke() {
         navigation.push(PokeRoute)
+    }
+
+    private fun navigateToDatastore() {
+        navigation.push(DatastoreRoute)
     }
 }

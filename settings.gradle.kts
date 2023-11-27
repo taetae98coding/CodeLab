@@ -55,6 +55,7 @@ include(
     ":feature:webview",
     ":feature:memo",
     ":feature:poke",
+    ":feature:datastore",
 )
 
 include(":compose")
