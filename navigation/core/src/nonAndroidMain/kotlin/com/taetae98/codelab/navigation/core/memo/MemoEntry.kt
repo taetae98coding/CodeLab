@@ -14,7 +14,7 @@ import com.taetae98.codelab.navigation.core.route.Route
 
 public class MemoEntry(
     context: ComponentContext,
-    private val onNavigateUp: () -> Unit,
+    private val onNavigateUp: () -> Unit
 ) : ComponentContext by context {
     private val navigation = StackNavigation<Route>()
 
@@ -22,18 +22,18 @@ public class MemoEntry(
         source = navigation,
         serializer = Route.serializer(),
         initialConfiguration = MemoListRoute,
-        handleBackButton = true,
+        handleBackButton = true
     ) { route, context ->
         when (route) {
             MemoListRoute -> MemoListEntry(
                 context = context,
                 onNavigateUp = onNavigateUp,
-                onNavigateToMemoAdd = ::navigateToMemoAdd,
+                onNavigateToMemoAdd = ::navigateToMemoAdd
             )
 
             MemoAddRoute -> MemoAddEntry(
                 context = context,
-                onNavigateUp = navigation::pop,
+                onNavigateUp = navigation::pop
             )
 
             else -> illegalRoute(route)

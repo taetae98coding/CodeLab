@@ -13,7 +13,7 @@ import org.koin.core.annotation.Named
 internal class MemoLocalDataSourceImpl(
     private val memoDatabase: MemoDatabase,
     @Named(SqldelightLocalDataSourceModule.DATABASE_DISPATCHER)
-    private val databaseDispatcher: CoroutineDispatcher,
+    private val databaseDispatcher: CoroutineDispatcher
 ) : MemoLocalDataSource {
     override suspend fun upsert(memo: MemoDto) {
         withContext(databaseDispatcher) {
@@ -40,7 +40,7 @@ internal class MemoLocalDataSourceImpl(
             context = databaseDispatcher,
             queryProvider = { limit, offset ->
                 queries.paging(limit, offset, ::MemoDto)
-            },
+            }
         )
     }
 }

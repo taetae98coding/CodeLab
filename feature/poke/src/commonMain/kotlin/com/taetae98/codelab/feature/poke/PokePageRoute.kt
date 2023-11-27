@@ -6,17 +6,13 @@ import androidx.compose.ui.Modifier
 import app.cash.paging.compose.collectAsLazyPagingItems
 
 @Composable
-internal fun PokePageRoute(
-    modifier: Modifier = Modifier,
-    onNavigateUp: () -> Unit,
-    viewModel: PokePageViewModel,
-) {
+internal fun PokePageRoute(modifier: Modifier = Modifier, onNavigateUp: () -> Unit, viewModel: PokePageViewModel) {
     val initialIndex = viewModel.initialIndex.collectAsState()
 
     PokePageScreen(
         modifier = modifier,
         initialIndex = initialIndex.value,
         onNavigateUp = onNavigateUp,
-        pokeItems = viewModel.pokeUiState.collectAsLazyPagingItems(),
+        pokeItems = viewModel.pokeUiState.collectAsLazyPagingItems()
     )
 }

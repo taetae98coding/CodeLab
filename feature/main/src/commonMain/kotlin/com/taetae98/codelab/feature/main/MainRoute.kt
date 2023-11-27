@@ -16,16 +16,10 @@ import androidx.compose.ui.unit.dp
 import kotlinx.collections.immutable.persistentListOf
 
 @Composable
-internal fun MainRoute(
-    modifier: Modifier = Modifier,
-    onWebView: () -> Unit,
-    onMemo: () -> Unit,
-    onPoke: () -> Unit,
-    onDatastore: () -> Unit,
-) {
+internal fun MainRoute(modifier: Modifier = Modifier, onWebView: () -> Unit, onMemo: () -> Unit, onPoke: () -> Unit, onDatastore: () -> Unit) {
     Scaffold(
         modifier = modifier,
-        topBar = { TopBar() },
+        topBar = { TopBar() }
     ) {
         MainItemColum(
             modifier = Modifier.padding(it)
@@ -33,7 +27,7 @@ internal fun MainRoute(
             onWebView = onWebView,
             onMemo = onMemo,
             onPoke = onPoke,
-            onDatastore = onDatastore,
+            onDatastore = onDatastore
         )
     }
 }
@@ -45,29 +39,23 @@ private fun TopBar(modifier: Modifier = Modifier) {
         modifier = modifier,
         title = {
             Text(text = "CodeLab")
-        },
+        }
     )
 }
 
 @Composable
-private fun MainItemColum(
-    modifier: Modifier = Modifier,
-    onWebView: () -> Unit,
-    onMemo: () -> Unit,
-    onPoke: () -> Unit,
-    onDatastore: () -> Unit,
-) {
+private fun MainItemColum(modifier: Modifier = Modifier, onWebView: () -> Unit, onMemo: () -> Unit, onPoke: () -> Unit, onDatastore: () -> Unit) {
     Column(
         modifier = modifier
             .padding(horizontal = 8.dp)
             .verticalScroll(state = rememberScrollState()),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         MainItem(
             title = "WebView CodeLab",
             platformList = persistentListOf(Platform.ANDROID, Platform.IOS, Platform.JVM),
             description = "Platfrom WebView CodeLab",
-            onClick = onWebView,
+            onClick = onWebView
         )
 
         MainItem(
@@ -75,7 +63,7 @@ private fun MainItemColum(
             platformList = persistentListOf(
                 Platform.ANDROID,
                 Platform.IOS,
-                Platform.JVM,
+                Platform.JVM
             ),
             description = """
                 Database CodeLab
@@ -84,7 +72,7 @@ private fun MainItemColum(
 
                 Simple memo app.
             """.trimIndent(),
-            onClick = onMemo,
+            onClick = onMemo
         )
 
         MainItem(
@@ -93,7 +81,7 @@ private fun MainItemColum(
                 Platform.ANDROID,
                 Platform.IOS,
                 Platform.JVM,
-                Platform.JS,
+                Platform.JS
             ),
             description = """
                 Network, Paging API CodeLab
@@ -102,19 +90,19 @@ private fun MainItemColum(
 
                 Poke list.
             """.trimIndent(),
-            onClick = onPoke,
+            onClick = onPoke
         )
 
         MainItem(
             title = "Datastore CodeLab",
             platformList = persistentListOf(
-                Platform.ANDROID,
+                Platform.ANDROID
             ),
             description = """
                 Preference CodeLab
                 - Datastore
             """.trimIndent(),
-            onClick = onDatastore,
+            onClick = onDatastore
         )
     }
 }

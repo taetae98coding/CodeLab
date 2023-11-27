@@ -35,13 +35,13 @@ internal fun MemoListScreen(modifier: Modifier = Modifier, onNavigateUp: () -> U
         },
         topBar = {
             TopBar(onNavigateUp = onNavigateUp)
-        },
+        }
     ) {
         Content(
             modifier = Modifier.fillMaxSize()
                 .padding(it),
             memoItems = memoItems,
-            onDelete = onDelete,
+            onDelete = onDelete
         )
     }
 }
@@ -50,7 +50,7 @@ internal fun MemoListScreen(modifier: Modifier = Modifier, onNavigateUp: () -> U
 private fun AddButton(modifier: Modifier = Modifier, onAdd: () -> Unit) {
     FloatingActionButton(
         modifier = modifier,
-        onClick = onAdd,
+        onClick = onAdd
     ) {
         AddIcon()
     }
@@ -66,7 +66,7 @@ private fun TopBar(modifier: Modifier = Modifier, onNavigateUp: () -> Unit) {
             IconButton(onClick = onNavigateUp) {
                 NavigateUpIcon()
             }
-        },
+        }
     )
 }
 
@@ -76,17 +76,17 @@ private fun Content(modifier: Modifier = Modifier, memoItems: LazyPagingItems<Me
     LazyColumn(
         modifier = modifier,
         contentPadding = PaddingValues(12.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         items(
             count = memoItems.itemCount,
             key = memoItems.itemKey { it.id },
-            contentType = memoItems.itemContentType { "Memo" },
+            contentType = memoItems.itemContentType { "Memo" }
         ) {
             Memo(
                 modifier = Modifier.animateItemPlacement(),
                 uiState = memoItems[it],
-                onDelete = onDelete,
+                onDelete = onDelete
             )
         }
     }
@@ -106,7 +106,7 @@ private fun Memo(modifier: Modifier, uiState: MemoUiState?, onDelete: (Long) -> 
             } else {
                 false
             }
-        },
+        }
     )
 
     SwipeToDismiss(
@@ -116,13 +116,13 @@ private fun Memo(modifier: Modifier, uiState: MemoUiState?, onDelete: (Long) -> 
         },
         dismissContent = {
             Card(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
                     modifier = Modifier.padding(12.dp),
-                    text = uiState?.title.orEmpty(),
+                    text = uiState?.title.orEmpty()
                 )
             }
-        },
+        }
     )
 }

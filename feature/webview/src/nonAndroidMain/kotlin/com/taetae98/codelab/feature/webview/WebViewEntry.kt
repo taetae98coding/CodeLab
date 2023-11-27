@@ -8,6 +8,6 @@ import com.taetae98.codelab.navigation.core.webview.WebViewEntry
 public fun WebViewEntry(modifier: Modifier = Modifier, entry: WebViewEntry) {
     WebViewRoute(
         modifier = modifier,
-        onNavigateUp = entry.onNavigateUp,
+        onNavigateUp = entry.onNavigateUp
     )
 }

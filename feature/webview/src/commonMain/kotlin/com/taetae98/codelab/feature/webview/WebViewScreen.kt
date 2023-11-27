@@ -45,20 +45,20 @@ internal fun WebViewScreen(modifier: Modifier = Modifier, onNavigateUp: () -> Un
         topBar = {
             TopBar(
                 onNavigateUp = onNavigateUp,
-                onNavigation = { webViewDialogVisibleState.value = true },
+                onNavigation = { webViewDialogVisibleState.value = true }
             )
-        },
+        }
     ) {
         WebView(
             modifier = Modifier.fillMaxSize()
                 .padding(it),
-            uiState = uiState.value,
+            uiState = uiState.value
         )
     }
 
     WebViewDialog(
         uiState = uiState,
-        visibleState = webViewDialogVisibleState,
+        visibleState = webViewDialogVisibleState
     )
 }
 
@@ -77,7 +77,7 @@ private fun TopBar(modifier: Modifier = Modifier, onNavigateUp: () -> Unit, onNa
             IconButton(onClick = onNavigation) {
                 NavigationIcon()
             }
-        },
+        }
     )
 }
 
@@ -85,12 +85,12 @@ private fun TopBar(modifier: Modifier = Modifier, onNavigateUp: () -> Unit, onNa
 private fun WebViewDialog(uiState: MutableState<WebViewUiState>, visibleState: MutableState<Boolean>) {
     if (visibleState.value) {
         Dialog(
-            onDismissRequest = { visibleState.value = false },
+            onDismissRequest = { visibleState.value = false }
         ) {
             DialogContent(
                 modifier = Modifier.fillMaxWidth(),
                 uiState = uiState,
-                visibleState = visibleState,
+                visibleState = visibleState
             )
         }
     }
@@ -100,7 +100,7 @@ private fun WebViewDialog(uiState: MutableState<WebViewUiState>, visibleState: M
 private fun DialogContent(modifier: Modifier = Modifier, uiState: MutableState<WebViewUiState>, visibleState: MutableState<Boolean>) {
     Card {
         Column(
-            modifier = modifier,
+            modifier = modifier
         ) {
             val type = remember {
                 val type = when (uiState.value) {
@@ -115,13 +115,13 @@ private fun DialogContent(modifier: Modifier = Modifier, uiState: MutableState<W
             DialogTypeRadioGroup(type = type)
             DialogDataTextField(
                 type = type,
-                data = data,
+                data = data
             )
             DialogButtonLayout(
                 type = type,
                 data = data,
                 uiState = uiState,
-                visibleState = visibleState,
+                visibleState = visibleState
             )
         }
     }
@@ -131,7 +131,7 @@ private fun DialogContent(modifier: Modifier = Modifier, uiState: MutableState<W
 private fun DialogTypeRadioGroup(modifier: Modifier = Modifier, type: MutableState<WebViewType>) {
     Row(
         modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        horizontalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         WebViewType.entries.forEach {
             Row(
@@ -139,14 +139,14 @@ private fun DialogTypeRadioGroup(modifier: Modifier = Modifier, type: MutableSta
                     .clip(CircleShape)
                     .clickable(onClick = { type.value = it })
                     .padding(4.dp),
-                verticalAlignment = Alignment.CenterVertically,
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 RadioButton(
                     selected = it == type.value,
-                    onClick = null,
+                    onClick = null
                 )
                 Text(
-                    text = it.name,
+                    text = it.name
                 )
             }
         }
@@ -173,8 +173,8 @@ private fun DialogDataTextField(modifier: Modifier = Modifier, type: State<WebVi
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
             disabledIndicatorColor = Color.Transparent,
-            errorIndicatorColor = Color.Transparent,
-        ),
+            errorIndicatorColor = Color.Transparent
+        )
     )
 }
 
@@ -190,7 +190,7 @@ private fun DialogButtonLayout(modifier: Modifier = Modifier, visibleState: Muta
 
             visibleState.value = false
         },
-        enabled = data.value.isNotEmpty(),
+        enabled = data.value.isNotEmpty()
     ) {
         Text(text = "Navigate")
     }

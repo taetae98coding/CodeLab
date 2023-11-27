@@ -4,7 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import kotlinx.coroutines.flow.StateFlow
 
 public actual class KSavedStateHandle(
-    private val savedStateHandle: SavedStateHandle,
+    private val savedStateHandle: SavedStateHandle
 ) {
     public actual fun getStateFlow(key: String, initialValue: String): StateFlow<String> {
         return savedStateHandle.getStateFlow(key, initialValue)

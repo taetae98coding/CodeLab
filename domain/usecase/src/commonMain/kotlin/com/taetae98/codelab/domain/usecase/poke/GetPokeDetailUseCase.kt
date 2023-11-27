@@ -9,7 +9,7 @@ import org.koin.core.annotation.Factory
 
 @Factory
 public class GetPokeDetailUseCase @KInject internal constructor(
-    private val pokeRepository: PokeRepository,
+    private val pokeRepository: PokeRepository
 ) : UseCase<PokeId, PokeDetail>() {
     override suspend fun execute(params: PokeId): PokeDetail {
         return pokeRepository.detail(params.id)

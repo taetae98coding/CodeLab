@@ -8,6 +8,6 @@ public sealed class WebViewUiState {
 
     public data class Html(
         val html: String,
-        val baseUrl: String? = null,
+        val baseUrl: String? = null
     ) : WebViewUiState()
 }

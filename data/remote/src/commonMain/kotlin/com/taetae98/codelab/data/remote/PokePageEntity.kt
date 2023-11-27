@@ -8,5 +8,5 @@ internal data class PokePageEntity(
     @SerialName("count")
     val count: Int,
     @SerialName("results")
-    val data: List<PokeEntity>,
+    val data: List<PokeEntity>
 )

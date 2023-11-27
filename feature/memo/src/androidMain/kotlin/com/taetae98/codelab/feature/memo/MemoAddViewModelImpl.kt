@@ -9,8 +9,8 @@ import javax.inject.Inject
 @HiltViewModel
 internal class MemoAddViewModelImpl @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    upsertMemoUseCase: UpsertMemoUseCase,
+    upsertMemoUseCase: UpsertMemoUseCase
 ) : MemoAddViewModel(
     kSavedStateHandle = KSavedStateHandle(savedStateHandle),
-    upsertMemoUseCase = upsertMemoUseCase,
+    upsertMemoUseCase = upsertMemoUseCase
 )

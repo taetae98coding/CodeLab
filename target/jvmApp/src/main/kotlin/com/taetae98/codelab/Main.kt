@@ -20,7 +20,7 @@ internal fun main() {
     application {
         Window(
             onCloseRequest = ::exitApplication,
-            title = "CodeLab",
+            title = "CodeLab"
         ) {
             AppEntry(entry = entry)
         }

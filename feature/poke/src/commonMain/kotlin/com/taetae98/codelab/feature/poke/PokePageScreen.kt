@@ -31,12 +31,7 @@ import com.taetae98.codelab.library.paging.compose.safeGet
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-internal fun PokePageScreen(
-    modifier: Modifier = Modifier,
-    initialIndex: Int,
-    onNavigateUp: () -> Unit,
-    pokeItems: LazyPagingItems<PokeDetailUiState>,
-) {
+internal fun PokePageScreen(modifier: Modifier = Modifier, initialIndex: Int, onNavigateUp: () -> Unit, pokeItems: LazyPagingItems<PokeDetailUiState>) {
     val pagerState = rememberPagerState(
         initialPage = initialIndex,
         pageCount = { pokeItems.itemCount }
@@ -48,26 +43,21 @@ internal fun PokePageScreen(
             TopBar(
                 onNavigateUp = onNavigateUp,
                 pagerState = pagerState,
-                pokeItems = pokeItems,
+                pokeItems = pokeItems
             )
         }
     ) {
         Content(
             modifier = Modifier.padding(it),
             pagerState = pagerState,
-            pokeItems = pokeItems,
+            pokeItems = pokeItems
         )
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
-private fun TopBar(
-    modifier: Modifier = Modifier,
-    onNavigateUp: () -> Unit,
-    pagerState: PagerState,
-    pokeItems: LazyPagingItems<PokeDetailUiState>,
-) {
+private fun TopBar(modifier: Modifier = Modifier, onNavigateUp: () -> Unit, pagerState: PagerState, pokeItems: LazyPagingItems<PokeDetailUiState>) {
     TopAppBar(
         modifier = modifier,
         title = {
@@ -83,14 +73,10 @@ private fun TopBar(
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-private fun Content(
-    modifier: Modifier = Modifier,
-    pagerState: PagerState,
-    pokeItems: LazyPagingItems<PokeDetailUiState>,
-) {
+private fun Content(modifier: Modifier = Modifier, pagerState: PagerState, pokeItems: LazyPagingItems<PokeDetailUiState>) {
     HorizontalPager(
         modifier = modifier,
-        state = pagerState,
+        state = pagerState
     ) {
         PokeDetail(
             modifier = Modifier.fillMaxSize(),
@@ -100,18 +86,15 @@ private fun Content(
 }
 
 @Composable
-private fun PokeDetail(
-    modifier: Modifier = Modifier,
-    uiState: PokeDetailUiState?
-) {
+private fun PokeDetail(modifier: Modifier = Modifier, uiState: PokeDetailUiState?) {
     Box(
         modifier = modifier,
-        contentAlignment = Alignment.Center,
+        contentAlignment = Alignment.Center
     ) {
         when (uiState) {
             is PokeDetailUiState.Detail -> {
                 LazyVerticalGrid(
-                    columns = GridCells.Adaptive(100.dp),
+                    columns = GridCells.Adaptive(100.dp)
                 ) {
                     items(
                         items = uiState.imageList,
@@ -122,7 +105,7 @@ private fun PokeDetail(
                             modifier = Modifier.fillMaxWidth()
                                 .aspectRatio(1F),
                             uri = it,
-                            contentScale = ContentScale.FillWidth,
+                            contentScale = ContentScale.FillWidth
                         )
                     }
                 }

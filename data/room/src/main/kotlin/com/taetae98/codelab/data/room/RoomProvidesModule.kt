@@ -16,12 +16,12 @@ public class RoomProvidesModule {
     @Singleton
     internal fun providesMemoDatabase(
         @ApplicationContext
-        context: Context,
+        context: Context
     ): MemoDatabase {
         return Room.databaseBuilder(
             context = context,
             klass = MemoDatabase::class.java,
-            name = "codelab_memo.db",
+            name = "codelab_memo.db"
         ).build()
     }
 }

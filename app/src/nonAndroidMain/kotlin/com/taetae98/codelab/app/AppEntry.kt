@@ -22,7 +22,7 @@ public fun AppEntry(modifier: Modifier = Modifier, entry: AppEntry) {
         Children(
             modifier = modifier,
             stack = entry.stack,
-            animation = stackAnimation(),
+            animation = stackAnimation()
         ) {
             when (val instance = it.instance) {
                 is MainEntry -> MainEntry(entry = instance)

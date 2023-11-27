@@ -21,7 +21,7 @@ import org.koin.core.annotation.Factory
 internal open class PokePageViewModel(
     kSavedStateHandle: KSavedStateHandle,
     pagePokeUseCase: PagePokeUseCase,
-    private val getPokeDetailUseCase: GetPokeDetailUseCase,
+    private val getPokeDetailUseCase: GetPokeDetailUseCase
 ) : KViewModel() {
     val initialIndex = kSavedStateHandle.getStateFlow(Parameter.INITIAL_INDEX, 0)
 
@@ -31,17 +31,16 @@ internal open class PokePageViewModel(
 
     private val detailMap = MutableStateFlow<Map<PokeId, PokeDetail>>(emptyMap())
 
-
     val pokeUiState = combine(
         pagingData,
-        detailMap,
+        detailMap
     ) { pagingData, detailMap ->
         pagingData.map {
             if (!detailMap.contains(PokeId(it.id))) {
                 PokeDetailUiState.Loading(
                     id = it.id,
                     name = it.name,
-                    fetch = ::fetchDetail,
+                    fetch = ::fetchDetail
                 )
             } else {
                 PokeDetailUiState.Detail(

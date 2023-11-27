@@ -8,7 +8,7 @@ internal data class PokeEntity(
     @SerialName("name")
     val name: String,
     @SerialName("url")
-    private val url: String,
+    private val url: String
 ) {
     val id: Int = url.substringBeforeLast("/")
         .substringAfterLast("/")

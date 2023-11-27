@@ -9,14 +9,14 @@ import org.koin.core.annotation.Factory
 
 @Factory
 internal open class DatastoreViewModel(
-    private val kSavedStateHandle: KSavedStateHandle,
+    private val kSavedStateHandle: KSavedStateHandle
 ) : KViewModel() {
     private val value = kSavedStateHandle.getStateFlow(VALUE, "")
 
     val uiState = value.mapLatest {
         DatastoreUiState(
             value = it,
-            setValue = ::setValue,
+            setValue = ::setValue
         )
     }.stateIn(
         scope = kViewModelScope,

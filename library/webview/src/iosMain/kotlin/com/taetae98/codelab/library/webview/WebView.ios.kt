@@ -21,6 +21,6 @@ public actual fun WebView(modifier: Modifier, uiState: WebViewUiState) {
                 is WebViewUiState.Url -> webView.loadRequest(NSURLRequest(NSURL(string = uiState.url)))
                 is WebViewUiState.Html -> webView.loadHTMLString(uiState.html, uiState.baseUrl?.let { NSURL(string = it) })
             }
-        },
+        }
     )
 }

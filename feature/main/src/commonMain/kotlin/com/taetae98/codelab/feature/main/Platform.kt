@@ -4,5 +4,5 @@ internal enum class Platform {
     ANDROID,
     IOS,
     JVM,
-    JS,
+    JS
 }

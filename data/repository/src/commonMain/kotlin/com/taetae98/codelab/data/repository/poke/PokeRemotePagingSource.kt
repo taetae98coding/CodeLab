@@ -10,7 +10,7 @@ import com.taetae98.codelab.data.dto.PokeDto
 import com.taetae98.codelab.data.remote.PokeRemoteDataSource
 
 internal class PokeRemotePagingSource(
-    private val pokeRemoteDataSource: PokeRemoteDataSource,
+    private val pokeRemoteDataSource: PokeRemoteDataSource
 ) : PagingSource<Int, PokeDto>() {
     override fun getRefreshKey(state: PagingState<Int, PokeDto>): Int? {
         return state.anchorPosition
@@ -29,7 +29,7 @@ internal class PokeRemotePagingSource(
                 prevKey = (pageOffset - pageLimit).takeIf { pageOffset > 0 },
                 nextKey = (pageOffset + pageLimit).takeIf { it <= page.count },
                 itemsBefore = apiOffset,
-                itemsAfter = (page.count - page.data.size - apiOffset),
+                itemsAfter = (page.count - page.data.size - apiOffset)
             )
         } catch (e: Exception) {
             PagingSourceLoadResultError<Int, PokeDto>(e)

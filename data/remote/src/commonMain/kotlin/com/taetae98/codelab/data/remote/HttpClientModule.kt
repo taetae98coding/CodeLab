@@ -17,7 +17,7 @@ internal class HttpClientModule {
     fun providesPokeHttpClient(
         engine: HttpClientEngine,
         @Named(JsonModule.POKE_JSON)
-        json: Json,
+        json: Json
     ): HttpClient {
         return HttpClient(engine) {
             install(DefaultRequest) {

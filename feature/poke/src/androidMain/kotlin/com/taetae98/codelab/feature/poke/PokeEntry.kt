@@ -13,19 +13,19 @@ import com.taetae98.codelab.navigation.core.poke.PokePageEntry
 public fun NavGraphBuilder.pokeEntry(navController: NavController) {
     navigation(
         startDestination = PokeListEntry.ROUTE,
-        route = PokeEntry.ROUTE,
+        route = PokeEntry.ROUTE
     ) {
         composable(route = PokeListEntry.ROUTE) {
             PokeListRoute(
                 onNavigateUp = navController::navigateUp,
                 viewModel = hiltViewModel<PokeListViewModelImpl>(),
-                onPokeItem = navController::navigateToPokePage,
+                onPokeItem = navController::navigateToPokePage
             )
         }
 
         composable(
             route = PokePageEntry.ROUTE,
-            arguments = PokePageEntry.argument,
+            arguments = PokePageEntry.argument
         ) {
             PokePageRoute(
                 onNavigateUp = navController::navigateUp,

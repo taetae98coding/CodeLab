@@ -14,6 +14,6 @@ internal fun MemoAddRoute(modifier: Modifier = Modifier, onNavigateUp: () -> Uni
         onNavigateUp = onNavigateUp,
         uiState = viewModel.uiState,
         titleUiState = titleUiState,
-        messageUiState = messageUiState,
+        messageUiState = messageUiState
     )
 }

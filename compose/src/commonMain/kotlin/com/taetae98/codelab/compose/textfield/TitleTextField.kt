@@ -20,7 +20,7 @@ public fun TitleTextField(modifier: Modifier = Modifier, uiState: TextFieldUiSta
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
             disabledIndicatorColor = Color.Transparent,
-            errorIndicatorColor = Color.Transparent,
-        ),
+            errorIndicatorColor = Color.Transparent
+        )
     )
 }

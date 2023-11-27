@@ -31,7 +31,7 @@ public actual fun WebView(modifier: Modifier, uiState: WebViewUiState) {
                         is WebViewUiState.Html -> webView.engine.loadContent(uiState.html, "text/html")
                     }
                 }
-            },
+            }
         )
     }
 }

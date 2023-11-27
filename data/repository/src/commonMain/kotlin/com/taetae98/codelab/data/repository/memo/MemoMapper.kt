@@ -6,13 +6,13 @@ import com.taetae98.codelab.domain.entity.Memo
 internal fun Memo.toDto(): MemoDto {
     return MemoDto(
         id = id,
-        title = title,
+        title = title
     )
 }
 
 internal fun MemoDto.toDomain(): Memo {
     return Memo(
         id = id,
-        title = title,
+        title = title
     )
 }

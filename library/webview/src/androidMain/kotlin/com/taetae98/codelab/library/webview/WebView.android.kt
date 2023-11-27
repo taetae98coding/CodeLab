@@ -23,7 +23,7 @@ public actual fun WebView(modifier: Modifier, uiState: WebViewUiState) {
                 is WebViewUiState.Url -> it.loadUrl(uiState.url)
                 is WebViewUiState.Html -> it.loadData(uiState.html, "text/html", "utf-8")
             }
-        },
+        }
     )
 }
 

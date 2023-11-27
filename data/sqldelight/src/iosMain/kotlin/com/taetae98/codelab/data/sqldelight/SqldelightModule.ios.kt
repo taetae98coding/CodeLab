@@ -24,9 +24,9 @@ internal actual class SqldelightModule {
             name = "memo.db",
             onConfiguration = { config ->
                 config.copy(
-                    extendedConfig = DatabaseConfiguration.Extended(foreignKeyConstraints = true),
+                    extendedConfig = DatabaseConfiguration.Extended(foreignKeyConstraints = true)
                 )
-            },
+            }
         )
 
         return MemoDatabase(driver)

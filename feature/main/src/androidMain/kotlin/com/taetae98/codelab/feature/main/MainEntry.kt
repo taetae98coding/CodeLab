@@ -15,7 +15,7 @@ public fun NavGraphBuilder.mainEntry(navController: NavController) {
             onWebView = navController::navigateToWebView,
             onMemo = navController::navigateToMemo,
             onPoke = navController::navigateToPoke,
-            onDatastore = navController::navigateToDataStore,
+            onDatastore = navController::navigateToDataStore
         )
     }
 }

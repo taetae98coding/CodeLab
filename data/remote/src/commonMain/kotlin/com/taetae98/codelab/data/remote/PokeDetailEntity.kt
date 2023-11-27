@@ -13,7 +13,7 @@ internal data class PokeDetailEntity(
     @SerialName("name")
     val name: String,
     @SerialName("sprites")
-    val sprites: JsonObject,
+    val sprites: JsonObject
 ) {
     fun imageList(): List<String> {
         return sprites.flatMapImage()

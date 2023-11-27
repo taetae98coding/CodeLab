@@ -15,7 +15,7 @@ public fun ClearTextField(
     label: @Composable (() -> Unit)? = null,
     singleLine: Boolean = false,
     maxLines: Int = if (singleLine) 1 else Int.MAX_VALUE,
-    colors: TextFieldColors = TextFieldDefaults.colors(),
+    colors: TextFieldColors = TextFieldDefaults.colors()
 ) {
     TextField(
         modifier = modifier,
@@ -31,6 +31,6 @@ public fun ClearTextField(
         },
         singleLine = singleLine,
         maxLines = maxLines,
-        colors = colors,
+        colors = colors
     )
 }

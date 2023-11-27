@@ -15,21 +15,21 @@ public fun PokeEntry(modifier: Modifier = Modifier, entry: PokeEntry) {
     Children(
         modifier = modifier,
         stack = entry.stack,
-        animation = stackAnimation(),
+        animation = stackAnimation()
     ) {
         when (val instance = it.instance) {
             is PokeListEntry -> {
                 PokeListRoute(
                     onNavigateUp = instance.onNavigateUp,
                     viewModel = instance.koinInject(),
-                    onPokeItem = instance.onNavigateToPokePage,
+                    onPokeItem = instance.onNavigateToPokePage
                 )
             }
 
             is PokePageEntry -> {
                 PokePageRoute(
                     onNavigateUp = instance.onNavigateUp,
-                    viewModel = instance.koinNavInject(),
+                    viewModel = instance.koinNavInject()
                 )
             }
         }

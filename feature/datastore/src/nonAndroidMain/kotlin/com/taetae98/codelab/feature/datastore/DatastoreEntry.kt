@@ -6,13 +6,10 @@ import com.taetae98.codelab.library.inject.compose.koinInject
 import com.taetae98.codelab.navigation.core.datastore.DatastoreEntry
 
 @Composable
-public fun DatastoreEntry(
-    modifier: Modifier = Modifier,
-    entry: DatastoreEntry,
-) {
+public fun DatastoreEntry(modifier: Modifier = Modifier, entry: DatastoreEntry) {
     DatastoreRoute(
         modifier = modifier,
         viewModel = entry.koinInject(),
-        onNavigateUp = entry.onNavigateUp,
+        onNavigateUp = entry.onNavigateUp
     )
 }

@@ -10,7 +10,7 @@ import org.koin.core.annotation.Factory
 
 @Factory
 internal open class PokeListViewModel(
-    pagePokeUseCase: PagePokeUseCase,
+    pagePokeUseCase: PagePokeUseCase
 ) : KViewModel() {
     private val paging = pagePokeUseCase(PagePokeUseCase.Params(0))
         .mapLatest { it.getOrDefault(PagingData.empty()) }
@@ -21,7 +21,7 @@ internal open class PokeListViewModel(
             PokeUiState(
                 id = it.id,
                 name = it.name,
-                image = it.image,
+                image = it.image
             )
         }
     }

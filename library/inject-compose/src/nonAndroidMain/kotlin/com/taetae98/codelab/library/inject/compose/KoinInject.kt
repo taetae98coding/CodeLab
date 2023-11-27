@@ -7,24 +7,22 @@ import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.essenty.instancekeeper.getOrCreate
 import com.taetae98.codelab.library.lifecycle.KSavedStateHandle
 import com.taetae98.codelab.library.lifecycle.KViewModel
+import kotlin.reflect.KClass
 import kotlinx.serialization.builtins.MapSerializer
 import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.JsonPrimitive
 import org.koin.compose.getKoinScope
 import org.koin.core.parameter.ParametersHolder
-import kotlin.reflect.KClass
 
 @Composable
-public inline fun <reified T : KViewModel> ComponentContext.koinInject(
-    defaultMap: Map<String, JsonPrimitive> = emptyMap()
-): T {
+public inline fun <reified T : KViewModel> ComponentContext.koinInject(defaultMap: Map<String, JsonPrimitive> = emptyMap()): T {
     val key = remember { requireNotNull(getKClassForKViewModel<T>().simpleName) }
     val scope = getKoinScope()
 
     val map = remember(this) {
         stateKeeper.consume(
             key = key,
-            strategy = MapSerializer(String.serializer(), JsonPrimitive.serializer()),
+            strategy = MapSerializer(String.serializer(), JsonPrimitive.serializer())
         )?.toMutableMap() ?: defaultMap.toMutableMap()
     }
 
@@ -33,7 +31,7 @@ public inline fun <reified T : KViewModel> ComponentContext.koinInject(
             stateKeeper.register(
                 key = key,
                 strategy = MapSerializer(String.serializer(), JsonPrimitive.serializer()),
-                supplier = { map },
+                supplier = { map }
             )
         }
     }
@@ -43,7 +41,7 @@ public inline fun <reified T : KViewModel> ComponentContext.koinInject(
             scope.get(
                 parameters = {
                     ParametersHolder(mutableListOf(KSavedStateHandle(map)))
-                },
+                }
             )
         }
     }

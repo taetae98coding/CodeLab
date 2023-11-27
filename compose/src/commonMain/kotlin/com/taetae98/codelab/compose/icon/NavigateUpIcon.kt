@@ -11,6 +11,6 @@ public fun NavigateUpIcon(modifier: Modifier = Modifier) {
     Icon(
         modifier = modifier,
         imageVector = Icons.Rounded.ArrowBack,
-        contentDescription = null,
+        contentDescription = null
     )
 }

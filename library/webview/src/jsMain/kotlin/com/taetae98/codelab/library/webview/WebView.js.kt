@@ -10,10 +10,10 @@ import androidx.compose.ui.Modifier
 public actual fun WebView(modifier: Modifier, uiState: WebViewUiState) {
     Box(
         modifier = modifier,
-        contentAlignment = Alignment.Center,
+        contentAlignment = Alignment.Center
     ) {
         Text(
-            text = uiState.toString(),
+            text = uiState.toString()
         )
     }
 }

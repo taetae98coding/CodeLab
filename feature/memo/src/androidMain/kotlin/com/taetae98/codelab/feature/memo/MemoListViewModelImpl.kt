@@ -8,8 +8,8 @@ import javax.inject.Inject
 @HiltViewModel
 internal class MemoListViewModelImpl @Inject constructor(
     pageMemoUseCase: PageMemoUseCase,
-    deleteMemoUseCase: DeleteMemoUseCase,
+    deleteMemoUseCase: DeleteMemoUseCase
 ) : MemoListViewModel(
     pageMemoUseCase = pageMemoUseCase,
-    deleteMemoUseCase = deleteMemoUseCase,
+    deleteMemoUseCase = deleteMemoUseCase
 )

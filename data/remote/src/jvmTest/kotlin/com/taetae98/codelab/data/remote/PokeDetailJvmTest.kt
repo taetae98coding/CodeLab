@@ -26,11 +26,11 @@ class PokeDetailJvmTest : BehaviorSpec(), KoinTest {
                     MockEngine {
                         respond(
                             content = fileAsText("poke/poke_detail.json"),
-                            headers = headersOf(HttpHeaders.ContentType, "application/json"),
+                            headers = headersOf(HttpHeaders.ContentType, "application/json")
                         )
                     }
                 }
-            },
+            }
         )
 
         return listOf(KoinExtension(modules, mockProvider = null, mode = KoinLifecycleMode.Root))

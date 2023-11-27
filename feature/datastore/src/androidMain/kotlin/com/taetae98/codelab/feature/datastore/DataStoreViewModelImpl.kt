@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 internal class DataStoreViewModelImpl @Inject constructor(
-    private val savedStateHandle: SavedStateHandle,
+    private val savedStateHandle: SavedStateHandle
 ) : DatastoreViewModel(
-    kSavedStateHandle = KSavedStateHandle(savedStateHandle),
+    kSavedStateHandle = KSavedStateHandle(savedStateHandle)
 )

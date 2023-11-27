@@ -12,7 +12,7 @@ import org.koin.core.annotation.Named
 internal class PokeService @KInject constructor(
     @Named(HttpClientModule.POKE_CLIENT)
     @PokeHttpClient
-    private val client: HttpClient,
+    private val client: HttpClient
 ) {
     suspend fun page(limit: Int, offset: Int): PokePageEntity {
         val response = client.get("pokemon") {

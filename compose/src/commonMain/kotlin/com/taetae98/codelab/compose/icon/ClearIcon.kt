@@ -11,6 +11,6 @@ public fun ClearIcon(modifier: Modifier = Modifier) {
     Icon(
         modifier = modifier,
         imageVector = Icons.Rounded.Clear,
-        contentDescription = null,
+        contentDescription = null
     )
 }

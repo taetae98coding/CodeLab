@@ -21,7 +21,7 @@ public fun AppEntry(modifier: Modifier = Modifier) {
             modifier = modifier,
             navController = navController,
             startDestination = MainEntry.ROUTE,
-            route = AppEntry.ROUTE,
+            route = AppEntry.ROUTE
         ) {
             mainEntry(navController = navController)
             webViewEntry(navController = navController)

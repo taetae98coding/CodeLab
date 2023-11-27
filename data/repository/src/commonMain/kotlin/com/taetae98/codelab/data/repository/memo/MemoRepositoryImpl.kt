@@ -14,7 +14,7 @@ import org.koin.core.annotation.Factory
 
 @Factory
 internal class MemoRepositoryImpl @KInject constructor(
-    private val memoLocalDataSource: MemoLocalDataSource,
+    private val memoLocalDataSource: MemoLocalDataSource
 ) : MemoRepository {
     override suspend fun upsert(memo: Memo) {
         memoLocalDataSource.upsert(memo.toDto())
@@ -27,11 +27,11 @@ internal class MemoRepositoryImpl @KInject constructor(
     override fun page(): Flow<PagingData<Memo>> {
         val pager = createPager(
             config = createPagingConfig(
-                pageSize = PAGE_SIZE,
+                pageSize = PAGE_SIZE
             ),
             pagingSourceFactory = {
                 memoLocalDataSource.page()
-            },
+            }
         )
 
         return pager.flow.mapPaging(MemoDto::toDomain)

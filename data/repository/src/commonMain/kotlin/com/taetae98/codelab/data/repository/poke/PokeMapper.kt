@@ -9,7 +9,7 @@ internal fun PokeDto.toDomain(): Poke {
     return Poke(
         id = id,
         name = name,
-        image = image,
+        image = image
     )
 }
 
@@ -17,6 +17,6 @@ internal fun PokeDetailDto.toDomain(): PokeDetail {
     return PokeDetail(
         id = id,
         name = name,
-        imageList = imageList,
+        imageList = imageList
     )
 }

@@ -11,6 +11,6 @@ public fun NavigationIcon(modifier: Modifier = Modifier) {
     Icon(
         modifier = modifier,
         imageVector = Icons.Rounded.Navigation,
-        contentDescription = null,
+        contentDescription = null
     )
 }

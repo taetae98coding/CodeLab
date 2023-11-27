@@ -17,11 +17,7 @@ import androidx.compose.ui.unit.dp
 import com.taetae98.codelab.compose.icon.NavigateUpIcon
 
 @Composable
-internal fun DatastoreScreen(
-    modifier: Modifier,
-    onNavigateUp: () -> Unit,
-    uiState: State<DatastoreUiState>,
-) {
+internal fun DatastoreScreen(modifier: Modifier, onNavigateUp: () -> Unit, uiState: State<DatastoreUiState>) {
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -30,19 +26,16 @@ internal fun DatastoreScreen(
     ) {
         Content(
             modifier = Modifier.padding(it),
-            uiState = uiState,
+            uiState = uiState
         )
     }
 }
 
 @Composable
-private fun Content(
-    modifier: Modifier = Modifier,
-    uiState: State<DatastoreUiState>,
-) {
+private fun Content(modifier: Modifier = Modifier, uiState: State<DatastoreUiState>) {
     Box(
         modifier = modifier,
-        contentAlignment = Alignment.Center,
+        contentAlignment = Alignment.Center
     ) {
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth()
@@ -58,10 +51,7 @@ private fun Content(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun TopBar(
-    modifier: Modifier = Modifier,
-    onNavigateUp: () -> Unit,
-) {
+private fun TopBar(modifier: Modifier = Modifier, onNavigateUp: () -> Unit) {
     TopAppBar(
         modifier = modifier,
         title = {},

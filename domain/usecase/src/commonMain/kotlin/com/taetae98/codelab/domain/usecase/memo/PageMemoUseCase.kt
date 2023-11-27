@@ -10,7 +10,7 @@ import org.koin.core.annotation.Factory
 
 @Factory
 public class PageMemoUseCase @KInject internal constructor(
-    private val memoRepository: MemoRepository,
+    private val memoRepository: MemoRepository
 ) : FlowUseCase<Unit, PagingData<Memo>>() {
     override fun execute(params: Unit): Flow<PagingData<Memo>> {
         return memoRepository.page()

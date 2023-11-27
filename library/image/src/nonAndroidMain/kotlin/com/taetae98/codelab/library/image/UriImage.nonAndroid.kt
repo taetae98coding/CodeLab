@@ -18,11 +18,7 @@ import io.ktor.util.toByteArray
 import org.jetbrains.skia.Image
 
 @Composable
-public actual fun UriImage(
-    modifier: Modifier,
-    uri: String,
-    contentScale: ContentScale,
-) {
+public actual fun UriImage(modifier: Modifier, uri: String, contentScale: ContentScale) {
     val state = getAsyncImage(uri)
     val bitmap = state.value
 
@@ -33,7 +29,7 @@ public actual fun UriImage(
             modifier = modifier,
             bitmap = bitmap,
             contentDescription = null,
-            contentScale = contentScale,
+            contentScale = contentScale
         )
     }
 }

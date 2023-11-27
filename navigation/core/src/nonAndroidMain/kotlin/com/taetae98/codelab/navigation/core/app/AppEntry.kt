@@ -21,7 +21,7 @@ import com.taetae98.codelab.navigation.core.route.WebViewRoute
 import com.taetae98.codelab.navigation.core.webview.WebViewEntry
 
 public class AppEntry(
-    context: ComponentContext,
+    context: ComponentContext
 ) : ComponentContext by context {
     private val navigation = StackNavigation<Route>()
 
@@ -37,32 +37,32 @@ public class AppEntry(
                     onWebView = ::navigateToWebView,
                     onMemo = ::navigateToMemo,
                     onPoke = ::navigateToPoke,
-                    onDatastore = ::navigateToDatastore,
+                    onDatastore = ::navigateToDatastore
                 )
 
                 WebViewRoute -> WebViewEntry(
                     context = context,
-                    onNavigateUp = navigation::pop,
+                    onNavigateUp = navigation::pop
                 )
 
                 MemoRoute -> MemoEntry(
                     context = context,
-                    onNavigateUp = navigation::pop,
+                    onNavigateUp = navigation::pop
                 )
 
                 PokeRoute -> PokeEntry(
                     context = context,
-                    onNavigateUp = navigation::pop,
+                    onNavigateUp = navigation::pop
                 )
 
                 DatastoreRoute -> DatastoreEntry(
                     context = context,
-                    onNavigateUp = navigation::pop,
+                    onNavigateUp = navigation::pop
                 )
 
                 else -> illegalRoute(route)
             }
-        },
+        }
     )
 
     private fun navigateToWebView() {

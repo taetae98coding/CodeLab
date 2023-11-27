@@ -5,15 +5,12 @@ import androidx.compose.ui.Modifier
 import com.taetae98.codelab.navigation.core.main.MainEntry
 
 @Composable
-public fun MainEntry(
-    modifier: Modifier = Modifier,
-    entry: MainEntry,
-) {
+public fun MainEntry(modifier: Modifier = Modifier, entry: MainEntry) {
     MainRoute(
         modifier = modifier,
         onWebView = entry.onWebView,
         onMemo = entry.onMemo,
         onPoke = entry.onPoke,
-        onDatastore = entry.onDatastore,
+        onDatastore = entry.onDatastore
     )
 }

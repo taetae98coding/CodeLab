@@ -14,21 +14,21 @@ public fun MemoEntry(modifier: Modifier = Modifier, entry: MemoEntry) {
     Children(
         modifier = modifier,
         stack = entry.stack,
-        animation = stackAnimation(),
+        animation = stackAnimation()
     ) {
         when (val instance = it.instance) {
             is MemoListEntry -> {
                 MemoListRoute(
                     onNavigateUp = instance.onNavigateUp,
                     onAdd = instance.onNavigateToMemoAdd,
-                    viewModel = instance.koinInject(),
+                    viewModel = instance.koinInject()
                 )
             }
 
             is MemoAddEntry -> {
                 MemoAddRoute(
                     onNavigateUp = instance.onNavigateUp,
-                    viewModel = instance.koinInject(),
+                    viewModel = instance.koinInject()
                 )
             }
         }

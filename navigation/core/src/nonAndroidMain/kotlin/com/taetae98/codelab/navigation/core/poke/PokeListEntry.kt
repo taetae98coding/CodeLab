@@ -5,5 +5,5 @@ import com.arkivanov.decompose.ComponentContext
 public class PokeListEntry(
     context: ComponentContext,
     public val onNavigateUp: () -> Unit,
-    public val onNavigateToPokePage: (Int) -> Unit,
+    public val onNavigateToPokePage: (Int) -> Unit
 ) : ComponentContext by context

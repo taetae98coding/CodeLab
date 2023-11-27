@@ -7,6 +7,6 @@ import androidx.compose.ui.Modifier
 internal fun WebViewRoute(modifier: Modifier = Modifier, onNavigateUp: () -> Unit) {
     WebViewScreen(
         modifier = modifier,
-        onNavigateUp = onNavigateUp,
+        onNavigateUp = onNavigateUp
     )
 }

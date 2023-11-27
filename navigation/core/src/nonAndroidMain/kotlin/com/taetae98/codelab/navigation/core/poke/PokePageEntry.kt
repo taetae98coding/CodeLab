@@ -8,7 +8,7 @@ import kotlinx.serialization.json.JsonPrimitive
 public class PokePageEntry(
     context: ComponentContext,
     initialIndex: Int,
-    public val onNavigateUp: () -> Unit,
+    public val onNavigateUp: () -> Unit
 ) : Entry(context) {
     override val arguments: Map<String, JsonPrimitive> = mapOf(
         Parameter.INITIAL_INDEX to JsonPrimitive(initialIndex)

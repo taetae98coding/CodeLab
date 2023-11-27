@@ -9,7 +9,7 @@ import org.koin.core.annotation.Factory
 
 @Factory
 public class UpsertMemoUseCase @KInject internal constructor(
-    private val memoRepository: MemoRepository,
+    private val memoRepository: MemoRepository
 ) : UseCase<Memo, Unit>() {
     override suspend fun execute(params: Memo) {
         if (params.title.isEmpty()) throw TitleEmptyException()

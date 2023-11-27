@@ -11,6 +11,6 @@ public fun AddIcon(modifier: Modifier = Modifier) {
     Icon(
         modifier = modifier,
         imageVector = Icons.Rounded.Add,
-        contentDescription = null,
+        contentDescription = null
     )
 }

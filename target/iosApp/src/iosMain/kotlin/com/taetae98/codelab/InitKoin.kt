@@ -7,7 +7,7 @@ import org.koin.ksp.generated.module
 public fun initKoin() {
     startKoin {
         modules(
-            AppModule().module,
+            AppModule().module
         )
     }
 }

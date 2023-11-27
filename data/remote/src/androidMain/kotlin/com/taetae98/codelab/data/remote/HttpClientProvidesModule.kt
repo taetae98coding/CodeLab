@@ -6,8 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine
-import kotlinx.serialization.json.Json
 import javax.inject.Singleton
+import kotlinx.serialization.json.Json
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -18,11 +18,11 @@ public class HttpClientProvidesModule {
     internal fun providesPokeHttpClient(
         engine: HttpClientEngine,
         @PokeJson
-        json: Json,
+        json: Json
     ): HttpClient {
         return HttpClientModule().providesPokeHttpClient(
             engine = engine,
-            json = json,
+            json = json
         )
     }
 }

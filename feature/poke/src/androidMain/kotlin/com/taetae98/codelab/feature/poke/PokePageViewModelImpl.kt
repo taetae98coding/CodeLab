@@ -12,8 +12,8 @@ internal class PokePageViewModelImpl @Inject constructor(
     savedStateHandle: SavedStateHandle,
     pagePokeUseCase: PagePokeUseCase,
     getPokeDetailUseCase: GetPokeDetailUseCase
-) :  PokePageViewModel(
+) : PokePageViewModel(
     kSavedStateHandle = KSavedStateHandle(savedStateHandle),
-    pagePokeUseCase=pagePokeUseCase,
-    getPokeDetailUseCase = getPokeDetailUseCase,
+    pagePokeUseCase = pagePokeUseCase,
+    getPokeDetailUseCase = getPokeDetailUseCase
 )

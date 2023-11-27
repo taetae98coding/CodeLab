@@ -9,7 +9,7 @@ internal sealed class PokeDetailUiState {
     data class Loading(
         override val id: Int,
         override val name: String,
-        private val fetch: (id: Int) -> Unit,
+        private val fetch: (id: Int) -> Unit
     ) : PokeDetailUiState() {
         fun onFetch() {
             fetch(id)
@@ -19,6 +19,6 @@ internal sealed class PokeDetailUiState {
     data class Detail(
         override val id: Int,
         override val name: String,
-        val imageList: ImmutableList<String>,
+        val imageList: ImmutableList<String>
     ) : PokeDetailUiState()
 }

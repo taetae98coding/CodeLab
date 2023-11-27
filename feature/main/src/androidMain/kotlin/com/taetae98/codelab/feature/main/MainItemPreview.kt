@@ -11,6 +11,6 @@ private fun MainItemPreview() {
         title = "Title",
         platformList = persistentListOf(Platform.ANDROID, Platform.IOS, Platform.JVM),
         description = "Description",
-        onClick = {},
+        onClick = {}
     )
 }

@@ -23,14 +23,14 @@ import kotlinx.collections.immutable.persistentListOf
 internal fun MainItem(modifier: Modifier = Modifier, title: String, platformList: ImmutableList<Platform> = persistentListOf(), description: String? = null, onClick: () -> Unit) {
     Card(
         modifier = modifier,
-        onClick = onClick,
+        onClick = onClick
     ) {
         Content(
             modifier = Modifier.fillMaxWidth()
                 .padding(8.dp),
             title = title,
             platformList = platformList,
-            description = description,
+            description = description
         )
     }
 }
@@ -39,7 +39,7 @@ internal fun MainItem(modifier: Modifier = Modifier, title: String, platformList
 private fun Content(modifier: Modifier = Modifier, title: String, platformList: ImmutableList<Platform>, description: String?) {
     Column(
         modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(4.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         Title(title = title)
         PlatformList(platformList = platformList)
@@ -54,7 +54,7 @@ private fun Title(modifier: Modifier = Modifier, title: String) {
             modifier = modifier,
             text = title,
             maxLines = 1,
-            style = MaterialTheme.typography.titleLarge,
+            style = MaterialTheme.typography.titleLarge
         )
     }
 }
@@ -66,16 +66,16 @@ private fun PlatformList(modifier: Modifier = Modifier, platformList: ImmutableL
         FlowRow(
             modifier = modifier,
             horizontalArrangement = Arrangement.spacedBy(4.dp),
-            verticalArrangement = Arrangement.spacedBy(4.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             platformList.forEach {
                 Text(
                     modifier = Modifier.border(
                         width = 1.dp,
                         color = MaterialTheme.colorScheme.outline,
-                        shape = CircleShape,
+                        shape = CircleShape
                     ).padding(4.dp),
-                    text = it.name,
+                    text = it.name
                 )
             }
         }
@@ -88,7 +88,7 @@ private fun Description(modifier: Modifier = Modifier, description: String?) {
         Text(
             modifier = modifier,
             text = description,
-            style = MaterialTheme.typography.bodySmall,
+            style = MaterialTheme.typography.bodySmall
         )
     }
 }

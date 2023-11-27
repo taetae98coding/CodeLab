@@ -7,8 +7,8 @@ import org.koin.core.annotation.Module
     includes = [
         JsonModule::class,
         HttpClientEngineModule::class,
-        HttpClientModule::class,
-    ],
+        HttpClientModule::class
+    ]
 )
 @ComponentScan
 public class RemoteDataSourceModule

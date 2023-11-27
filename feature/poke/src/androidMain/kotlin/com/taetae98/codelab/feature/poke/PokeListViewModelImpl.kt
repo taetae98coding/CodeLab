@@ -6,5 +6,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 internal class PokeListViewModelImpl @Inject constructor(
-    private val pagePokeUseCase: PagePokeUseCase,
+    private val pagePokeUseCase: PagePokeUseCase
 ) : PokeListViewModel(pagePokeUseCase = pagePokeUseCase)

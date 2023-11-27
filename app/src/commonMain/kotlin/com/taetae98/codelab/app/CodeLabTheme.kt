@@ -17,6 +17,6 @@ internal fun CodeLabTheme(content: @Composable () -> Unit) {
 
     MaterialTheme(
         colorScheme = colorScheme,
-        content = content,
+        content = content
     )
 }

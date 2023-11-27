@@ -14,7 +14,7 @@ import com.taetae98.codelab.navigation.core.route.Route
 
 public class PokeEntry(
     context: ComponentContext,
-    private val onNavigateUp: () -> Unit,
+    private val onNavigateUp: () -> Unit
 ) : ComponentContext by context {
     private val navigation = StackNavigation<Route>()
 
@@ -22,19 +22,19 @@ public class PokeEntry(
         source = navigation,
         serializer = Route.serializer(),
         initialConfiguration = PokeListRoute,
-        handleBackButton = true,
+        handleBackButton = true
     ) { route, context ->
         when (route) {
             PokeListRoute -> PokeListEntry(
                 context = context,
                 onNavigateUp = onNavigateUp,
-                onNavigateToPokePage = ::navigateToPokePage,
+                onNavigateToPokePage = ::navigateToPokePage
             )
 
             is PokePageRoute -> PokePageEntry(
                 context = context,
                 initialIndex = route.initialIndex,
-                onNavigateUp = navigation::pop,
+                onNavigateUp = navigation::pop
             )
 
             else -> illegalRoute(route)

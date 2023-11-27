@@ -24,20 +24,15 @@ import com.taetae98.codelab.compose.icon.NavigateUpIcon
 import com.taetae98.codelab.library.image.UriImage
 
 @Composable
-internal fun PokeListScreen(
-    modifier: Modifier = Modifier,
-    onNavigateUp: () -> Unit,
-    pokeItems: LazyPagingItems<PokeUiState>,
-    onPokeItem: (Int) -> Unit,
-) {
+internal fun PokeListScreen(modifier: Modifier = Modifier, onNavigateUp: () -> Unit, pokeItems: LazyPagingItems<PokeUiState>, onPokeItem: (Int) -> Unit) {
     Scaffold(
         modifier = modifier,
-        topBar = { TopBar(onNavigateUp = onNavigateUp) },
+        topBar = { TopBar(onNavigateUp = onNavigateUp) }
     ) {
         Content(
             modifier = Modifier.padding(it),
             pokeItems = pokeItems,
-            onPokeItem = onPokeItem,
+            onPokeItem = onPokeItem
         )
     }
 }
@@ -52,30 +47,26 @@ private fun TopBar(modifier: Modifier = Modifier, onNavigateUp: () -> Unit) {
             IconButton(onClick = onNavigateUp) {
                 NavigateUpIcon()
             }
-        },
+        }
     )
 }
 
 @Composable
-private fun Content(
-    modifier: Modifier = Modifier,
-    pokeItems: LazyPagingItems<PokeUiState>,
-    onPokeItem: (Int) -> Unit,
-) {
+private fun Content(modifier: Modifier = Modifier, pokeItems: LazyPagingItems<PokeUiState>, onPokeItem: (Int) -> Unit) {
     LazyColumn(
         modifier = modifier,
         contentPadding = PaddingValues(6.dp),
-        verticalArrangement = Arrangement.spacedBy(6.dp),
+        verticalArrangement = Arrangement.spacedBy(6.dp)
     ) {
         items(
             count = pokeItems.itemCount,
             key = pokeItems.itemKey { it.id },
-            contentType = pokeItems.itemContentType { "Poke" },
+            contentType = pokeItems.itemContentType { "Poke" }
         ) {
             PokeItem(
                 modifier = Modifier.fillParentMaxWidth(),
                 uiState = pokeItems[it],
-                onClick = { onPokeItem(it) },
+                onClick = { onPokeItem(it) }
             )
         }
     }
@@ -83,22 +74,18 @@ private fun Content(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun PokeItem(
-    modifier: Modifier = Modifier,
-    uiState: PokeUiState?,
-    onClick: () -> Unit,
-) {
+private fun PokeItem(modifier: Modifier = Modifier, uiState: PokeUiState?, onClick: () -> Unit) {
     Card(
         modifier = modifier,
-        onClick = onClick,
+        onClick = onClick
     ) {
         Row(
             horizontalArrangement = Arrangement.spacedBy(4.dp),
-            verticalAlignment = Alignment.CenterVertically,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             UriImage(
                 modifier = Modifier.size(64.dp),
-                uri = uiState?.image.orEmpty(),
+                uri = uiState?.image.orEmpty()
             )
             Column {
                 Text(text = uiState?.id?.toString().orEmpty())

@@ -16,26 +16,26 @@ import org.koin.core.annotation.Factory
 @Factory
 internal open class MemoAddViewModel(
     private val kSavedStateHandle: KSavedStateHandle,
-    private val upsertMemoUseCase: UpsertMemoUseCase,
+    private val upsertMemoUseCase: UpsertMemoUseCase
 ) : KViewModel() {
 
     val uiState = MemoAddUiState(
-        onUpsert = ::upsert,
+        onUpsert = ::upsert
     )
 
     private val title = kSavedStateHandle.getStateFlow(TITLE, "")
     val titleUiState = title.map {
         TextFieldUiState(
             value = it,
-            onValueChange = ::setTitle,
+            onValueChange = ::setTitle
         )
     }.stateIn(
         scope = kViewModelScope,
         started = SharingStarted.Eagerly,
         initialValue = TextFieldUiState(
             value = title.value,
-            onValueChange = ::setTitle,
-        ),
+            onValueChange = ::setTitle
+        )
     )
 
     private val _messageUiState =
@@ -50,7 +50,7 @@ internal open class MemoAddViewModel(
         kViewModelScope.launch {
             val memo = Memo(
                 id = 0L,
-                title = title.value,
+                title = title.value
             )
 
             upsertMemoUseCase(memo)

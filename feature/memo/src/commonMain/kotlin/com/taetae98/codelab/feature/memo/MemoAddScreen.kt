@@ -31,11 +31,11 @@ internal fun MemoAddScreen(modifier: Modifier = Modifier, onNavigateUp: () -> Un
         modifier = modifier,
         topBar = { TopBar(onNavigateUp = onNavigateUp) },
         floatingActionButton = { FloatingButton(uiState = uiState) },
-        snackbarHost = { SnackbarHost(hostState) },
+        snackbarHost = { SnackbarHost(hostState) }
     ) {
         Content(
             modifier = Modifier.padding(it),
-            titleUiState = titleUiState,
+            titleUiState = titleUiState
         )
     }
 
@@ -59,7 +59,7 @@ private fun TopBar(modifier: Modifier = Modifier, onNavigateUp: () -> Unit) {
             IconButton(onClick = onNavigateUp) {
                 NavigateUpIcon()
             }
-        },
+        }
     )
 }
 
@@ -67,7 +67,7 @@ private fun TopBar(modifier: Modifier = Modifier, onNavigateUp: () -> Unit) {
 private fun FloatingButton(modifier: Modifier = Modifier, uiState: MemoAddUiState) {
     FloatingActionButton(
         modifier = modifier,
-        onClick = uiState.onUpsert,
+        onClick = uiState.onUpsert
     ) {
         AddIcon()
     }
@@ -77,7 +77,7 @@ private fun FloatingButton(modifier: Modifier = Modifier, uiState: MemoAddUiStat
 private fun Content(modifier: Modifier = Modifier, titleUiState: State<TextFieldUiState>) {
     Column(
         modifier = modifier.padding(6.dp),
-        verticalArrangement = Arrangement.spacedBy(6.dp),
+        verticalArrangement = Arrangement.spacedBy(6.dp)
     ) {
         Title(uiState = titleUiState)
     }
@@ -88,7 +88,7 @@ private fun Title(modifier: Modifier = Modifier, uiState: State<TextFieldUiState
     Card {
         TitleTextField(
             modifier = modifier.fillMaxWidth(),
-            uiState = uiState.value,
+            uiState = uiState.value
         )
     }
 }

@@ -7,7 +7,7 @@ import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.int
 
 public actual class KSavedStateHandle(
-    private val map: MutableMap<String, JsonPrimitive>,
+    private val map: MutableMap<String, JsonPrimitive>
 ) {
     private val flowMap = mutableMapOf<String, MutableStateFlow<Any?>>()
 

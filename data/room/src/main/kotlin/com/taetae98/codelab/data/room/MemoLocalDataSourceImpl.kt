@@ -6,7 +6,7 @@ import com.taetae98.codelab.data.local.MemoLocalDataSource
 import javax.inject.Inject
 
 internal class MemoLocalDataSourceImpl @Inject internal constructor(
-    private val memoDatabase: MemoDatabase,
+    private val memoDatabase: MemoDatabase
 ) : MemoLocalDataSource {
     override suspend fun upsert(memo: MemoDto) {
         memoDatabase.memo().upsert(memo.toEntity())

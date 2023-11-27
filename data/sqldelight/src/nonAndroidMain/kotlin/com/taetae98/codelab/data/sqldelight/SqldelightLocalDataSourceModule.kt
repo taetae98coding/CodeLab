@@ -4,7 +4,7 @@ import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Module
 
 @Module(
-    includes = [SqldelightModule::class],
+    includes = [SqldelightModule::class]
 )
 @ComponentScan
 public class SqldelightLocalDataSourceModule {
