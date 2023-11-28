@@ -22,7 +22,7 @@ internal class DatastoreProvidesModule {
         @ApplicationContext
         context: Context
     ): DataStore<Preferences> {
-        return DatastoreModule().getDatastore {
+        return DatastoreManager().getDatastore {
             context.filesDir.resolve("datastore.preferences_pb").absolutePath.toPath()
         }
     }

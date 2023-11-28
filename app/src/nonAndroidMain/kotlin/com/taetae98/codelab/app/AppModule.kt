@@ -1,5 +1,6 @@
 package com.taetae98.codelab.app
 
+import com.taetae98.codelab.data.datastore.DatastorePreferenceModule
 import com.taetae98.codelab.data.ktor.KtorRemoteDataSourceModule
 import com.taetae98.codelab.data.repository.RepositoryModule
 import com.taetae98.codelab.data.sqldelight.SqldelightLocalDataSourceModule
@@ -13,6 +14,7 @@ import org.koin.core.annotation.Module
     includes = [
         RepositoryModule::class,
         UseCaseModule::class,
+        DatastorePreferenceModule::class,
         SqldelightLocalDataSourceModule::class,
         KtorRemoteDataSourceModule::class,
         MemoModule::class,

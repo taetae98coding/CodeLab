@@ -10,3 +10,4 @@
 **/kotlin-js-store
 
 **/*.db
+**/*.preferences_pb

@@ -3,8 +3,6 @@ package com.taetae98.codelab.data.datastore
 import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Module
 
-@Module(
-    includes = [DataStoreModule::class]
-)
+@Module
 @ComponentScan
-public class DatastorePreferenceModule
+public class DataStorePreferencesModule

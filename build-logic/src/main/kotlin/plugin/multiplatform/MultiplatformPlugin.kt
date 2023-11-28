@@ -31,8 +31,11 @@ internal class MultiplatformPlugin : Plugin<Project> {
             val iosTargetMain = getByName("iosTargetMain")
 
             nonAndroidMain.dependsOn(commonMain.get())
+
             nonJs.dependsOn(commonMain.get())
+
             iosTargetMain.dependsOn(nonAndroidMain)
+            iosTargetMain.dependsOn(nonJs)
 
             androidMain.get().dependsOn(nonJs)
 
