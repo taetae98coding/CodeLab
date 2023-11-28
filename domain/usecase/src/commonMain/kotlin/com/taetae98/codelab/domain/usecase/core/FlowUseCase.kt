@@ -7,8 +7,14 @@ import kotlinx.coroutines.flow.map
 public abstract class FlowUseCase<P, R> internal constructor() {
     public operator fun invoke(params: P): Flow<Result<R>> {
         return execute(params)
-            .map { Result.success(it) }
-            .catch { Result.failure<R>(it) }
+            .map {
+                println("${this::class.simpleName}($params) => $it")
+                Result.success(it)
+            }
+            .catch {
+                println("${this::class.simpleName}($params) => $it")
+                Result.failure<R>(it)
+            }
     }
 
     protected abstract fun execute(params: P): Flow<R>

@@ -25,6 +25,7 @@ kotlin {
                 runtimeOnly(project(":data:repository"))
                 runtimeOnly(project(":data:datastore"))
                 runtimeOnly(project(":data:room"))
+                runtimeOnly(project(":data:ktor"))
 
                 implementation(libs.navigation.compose)
             }
@@ -34,7 +35,7 @@ kotlin {
             dependencies {
                 implementation(project(":data:datastore"))
                 implementation(project(":data:sqldelight"))
-                implementation(project(":data:remote"))
+                implementation(project(":data:ktor"))
                 implementation(project(":data:repository"))
                 implementation(project(":domain:usecase"))
 

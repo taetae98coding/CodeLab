@@ -43,6 +43,7 @@ include(
     ":data:datastore",
     ":data:room",
     ":data:sqldelight",
+    ":data:ktor",
 )
 
 include(

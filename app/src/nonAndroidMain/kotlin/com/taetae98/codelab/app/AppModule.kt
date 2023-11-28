@@ -1,6 +1,6 @@
 package com.taetae98.codelab.app
 
-import com.taetae98.codelab.data.remote.RemoteDataSourceModule
+import com.taetae98.codelab.data.ktor.KtorRemoteDataSourceModule
 import com.taetae98.codelab.data.repository.RepositoryModule
 import com.taetae98.codelab.data.sqldelight.SqldelightLocalDataSourceModule
 import com.taetae98.codelab.domain.usecase.UseCaseModule
@@ -14,7 +14,7 @@ import org.koin.core.annotation.Module
         RepositoryModule::class,
         UseCaseModule::class,
         SqldelightLocalDataSourceModule::class,
-        RemoteDataSourceModule::class,
+        KtorRemoteDataSourceModule::class,
         MemoModule::class,
         PokeModule::class,
         DatastoreModule::class,
