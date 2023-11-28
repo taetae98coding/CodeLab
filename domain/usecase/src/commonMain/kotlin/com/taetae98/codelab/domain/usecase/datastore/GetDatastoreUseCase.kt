@@ -8,7 +8,7 @@ import org.koin.core.annotation.Factory
 
 @Factory
 public class GetDatastoreUseCase @KInject internal constructor(
-    private val datastoreRepository: DatastoreRepository,
+    private val datastoreRepository: DatastoreRepository
 ) : FlowUseCase<Unit, String>() {
     override fun execute(params: Unit): Flow<String> {
         return datastoreRepository.get()

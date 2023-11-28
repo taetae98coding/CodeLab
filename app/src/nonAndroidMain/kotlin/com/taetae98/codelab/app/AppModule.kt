@@ -17,7 +17,7 @@ import org.koin.core.annotation.Module
         KtorRemoteDataSourceModule::class,
         MemoModule::class,
         PokeModule::class,
-        DatastoreModule::class,
+        DatastoreModule::class
     ]
 )
 public class AppModule

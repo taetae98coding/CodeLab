@@ -18,7 +18,7 @@ import org.koin.core.annotation.Factory
 internal open class DatastoreViewModel(
     private val kSavedStateHandle: KSavedStateHandle,
     private val getDatastoreUseCase: GetDatastoreUseCase,
-    private val updateDatastoreUseCase: UpdateDatastoreUseCase,
+    private val updateDatastoreUseCase: UpdateDatastoreUseCase
 ) : KViewModel() {
     private val value = kSavedStateHandle.getStateFlow(VALUE, "")
 

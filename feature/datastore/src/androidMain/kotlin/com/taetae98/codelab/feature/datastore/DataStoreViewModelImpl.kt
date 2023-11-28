@@ -11,9 +11,9 @@ import javax.inject.Inject
 internal class DataStoreViewModelImpl @Inject constructor(
     savedStateHandle: SavedStateHandle,
     getDatastoreUseCase: GetDatastoreUseCase,
-    updateDatastoreUseCase: UpdateDatastoreUseCase,
+    updateDatastoreUseCase: UpdateDatastoreUseCase
 ) : DatastoreViewModel(
     kSavedStateHandle = KSavedStateHandle(savedStateHandle),
     getDatastoreUseCase = getDatastoreUseCase,
-    updateDatastoreUseCase = updateDatastoreUseCase,
+    updateDatastoreUseCase = updateDatastoreUseCase
 )

@@ -6,11 +6,9 @@ import androidx.datastore.preferences.core.Preferences
 import okio.Path
 
 internal class DatastoreModule {
-    fun getDatastore(
-        produceFile: () -> Path,
-    ): DataStore<Preferences> {
+    fun getDatastore(produceFile: () -> Path): DataStore<Preferences> {
         return PreferenceDataStoreFactory.createWithPath(
-            produceFile = produceFile,
+            produceFile = produceFile
         )
     }
 }

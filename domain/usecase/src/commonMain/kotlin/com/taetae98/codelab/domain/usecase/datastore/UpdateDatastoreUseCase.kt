@@ -7,7 +7,7 @@ import org.koin.core.annotation.Factory
 
 @Factory
 public class UpdateDatastoreUseCase @KInject internal constructor(
-    private val datastoreRepository: DatastoreRepository,
+    private val datastoreRepository: DatastoreRepository
 ) : UseCase<String, Unit>() {
     override suspend fun execute(params: String) {
         datastoreRepository.update(params)
