@@ -11,13 +11,19 @@ kotlin {
                 implementation(project(":data:preference"))
                 implementation(project(":library:inject"))
                 implementation(libs.coroutines.core)
-                implementation(libs.datastore.core)
+
             }
         }
 
         androidMain {
             dependencies {
                 implementation(libs.datastore.preferences)
+            }
+        }
+
+        nonJsMain {
+            dependencies {
+                implementation(libs.datastore.core)
             }
         }
     }
