@@ -72,4 +72,5 @@ include(
     ":library:image",
     ":library:paging",
     ":library:paging-compose",
+    ":library:google-oauth",
 )
