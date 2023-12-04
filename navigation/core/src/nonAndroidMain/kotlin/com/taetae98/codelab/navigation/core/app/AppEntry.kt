@@ -8,11 +8,13 @@ import com.arkivanov.decompose.router.stack.pop
 import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
 import com.taetae98.codelab.navigation.core.datastore.DatastoreEntry
+import com.taetae98.codelab.navigation.core.google.oauth.GoogleOAuthEntry
 import com.taetae98.codelab.navigation.core.illegalRoute
 import com.taetae98.codelab.navigation.core.main.MainEntry
 import com.taetae98.codelab.navigation.core.memo.MemoEntry
 import com.taetae98.codelab.navigation.core.poke.PokeEntry
 import com.taetae98.codelab.navigation.core.route.DatastoreRoute
+import com.taetae98.codelab.navigation.core.route.GoogleOAuthRoute
 import com.taetae98.codelab.navigation.core.route.MainRoute
 import com.taetae98.codelab.navigation.core.route.MemoRoute
 import com.taetae98.codelab.navigation.core.route.PokeRoute
@@ -37,7 +39,8 @@ public class AppEntry(
                     onWebView = ::navigateToWebView,
                     onMemo = ::navigateToMemo,
                     onPoke = ::navigateToPoke,
-                    onDatastore = ::navigateToDatastore
+                    onDatastore = ::navigateToDatastore,
+                    onGoogleOAuth = ::navigateToGoogleOAuth,
                 )
 
                 WebViewRoute -> WebViewEntry(
@@ -60,6 +63,11 @@ public class AppEntry(
                     onNavigateUp = navigation::pop
                 )
 
+                GoogleOAuthRoute -> GoogleOAuthEntry(
+                    context = context,
+                    onNavigateUp = navigation::pop,
+                )
+
                 else -> illegalRoute(route)
             }
         }
@@ -79,5 +87,9 @@ public class AppEntry(
 
     private fun navigateToDatastore() {
         navigation.push(DatastoreRoute)
+    }
+
+    private fun navigateToGoogleOAuth() {
+        navigation.push(GoogleOAuthRoute)
     }
 }

@@ -59,6 +59,7 @@ include(
     ":feature:memo",
     ":feature:poke",
     ":feature:datastore",
+    ":feature:google-oauth",
 )
 
 include(":compose")
@@ -73,4 +74,5 @@ include(
     ":library:paging",
     ":library:paging-compose",
     ":library:google-oauth",
+    ":library:google-oauth-compose",
 )

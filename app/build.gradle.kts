@@ -15,6 +15,7 @@ kotlin {
                 implementation(project(":feature:memo"))
                 implementation(project(":feature:poke"))
                 implementation(project(":feature:datastore"))
+                implementation(project(":feature:google-oauth"))
 
                 implementation(compose.material3)
             }

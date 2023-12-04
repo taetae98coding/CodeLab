@@ -1,6 +1,5 @@
 plugins {
     id("codelab.multiplatform")
-    id("codelab.compose.multiplatform")
     alias(libs.plugins.kotlin.cocoapods)
 }
 
@@ -12,14 +11,6 @@ kotlin {
         ios.deploymentTarget = "17.0"
 
         pod("GoogleSignIn")
-    }
-
-    sourceSets {
-        commonMain {
-            dependencies {
-                implementation(compose.ui)
-            }
-        }
     }
 }
 

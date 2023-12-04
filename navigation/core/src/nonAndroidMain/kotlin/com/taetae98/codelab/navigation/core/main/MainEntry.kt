@@ -7,5 +7,6 @@ public class MainEntry(
     public val onWebView: () -> Unit,
     public val onMemo: () -> Unit,
     public val onPoke: () -> Unit,
-    public val onDatastore: () -> Unit
+    public val onDatastore: () -> Unit,
+    public val onGoogleOAuth: () -> Unit,
 ) : ComponentContext by context

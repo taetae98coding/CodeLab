@@ -111,6 +111,7 @@
 				7555FF79242A565900829871 /* Resources */,
 				4AB315AB91C971867FF6BD25 /* Frameworks */,
 				ABB9C4539B0CD49997F85CA5 /* [CP] Copy Pods Resources */,
+				E7564F5621A9F4A8DAD018B1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -204,6 +205,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CodeLab/Pods-CodeLab-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7564F5621A9F4A8DAD018B1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CodeLab/Pods-CodeLab-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CodeLab/Pods-CodeLab-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CodeLab/Pods-CodeLab-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

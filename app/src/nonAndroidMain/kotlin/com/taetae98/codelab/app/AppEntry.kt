@@ -5,12 +5,14 @@ import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
 import com.taetae98.codelab.feature.datastore.DatastoreEntry
+import com.taetae98.codelab.feature.google.oauth.GoogleOAuthEntry
 import com.taetae98.codelab.feature.main.MainEntry
 import com.taetae98.codelab.feature.memo.MemoEntry
 import com.taetae98.codelab.feature.poke.PokeEntry
 import com.taetae98.codelab.feature.webview.WebViewEntry
 import com.taetae98.codelab.navigation.core.app.AppEntry
 import com.taetae98.codelab.navigation.core.datastore.DatastoreEntry
+import com.taetae98.codelab.navigation.core.google.oauth.GoogleOAuthEntry
 import com.taetae98.codelab.navigation.core.main.MainEntry
 import com.taetae98.codelab.navigation.core.memo.MemoEntry
 import com.taetae98.codelab.navigation.core.poke.PokeEntry
@@ -30,6 +32,7 @@ public fun AppEntry(modifier: Modifier = Modifier, entry: AppEntry) {
                 is MemoEntry -> MemoEntry(entry = instance)
                 is PokeEntry -> PokeEntry(entry = instance)
                 is DatastoreEntry -> DatastoreEntry(entry = instance)
+                is GoogleOAuthEntry -> GoogleOAuthEntry(entry = instance)
             }
         }
     }

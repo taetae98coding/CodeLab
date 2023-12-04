@@ -16,7 +16,14 @@ import androidx.compose.ui.unit.dp
 import kotlinx.collections.immutable.persistentListOf
 
 @Composable
-internal fun MainRoute(modifier: Modifier = Modifier, onWebView: () -> Unit, onMemo: () -> Unit, onPoke: () -> Unit, onDatastore: () -> Unit) {
+internal fun MainRoute(
+    modifier: Modifier = Modifier,
+    onWebView: () -> Unit,
+    onMemo: () -> Unit,
+    onPoke: () -> Unit,
+    onDatastore: () -> Unit,
+    onGoogleOAuth: () -> Unit,
+) {
     Scaffold(
         modifier = modifier,
         topBar = { TopBar() }
@@ -27,7 +34,8 @@ internal fun MainRoute(modifier: Modifier = Modifier, onWebView: () -> Unit, onM
             onWebView = onWebView,
             onMemo = onMemo,
             onPoke = onPoke,
-            onDatastore = onDatastore
+            onDatastore = onDatastore,
+            onGoogleOAuth = onGoogleOAuth,
         )
     }
 }
@@ -44,7 +52,14 @@ private fun TopBar(modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun MainItemColum(modifier: Modifier = Modifier, onWebView: () -> Unit, onMemo: () -> Unit, onPoke: () -> Unit, onDatastore: () -> Unit) {
+private fun MainItemColum(
+    modifier: Modifier = Modifier,
+    onWebView: () -> Unit,
+    onMemo: () -> Unit,
+    onPoke: () -> Unit,
+    onDatastore: () -> Unit,
+    onGoogleOAuth: () -> Unit,
+) {
     Column(
         modifier = modifier
             .padding(horizontal = 8.dp)
@@ -96,13 +111,27 @@ private fun MainItemColum(modifier: Modifier = Modifier, onWebView: () -> Unit, 
         MainItem(
             title = "Datastore CodeLab",
             platformList = persistentListOf(
-                Platform.ANDROID
+                Platform.ANDROID, Platform.IOS, Platform.JVM
             ),
             description = """
                 Preference CodeLab
                 - Datastore
             """.trimIndent(),
             onClick = onDatastore
+        )
+
+        MainItem(
+            title = "Google OAuth",
+            platformList = persistentListOf(
+                Platform.ANDROID, Platform.IOS,
+            ),
+            description = """
+                Google OAuth CodeLab
+                - Firebase
+                - android official google oauth library
+                - ios official google oauth library
+            """.trimIndent(),
+            onClick = onGoogleOAuth,
         )
     }
 }
