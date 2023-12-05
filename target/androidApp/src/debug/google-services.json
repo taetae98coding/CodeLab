@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "617262851392",
+    "project_id": "codelab-11dab",
+    "storage_bucket": "codelab-11dab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617262851392:android:61d6c607bd195b4cba86a5",
+        "android_client_info": {
+          "package_name": "com.taetae98.codelab.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "617262851392-c8e9lua7ogebfdflpj65uosdaodt8j5f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.taetae98.codelab.debug",
+            "certificate_hash": "eebb2e959342b68f9257664082eaf7b5a8e0616f"
+          }
+        },
+        {
+          "client_id": "617262851392-2gh3bqs1vobvjl750mbjb6irjlohd3jj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYgzXgt3zjfe9ZTps4jNGDnDR3gZlg9zc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "617262851392-2gh3bqs1vobvjl750mbjb6irjlohd3jj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "617262851392-j7j7gh0djkhob28caa00k9l9sgjtkjvm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.taetae98.CodeLab"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

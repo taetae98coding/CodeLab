@@ -12,6 +12,12 @@ kotlin {
             }
         }
 
+        androidMain {
+            dependencies {
+                implementation(libs.activity.compose)
+            }
+        }
+
         iosMain {
             dependencies {
                 implementation(compose.ui)

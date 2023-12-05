@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.taetae98.codelab.feature.datastore.datastoreEntry
+import com.taetae98.codelab.feature.google.oauth.googleOAuthEntry
 import com.taetae98.codelab.feature.main.mainEntry
 import com.taetae98.codelab.feature.memo.memoEntry
 import com.taetae98.codelab.feature.poke.pokeEntry
@@ -28,6 +29,7 @@ public fun AppEntry(modifier: Modifier = Modifier) {
             memoEntry(navController = navController)
             pokeEntry(navController = navController)
             datastoreEntry(navController = navController)
+            googleOAuthEntry(navController = navController)
         }
     }
 }

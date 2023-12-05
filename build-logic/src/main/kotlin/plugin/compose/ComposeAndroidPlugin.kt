@@ -11,12 +11,12 @@ internal class ComposeAndroidPlugin : Plugin<Project> {
     }
 
     private fun applyAndroid(extension: CommonExtension<*, *, *, *, *>) = with(extension) {
-        buildFeatures {
-            compose = true
-        }
-
-        composeOptions {
-            kotlinCompilerExtensionVersion = "1.5.4"
-        }
+//        buildFeatures {
+//            compose = true
+//        }
+//
+//        composeOptions {
+//            kotlinCompilerExtensionVersion = "1.5.5"
+//        }
     }
 }
