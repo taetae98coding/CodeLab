@@ -27,5 +27,5 @@ kotlin {
 }
 
 android {
-    namespace = "com.taetae98.codelab.library.google.oauth.compose"
+    namespace = "${Build.NAMESPACE}.library.google.oauth.compose"
 }

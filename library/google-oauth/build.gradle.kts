@@ -1,8 +1,10 @@
+import com.codingfeline.buildkonfig.compiler.FieldSpec
 import org.jetbrains.compose.internal.utils.getLocalProperty
 
 plugins {
     id("codelab.multiplatform")
     alias(libs.plugins.kotlin.cocoapods)
+    alias(libs.plugins.buildkonfig)
 }
 
 kotlin {
@@ -27,7 +29,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.taetae98.codelab.library.google.oauth"
+    namespace = "${Build.NAMESPACE}.library.google.oauth"
 
     defaultConfig {
         buildConfigField(
@@ -39,5 +41,31 @@ android {
 
     buildFeatures {
         buildConfig = true
+    }
+}
+
+buildkonfig {
+    packageName = "${Build.NAMESPACE}.library.google.oauth"
+
+    defaultConfigs {
+
+    }
+
+    targetConfigs {
+        create("ios") {
+            buildConfigField(
+                type = FieldSpec.Type.STRING,
+                name = "GOOGLE_CLIENT_ID",
+                value = getLocalProperty("google.ios.client.id"),
+                const = true
+            )
+
+            buildConfigField(
+                type = FieldSpec.Type.STRING,
+                name = "GOOGLE_SERVER_CLIENT_ID",
+                value = getLocalProperty("google.server.client.id"),
+                const = true
+            )
+        }
     }
 }

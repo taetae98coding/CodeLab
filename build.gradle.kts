@@ -22,6 +22,7 @@ plugins {
 
     alias(libs.plugins.spotless)
     alias(libs.plugins.ksp).apply(false)
+    alias(libs.plugins.buildkonfig).apply(false)
 }
 
 subprojects {

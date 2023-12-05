@@ -40,6 +40,7 @@ koin-annotations = "1.3.0"                          # https://github.com/InsertK
 
 spotless = "6.23.2"                                 # https://github.com/diffplug/spotless/tree/main/plugin-gradle
 ksp = "1.9.21-1.0.15"                               # https://github.com/google/ksp/releases
+buildkonfig = "0.15.1"                              # https://github.com/yshrsmz/BuildKonfig/releases
 
 kotest = "5.8.0"                                    # https://github.com/kotest/kotest/releases
 kotest-koin = "1.3.0"                               # https://github.com/kotest/kotest-extensions-koin
@@ -155,6 +156,7 @@ kotest-multiplatform = { id = "io.kotest.multiplatform", version.ref = "kotest" 
 
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+buildkonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildkonfig" }
 
 [bundles]
 room = ["room-runtime", "room-ktx", "room-paging"]
