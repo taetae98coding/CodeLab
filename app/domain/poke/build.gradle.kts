@@ -1,7 +1,3 @@
-@file:OptIn(ExperimentalWasmDsl::class)
-
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
-
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
 }
@@ -30,6 +26,8 @@ kotlin {
     tvosSimulatorArm64()
     tvosX64()
     tvosArm64()
+
+    applyDefaultHierarchyTemplate()
 
     sourceSets {
         commonMain {
