@@ -1,16 +1,29 @@
 [versions]
 kotlin = "2.1.0"                    # https://github.com/jetbrains/kotlin/releases
+ksp = "2.1.0-1.0.29"                # https://github.com/google/ksp/releases
 agp = "8.7.3"                       # https://developer.android.com/build/releases/gradle-plugin?hl=en
+
+koin = "4.1.0-Beta3"                # https://github.com/InsertKoinIO/koin/releases
+koin-annotations = "2.0.0-Beta3"    # https://github.com/InsertKoinIO/koin-annotations/releases
 
 compose = "1.8.0-alpha01"           # https://github.com/JetBrains/compose-multiplatform/releases
 
 androidx-paging = "3.3.5"           # https://developer.android.com/jetpack/androidx/releases/paging?hl=en
 
 [libraries]
+koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koin" }
+koin-core = { group = "io.insert-koin", name = "koin-core" }
+
+koin-annotations-bom = { group = "io.insert-koin", name = "koin-annotations-bom", version.ref = "koin-annotations" }
+koin-annotations = { group = "io.insert-koin", name = "koin-annotations" }
+koin-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler" }
+
 paging-common = { group = "androidx.paging", name = "paging-common", version.ref = "androidx-paging" }
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
 android-library = { id = "com.android.library", version.ref = "agp" }
 
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }

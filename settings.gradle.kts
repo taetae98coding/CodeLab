@@ -33,3 +33,5 @@ include(":app:target:common")
 include(":app:data:poke")
 
 include(":app:domain:poke")
+
+include(":app:feature:poke")

@@ -14,6 +14,10 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(project(":app:target:common"))
+
+                implementation(project.dependencies.platform(libs.koin.bom))
+                implementation(libs.koin.core)
+
                 implementation(compose.desktop.currentOs)
             }
         }

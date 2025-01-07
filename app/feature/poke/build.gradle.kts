@@ -57,8 +57,6 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":app:feature:poke"))
-
                 implementation(project.dependencies.platform(libs.koin.bom))
                 implementation(libs.koin.core)
                 implementation(project.dependencies.platform(libs.koin.annotations.bom))
@@ -70,21 +68,18 @@ kotlin {
 
         jvmMain {
             dependencies {
-                implementation(project(":app:data:poke"))
                 implementation(project(":app:domain:poke"))
             }
         }
 
         androidMain {
             dependencies {
-                implementation(project(":app:data:poke"))
                 implementation(project(":app:domain:poke"))
             }
         }
 
         appleMain {
             dependencies {
-                implementation(project(":app:data:poke"))
                 implementation(project(":app:domain:poke"))
             }
         }

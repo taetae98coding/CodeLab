@@ -1,4 +1,4 @@
-package io.github.taetae98coding.codelab.domain.poke
+package io.github.taetae98coding.codelab.domain.poke.usecase
 
 import androidx.paging.PagingData
 import io.github.taetae98coding.codelab.domain.poke.entity.Poke
@@ -9,8 +9,10 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.mapLatest
+import org.koin.core.annotation.Factory
 
 @OptIn(ExperimentalCoroutinesApi::class)
+@Factory
 public class PagingPokeUseCase internal constructor(
     private val pokeRepository: PokeRepository,
 ) {

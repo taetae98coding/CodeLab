@@ -1,14 +1,15 @@
-@file:OptIn(ExperimentalWasmDsl::class)
-
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
-
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.android.library)
 }
 
 kotlin {
     explicitApi()
     jvmToolchain(17)
+
+    // Android
+    androidTarget()
 
     // JVM
     jvm()
@@ -35,7 +36,25 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(project(":app:domain:poke"))
+
+                implementation(project.dependencies.platform(libs.koin.bom))
+                implementation(libs.koin.core)
+                implementation(project.dependencies.platform(libs.koin.annotations.bom))
+                implementation(libs.koin.annotations)
             }
         }
     }
+}
+
+android {
+    namespace = "io.github.taetae98coding.codelab.data.poke"
+
+    defaultConfig {
+        compileSdk = 35
+    }
+}
+
+dependencies {
+    ksp(platform(libs.koin.annotations.bom))
+    ksp(libs.koin.compiler)
 }

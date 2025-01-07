@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -32,8 +33,18 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(project.dependencies.platform(libs.koin.bom))
+                implementation(libs.koin.core)
+                implementation(project.dependencies.platform(libs.koin.annotations.bom))
+                implementation(libs.koin.annotations)
+
                 api(libs.paging.common)
             }
         }
     }
+}
+
+dependencies {
+    ksp(platform(libs.koin.annotations.bom))
+    ksp(libs.koin.compiler)
 }
