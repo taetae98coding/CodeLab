@@ -3,7 +3,10 @@ kotlin = "2.1.0"                    # https://github.com/jetbrains/kotlin/releas
 
 compose = "1.8.0-alpha01"           # https://github.com/JetBrains/compose-multiplatform/releases
 
+androidx-paging = "3.3.5"           # https://developer.android.com/jetpack/androidx/releases/paging?hl=en
+
 [libraries]
+paging-common = { group = "androidx.paging", name = "paging-common", version.ref = "androidx-paging" }
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }

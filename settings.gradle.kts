@@ -28,3 +28,5 @@ dependencyResolutionManagement {
 rootProject.name = "CodeLab"
 
 include(":app:target:jvm")
+
+include(":app:domain:poke")
