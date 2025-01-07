@@ -29,4 +29,6 @@ rootProject.name = "CodeLab"
 
 include(":app:target:jvm")
 
+include(":app:data:poke")
+
 include(":app:domain:poke")

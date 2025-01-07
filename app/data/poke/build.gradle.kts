@@ -34,7 +34,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(libs.paging.common)
+                implementation(project(":app:domain:poke"))
             }
         }
     }
