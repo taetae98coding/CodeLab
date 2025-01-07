@@ -1,5 +1,6 @@
 [versions]
 kotlin = "2.1.0"                    # https://github.com/jetbrains/kotlin/releases
+agp = "8.7.3"                       # https://developer.android.com/build/releases/gradle-plugin?hl=en
 
 compose = "1.8.0-alpha01"           # https://github.com/JetBrains/compose-multiplatform/releases
 
@@ -10,6 +11,7 @@ paging-common = { group = "androidx.paging", name = "paging-common", version.ref
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

@@ -13,6 +13,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(project(":app:target:common"))
                 implementation(compose.desktop.currentOs)
             }
         }
