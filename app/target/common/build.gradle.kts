@@ -65,6 +65,7 @@ kotlin {
                 implementation(libs.koin.annotations)
 
                 implementation(compose.material3)
+                implementation(libs.navigation.compose)
             }
         }
 

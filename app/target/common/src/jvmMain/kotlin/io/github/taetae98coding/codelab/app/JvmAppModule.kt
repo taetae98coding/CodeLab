@@ -10,4 +10,4 @@ import org.koin.core.annotation.Module
         PokeDomainModule::class,
     ],
 )
-public class AppPlatformModule
+public class JvmAppModule

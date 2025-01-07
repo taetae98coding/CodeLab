@@ -5,7 +5,9 @@ import io.github.taetae98coding.codelab.domain.poke.entity.Poke
 import io.github.taetae98coding.codelab.domain.poke.repository.PokeRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
+import org.koin.core.annotation.Factory
 
+@Factory
 internal class FakePokeRepository : PokeRepository {
     override fun pagingPoke(): Flow<PagingData<Poke>> {
         val pokeList = List(100) {

@@ -19,6 +19,8 @@ kotlin {
                 implementation(libs.koin.core)
 
                 implementation(compose.desktop.currentOs)
+
+                runtimeOnly(libs.kotlinx.coroutines.swing)
             }
         }
     }
