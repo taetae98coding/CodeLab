@@ -57,6 +57,8 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(project(":app:core:navigation"))
+
                 implementation(project.dependencies.platform(libs.koin.bom))
                 implementation(libs.koin.compose.viewmodel.navigation)
                 implementation(project.dependencies.platform(libs.koin.annotations.bom))

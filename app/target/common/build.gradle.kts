@@ -57,6 +57,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(project(":app:core:navigation"))
                 implementation(project(":app:feature:poke"))
 
                 implementation(project.dependencies.platform(libs.koin.bom))

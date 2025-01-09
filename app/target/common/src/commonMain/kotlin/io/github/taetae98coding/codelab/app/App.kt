@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import coil3.ImageLoader
 import coil3.compose.setSingletonImageLoaderFactory
 import coil3.util.DebugLogger
+import io.github.taetae98coding.codelab.core.navigation.poke.PokeHome
 import io.github.taetae98coding.codelab.feature.poke.pokeNavigation
 
 @Composable
@@ -22,7 +23,7 @@ public fun App() {
 
         NavHost(
             navController = navController,
-            startDestination = "poke",
+            startDestination = PokeHome,
         ) {
             pokeNavigation(navController = navController)
         }

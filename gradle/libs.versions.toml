@@ -4,6 +4,7 @@ ksp = "2.1.0-1.0.29"                # https://github.com/google/ksp/releases
 agp = "8.7.3"                       # https://developer.android.com/build/releases/gradle-plugin?hl=en
 
 kotlinx-coroutines = "1.10.1"       # https://github.com/Kotlin/kotlinx.coroutines/releases
+kotlinx-serialization = "1.8.0"     # https://github.com/Kotlin/kotlinx.serialization/releases
 
 ktor = "3.0.3"                      # https://github.com/ktorio/ktor/releases
 
@@ -19,6 +20,8 @@ androidx-paging = "3.3.5"           # https://developer.android.com/jetpack/andr
 
 [libraries]
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
+
+kotlinx-serialization-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
 
 koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koin" }
 koin-core = { group = "io.insert-koin", name = "koin-core" }
@@ -40,6 +43,7 @@ paging-common = { group = "androidx.paging", name = "paging-common", version.ref
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 android-library = { id = "com.android.library", version.ref = "agp" }

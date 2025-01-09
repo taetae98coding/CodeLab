@@ -27,6 +27,7 @@ import androidx.paging.PagingData
 import androidx.paging.PagingDataEvent
 import androidx.paging.PagingDataPresenter
 import coil3.compose.AsyncImage
+import io.github.taetae98coding.codelab.core.navigation.poke.PokeHome
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 import kotlinx.coroutines.Dispatchers
@@ -40,7 +41,7 @@ import org.koin.compose.viewmodel.koinViewModel
 public actual fun NavGraphBuilder.pokeNavigation(
     navController: NavController,
 ) {
-    composable("poke") {
+    composable<PokeHome> {
         val viewModel = koinViewModel<PokeViewModel>()
         val lazyItems = viewModel.paging.collectAsLazyPagingItems()
 
