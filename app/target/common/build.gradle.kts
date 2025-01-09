@@ -66,6 +66,11 @@ kotlin {
 
                 implementation(compose.material3)
                 implementation(libs.navigation.compose)
+
+
+                implementation(project.dependencies.platform(libs.coil.bom))
+                implementation(libs.coil.compose)
+                implementation(libs.coil.ktor)
             }
         }
 

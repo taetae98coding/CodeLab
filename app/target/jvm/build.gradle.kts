@@ -20,6 +20,7 @@ kotlin {
 
                 implementation(compose.desktop.currentOs)
 
+                runtimeOnly(libs.ktor.client.okhttp)
                 runtimeOnly(libs.kotlinx.coroutines.swing)
             }
         }

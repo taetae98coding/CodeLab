@@ -1,6 +1,11 @@
 package io.github.taetae98coding.codelab.feature.poke
 
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -8,6 +13,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -18,6 +26,7 @@ import androidx.paging.LoadStates
 import androidx.paging.PagingData
 import androidx.paging.PagingDataEvent
 import androidx.paging.PagingDataPresenter
+import coil3.compose.AsyncImage
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 import kotlinx.coroutines.Dispatchers
@@ -35,11 +44,26 @@ public actual fun NavGraphBuilder.pokeNavigation(
         val viewModel = koinViewModel<PokeViewModel>()
         val lazyItems = viewModel.paging.collectAsLazyPagingItems()
 
-        LazyColumn {
+        LazyVerticalGrid(
+            columns = GridCells.Adaptive(150.dp),
+            modifier = Modifier.fillMaxSize(),
+        ) {
             items(
                 count = lazyItems.itemCount,
             ) {
-                Text(text = lazyItems[it]?.name.orEmpty())
+                Card {
+                    AsyncImage(
+                        model = lazyItems[it]?.thumbnail,
+                        contentDescription = lazyItems[it]?.name,
+                        modifier = Modifier.fillMaxWidth()
+                            .aspectRatio(1F),
+                    )
+                    Text(
+                        text = lazyItems[it]?.name.orEmpty(),
+                        modifier = Modifier.fillMaxWidth(),
+                        textAlign = TextAlign.Center,
+                    )
+                }
             }
         }
     }

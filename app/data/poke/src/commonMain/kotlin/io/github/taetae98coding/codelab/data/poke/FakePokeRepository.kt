@@ -12,8 +12,9 @@ internal class FakePokeRepository : PokeRepository {
     override fun pagingPoke(): Flow<PagingData<Poke>> {
         val pokeList = List(100) {
             Poke(
-                id = it,
-                name = "Poke $it",
+                id = it + 1,
+                name = "Poke ${it + 1}",
+                thumbnail = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${it + 1}.png",
             )
         }
 
