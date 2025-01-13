@@ -51,6 +51,12 @@ kotlin {
             }
         }
 
+        androidUnitTest {
+            dependencies {
+                implementation(libs.kotest.junit5)
+            }
+        }
+
         jvmTest {
             dependencies {
                 implementation(libs.kotest.junit5)
