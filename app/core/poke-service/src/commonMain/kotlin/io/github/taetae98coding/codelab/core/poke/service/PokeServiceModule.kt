@@ -1,7 +1,6 @@
 package io.github.taetae98coding.codelab.core.poke.service
 
 import io.ktor.client.HttpClient
-import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.serialization.kotlinx.json.DefaultJson
@@ -26,11 +25,10 @@ public class PokeServiceModule {
     @Single
     @Named(POKE_HTTP_CLIENT)
     internal fun providesPokeHttpClient(
-        engine: HttpClientEngine,
         @Named(POKE_SERVICE_JSON)
         json: Json,
     ): HttpClient {
-        return HttpClient(engine) {
+        return HttpClient {
             defaultRequest {
                 url("https://pokeapi.co/api/v2/")
             }

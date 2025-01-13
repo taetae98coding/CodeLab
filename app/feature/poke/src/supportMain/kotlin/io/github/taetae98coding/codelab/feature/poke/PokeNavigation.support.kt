@@ -116,8 +116,11 @@ public class LazyPagingItems<T : Any> internal constructor(
 ) {
     private val pagingDataPresenter = object : PagingDataPresenter<T>(
         mainContext = Dispatchers.Main,
-        cachedPagingData =
-            if (flow is SharedFlow<PagingData<T>>) flow.replayCache.firstOrNull() else null,
+        cachedPagingData = if (flow is SharedFlow<PagingData<T>>) {
+            flow.replayCache.firstOrNull()
+        } else {
+            null
+        },
     ) {
         override suspend fun presentPagingDataEvent(
             event: PagingDataEvent<T>,
@@ -139,26 +142,22 @@ public class LazyPagingItems<T : Any> internal constructor(
         }
 
     public var loadState: CombinedLoadStates by mutableStateOf(
-        pagingDataPresenter.loadStateFlow.value
-            ?: CombinedLoadStates(
-                refresh = InitialLoadStates.refresh,
-                prepend = InitialLoadStates.prepend,
-                append = InitialLoadStates.append,
-                source = InitialLoadStates,
-            ),
+        pagingDataPresenter.loadStateFlow.value ?: CombinedLoadStates(
+            refresh = InitialLoadStates.refresh,
+            prepend = InitialLoadStates.prepend,
+            append = InitialLoadStates.append,
+            source = InitialLoadStates,
+        ),
     )
         private set
 
     internal suspend fun collectLoadState() {
-        pagingDataPresenter.loadStateFlow.filterNotNull().collect {
-            loadState = it
-        }
+        pagingDataPresenter.loadStateFlow.filterNotNull()
+            .collect { loadState = it }
     }
 
     internal suspend fun collectPagingData() {
-        flow.collectLatest {
-            pagingDataPresenter.collectFrom(it)
-        }
+        flow.collectLatest { pagingDataPresenter.collectFrom(it) }
     }
 
     public operator fun get(index: Int): T? {

@@ -14,7 +14,7 @@ public class PokeService internal constructor(
     private val client: HttpClient,
 ) {
     public suspend fun page(limit: Int, offset: Int): PokePageResponseEntity {
-        val response = client.get("/pokemon") {
+        val response = client.get("pokemon") {
             parameter("limit", limit)
             parameter("offset", offset)
         }

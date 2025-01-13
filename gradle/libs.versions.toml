@@ -9,7 +9,7 @@ kotlinx-serialization = "1.8.0"     # https://github.com/Kotlin/kotlinx.serializ
 ktor = "3.0.3"                      # https://github.com/ktorio/ktor/releases
 
 koin = "4.1.0-Beta3"                # https://github.com/InsertKoinIO/koin/releases
-koin-annotations = "2.0.0-Beta3"    # https://github.com/InsertKoinIO/koin-annotations/releases
+koin-annotations = "2.0.0-Beta2"    # https://github.com/InsertKoinIO/koin-annotations/releases
 
 compose = "1.8.0-alpha01"           # https://github.com/JetBrains/compose-multiplatform/releases
 navigation = "2.8.0-alpha11"

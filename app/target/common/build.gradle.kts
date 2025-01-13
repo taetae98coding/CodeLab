@@ -58,6 +58,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(project(":app:core:navigation"))
+                implementation(project(":app:core:poke-service"))
                 implementation(project(":app:feature:poke"))
 
                 implementation(project.dependencies.platform(libs.koin.bom))

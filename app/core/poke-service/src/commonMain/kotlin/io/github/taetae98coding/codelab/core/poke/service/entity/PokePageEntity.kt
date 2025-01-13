@@ -8,9 +8,11 @@ public data class PokePageEntity(
     @SerialName("name")
     val name: String,
     @SerialName("url")
-    val url: String,
+    private val url: String,
 ) {
     val id: Int = url.substringBeforeLast("/")
         .substringAfterLast("/")
         .toInt()
+
+    val thumbnail: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$id.png"
 }
