@@ -31,6 +31,7 @@ include(":app:target:jvm")
 include(":app:target:common")
 
 include(":app:core:navigation")
+include(":app:core:poke-service")
 
 include(":app:data:poke")
 

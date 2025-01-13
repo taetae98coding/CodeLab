@@ -1,15 +1,12 @@
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.android.library)
 }
 
 kotlin {
     explicitApi()
     jvmToolchain(17)
-
-    // Android
-    androidTarget()
 
     // JVM
     jvm()
@@ -32,11 +29,25 @@ kotlin {
     tvosX64()
     tvosArm64()
 
+    // Native Tier3
+    mingwX64()
+
+    // Wasm
+    wasmJs {
+        browser()
+    }
+
+    // JavaScript
+    js {
+        browser()
+    }
+
+    applyDefaultHierarchyTemplate()
+
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":app:core:poke-service"))
-                implementation(project(":app:domain:poke"))
+                implementation(libs.ktor.client.core)
 
                 implementation(project.dependencies.platform(libs.koin.bom))
                 implementation(libs.koin.core)
@@ -44,14 +55,6 @@ kotlin {
                 implementation(libs.koin.annotations)
             }
         }
-    }
-}
-
-android {
-    namespace = "io.github.taetae98coding.codelab.data.poke"
-
-    defaultConfig {
-        compileSdk = 35
     }
 }
 
