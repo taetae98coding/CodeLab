@@ -26,6 +26,7 @@ import io.github.taetae98coding.codelab.feature.poke.LazyPagingItems
 @Composable
 internal fun PokeHomeScaffold(
     modifier: Modifier = Modifier,
+    onPoke: (Int) -> Unit,
     pagingItems: LazyPagingItems<Poke>,
 ) {
     Scaffold(
@@ -35,6 +36,7 @@ internal fun PokeHomeScaffold(
         Content(
             modifier = Modifier.fillMaxSize()
                 .padding(it),
+            onPoke = onPoke,
             pagingItems = pagingItems,
         )
     }
@@ -43,6 +45,7 @@ internal fun PokeHomeScaffold(
 @Composable
 private fun Content(
     modifier: Modifier = Modifier,
+    onPoke: (Int) -> Unit,
     pagingItems: LazyPagingItems<Poke>,
 ) {
     LazyVerticalGrid(
@@ -57,6 +60,7 @@ private fun Content(
         ) { index ->
             PokeItem(
                 uiState = pagingItems[index],
+                onClick = { pagingItems[index]?.id?.let(onPoke) },
                 modifier = Modifier.fillMaxSize(),
             )
         }
@@ -66,9 +70,13 @@ private fun Content(
 @Composable
 private fun PokeItem(
     uiState: Poke?,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Card {
+    Card(
+        onClick = onClick,
+        modifier = modifier,
+    ) {
         AsyncImage(
             model = uiState?.thumbnail,
             contentDescription = uiState?.name,

@@ -2,19 +2,16 @@ package io.github.taetae98coding.codelab.feature.poke
 
 import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.animation.SharedTransitionScope
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import androidx.navigation.toRoute
+import androidx.navigation.compose.dialog
 import androidx.paging.CombinedLoadStates
 import androidx.paging.ItemSnapshotList
 import androidx.paging.LoadState
@@ -22,9 +19,9 @@ import androidx.paging.LoadStates
 import androidx.paging.PagingData
 import androidx.paging.PagingDataEvent
 import androidx.paging.PagingDataPresenter
-import coil3.compose.AsyncImage
 import io.github.taetae98coding.codelab.core.navigation.poke.PokeDetail
 import io.github.taetae98coding.codelab.core.navigation.poke.PokeHome
+import io.github.taetae98coding.codelab.feature.poke.detail.PokeDetailRoute
 import io.github.taetae98coding.codelab.feature.poke.home.PokeHomeRoute
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
@@ -41,25 +38,15 @@ public actual fun NavGraphBuilder.pokeNavigation(
     sharedTransitionScope: SharedTransitionScope,
 ) {
     composable<PokeHome> {
-        PokeHomeRoute()
+        PokeHomeRoute(
+            navigateToDetail = { navController.navigate(PokeDetail(it)) },
+        )
     }
 
-    composable<PokeDetail> {
-        val animatedContentScope = this
-        val route = it.toRoute<PokeDetail>()
-
-        with(sharedTransitionScope) {
-            AsyncImage(
-                model = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${route.id}.png",
-                contentDescription = null,
-                modifier = Modifier.fillMaxSize()
-                    .clickable { navController.popBackStack() }
-                    .sharedElement(
-                        state = rememberSharedContentState(key = route.id),
-                        animatedVisibilityScope = animatedContentScope,
-                    ),
-            )
-        }
+    dialog<PokeDetail> {
+        PokeDetailRoute(
+            navigateUp = navController::popBackStack,
+        )
     }
 }
 

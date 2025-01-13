@@ -8,6 +8,7 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 internal fun PokeHomeRoute(
+    navigateToDetail: (Int) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: PokeViewModel = koinViewModel(),
 ) {
@@ -15,6 +16,7 @@ internal fun PokeHomeRoute(
 
     PokeHomeScaffold(
         modifier = modifier,
+        onPoke = navigateToDetail,
         pagingItems = pagingItems,
     )
 }
