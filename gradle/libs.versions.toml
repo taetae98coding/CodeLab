@@ -9,7 +9,7 @@ kotlinx-serialization = "1.8.0"     # https://github.com/Kotlin/kotlinx.serializ
 ktor = "3.0.3"                      # https://github.com/ktorio/ktor/releases
 
 koin = "4.1.0-Beta3"                # https://github.com/InsertKoinIO/koin/releases
-koin-annotations = "2.0.0-Beta2"    # https://github.com/InsertKoinIO/koin-annotations/releases
+koin-annotations = "2.0.0-Beta3"    # https://github.com/InsertKoinIO/koin-annotations/releases
 
 compose = "1.8.0-alpha01"           # https://github.com/JetBrains/compose-multiplatform/releases
 navigation = "2.8.0-alpha11"
@@ -17,6 +17,8 @@ navigation = "2.8.0-alpha11"
 coil = "3.0.4"                      # https://github.com/coil-kt/coil/releases
 
 androidx-paging = "3.3.5"           # https://developer.android.com/jetpack/androidx/releases/paging?hl=en
+
+kotest = "6.0.0.M1"                 # https://github.com/kotest/kotest/releases
 
 [libraries]
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
@@ -30,7 +32,11 @@ koin-compose-viewmodel-navigation = { group = "io.insert-koin", name = "koin-com
 ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
 ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-client-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-darwin = { group = "io.ktor", name = "ktor-client-darwin", version.ref = "ktor" }
+ktor-client-curl = { group = "io.ktor", name = "ktor-client-curl", version.ref = "ktor" }
+ktor-client-js = { group = "io.ktor", name = "ktor-client-js", version.ref = "ktor" }
 ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-client-mock = { group = "io.ktor", name = "ktor-client-mock", version.ref = "ktor" }
 
 koin-annotations-bom = { group = "io.insert-koin", name = "koin-annotations-bom", version.ref = "koin-annotations" }
 koin-annotations = { group = "io.insert-koin", name = "koin-annotations" }
@@ -44,6 +50,11 @@ coil-ktor = { group = "io.coil-kt.coil3", name = "coil-network-ktor3" }
 
 paging-common = { group = "androidx.paging", name = "paging-common", version.ref = "androidx-paging" }
 
+kotest-engine = { group = "io.kotest", name = "kotest-framework-engine", version.ref = "kotest" }
+kotest-assertions = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kotest" }
+kotest-property = { group = "io.kotest", name = "kotest-property", version.ref = "kotest" }
+kotest-junit5 = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
+
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
@@ -53,3 +64,5 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
+kotest = { id = "io.kotest.multiplatform", version.ref = "kotest" }

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotest)
 }
 
 kotlin {
@@ -57,10 +58,72 @@ kotlin {
                 implementation(libs.koin.annotations)
             }
         }
+
+        jvmMain {
+            dependencies {
+                implementation(libs.ktor.client.okhttp)
+            }
+        }
+
+        appleMain {
+            dependencies {
+                implementation(libs.ktor.client.darwin)
+            }
+        }
+
+        linuxMain {
+            dependencies {
+                implementation(libs.ktor.client.curl)
+            }
+        }
+
+        mingwMain {
+            dependencies {
+                implementation(libs.ktor.client.curl)
+            }
+        }
+
+        jsMain {
+            dependencies {
+                implementation(libs.ktor.client.js)
+            }
+        }
+
+        wasmJsMain {
+            dependencies {
+                implementation(libs.ktor.client.js)
+            }
+        }
+
+        commonTest {
+            dependencies {
+                implementation(libs.ktor.client.mock)
+
+                implementation(libs.kotest.engine)
+                implementation(libs.kotest.assertions)
+                implementation(libs.kotest.property)
+            }
+        }
+
+        jvmTest {
+            dependencies {
+                implementation(libs.kotest.junit5)
+            }
+        }
+
+        androidUnitTest {
+            dependencies {
+                implementation(libs.kotest.junit5)
+            }
+        }
     }
 }
 
 dependencies {
     ksp(platform(libs.koin.annotations.bom))
     ksp(libs.koin.compiler)
+}
+
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
 }

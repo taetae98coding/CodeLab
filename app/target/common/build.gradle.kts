@@ -80,6 +80,9 @@ kotlin {
             dependencies {
                 implementation(project(":app:data:poke"))
                 implementation(project(":app:domain:poke"))
+
+                runtimeOnly(libs.kotlinx.coroutines.swing)
+                runtimeOnly(libs.ktor.client.okhttp)
             }
         }
 
