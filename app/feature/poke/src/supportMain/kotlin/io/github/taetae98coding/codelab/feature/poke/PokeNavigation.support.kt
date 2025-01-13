@@ -1,5 +1,8 @@
 package io.github.taetae98coding.codelab.feature.poke
 
+import androidx.compose.animation.ExperimentalSharedTransitionApi
+import androidx.compose.animation.SharedTransitionScope
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
 import androidx.paging.CombinedLoadStates
 import androidx.paging.ItemSnapshotList
 import androidx.paging.LoadState
@@ -27,6 +31,7 @@ import androidx.paging.PagingData
 import androidx.paging.PagingDataEvent
 import androidx.paging.PagingDataPresenter
 import coil3.compose.AsyncImage
+import io.github.taetae98coding.codelab.core.navigation.poke.PokeDetail
 import io.github.taetae98coding.codelab.core.navigation.poke.PokeHome
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
@@ -38,10 +43,13 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.withContext
 import org.koin.compose.viewmodel.koinViewModel
 
+@OptIn(ExperimentalSharedTransitionApi::class)
 public actual fun NavGraphBuilder.pokeNavigation(
     navController: NavController,
+    sharedTransitionScope: SharedTransitionScope,
 ) {
     composable<PokeHome> {
+        val animatedContentScope = this
         val viewModel = koinViewModel<PokeViewModel>()
         val lazyItems = viewModel.paging.collectAsLazyPagingItems()
 
@@ -52,13 +60,21 @@ public actual fun NavGraphBuilder.pokeNavigation(
             items(
                 count = lazyItems.itemCount,
             ) {
-                Card {
-                    AsyncImage(
-                        model = lazyItems[it]?.thumbnail,
-                        contentDescription = lazyItems[it]?.name,
-                        modifier = Modifier.fillMaxWidth()
-                            .aspectRatio(1F),
-                    )
+                Card(
+                    onClick = { lazyItems[it]?.let { navController.navigate(PokeDetail(it.id)) } },
+                ) {
+                    with(sharedTransitionScope) {
+                        AsyncImage(
+                            model = lazyItems[it]?.thumbnail,
+                            contentDescription = lazyItems[it]?.name,
+                            modifier = Modifier.fillMaxWidth()
+                                .aspectRatio(1F)
+                                .sharedElement(
+                                    state = rememberSharedContentState(key = lazyItems[it]?.id ?: 0),
+                                    animatedVisibilityScope = animatedContentScope,
+                                ),
+                        )
+                    }
                     Text(
                         text = lazyItems[it]?.name.orEmpty(),
                         modifier = Modifier.fillMaxWidth(),
@@ -66,6 +82,24 @@ public actual fun NavGraphBuilder.pokeNavigation(
                     )
                 }
             }
+        }
+    }
+
+    composable<PokeDetail> {
+        val animatedContentScope = this
+        val route = it.toRoute<PokeDetail>()
+
+        with(sharedTransitionScope) {
+            AsyncImage(
+                model = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${route.id}.png",
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize()
+                    .clickable { navController.popBackStack() }
+                    .sharedElement(
+                        state = rememberSharedContentState(key = route.id),
+                        animatedVisibilityScope = animatedContentScope,
+                    ),
+            )
         }
     }
 }

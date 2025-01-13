@@ -1,5 +1,7 @@
 package io.github.taetae98coding.codelab.app
 
+import androidx.compose.animation.ExperimentalSharedTransitionApi
+import androidx.compose.animation.SharedTransitionLayout
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
@@ -10,6 +12,7 @@ import coil3.util.DebugLogger
 import io.github.taetae98coding.codelab.core.navigation.poke.PokeHome
 import io.github.taetae98coding.codelab.feature.poke.pokeNavigation
 
+@OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
 public fun App() {
     setSingletonImageLoaderFactory { context ->
@@ -19,13 +22,19 @@ public fun App() {
     }
 
     MaterialTheme {
-        val navController = rememberNavController()
+        SharedTransitionLayout {
+            val sharedTransitionScope = this
+            val navController = rememberNavController()
 
-        NavHost(
-            navController = navController,
-            startDestination = PokeHome,
-        ) {
-            pokeNavigation(navController = navController)
+            NavHost(
+                navController = navController,
+                startDestination = PokeHome,
+            ) {
+                pokeNavigation(
+                    navController = navController,
+                    sharedTransitionScope = sharedTransitionScope,
+                )
+            }
         }
     }
 }
