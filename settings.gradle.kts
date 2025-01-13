@@ -37,3 +37,5 @@ include(":app:data:poke")
 include(":app:domain:poke")
 
 include(":app:feature:poke")
+
+include(":library:paging-common")

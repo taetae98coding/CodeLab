@@ -37,6 +37,7 @@ kotlin {
             dependencies {
                 implementation(project(":app:core:poke-service"))
                 implementation(project(":app:domain:poke"))
+                implementation(project(":library:paging-common"))
 
                 implementation(project.dependencies.platform(libs.koin.bom))
                 implementation(libs.koin.core)
