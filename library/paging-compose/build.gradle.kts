@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.android.library)
-    alias(libs.plugins.kotest)
+    alias(libs.plugins.compose)
+    alias(libs.plugins.compose.compiler)
 }
 
 kotlin {
@@ -37,42 +38,35 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(libs.androidx.paging.common)
+                implementation(project(":library:paging-common"))
+                implementation(compose.runtime)
             }
         }
 
-        commonTest {
+        androidMain {
             dependencies {
-                implementation(libs.androidx.paging.testing)
-
-                implementation(libs.kotest.engine)
-                implementation(libs.kotest.assertions)
-                implementation(libs.kotest.property)
+                implementation(libs.androidx.paging.compose)
             }
         }
 
-        androidUnitTest {
+        val nonAndroidMain = create("nonAndroidMain") {
             dependencies {
-                implementation(libs.kotest.junit5)
+                implementation(project(":library:paging-common"))
             }
         }
 
-        jvmTest {
-            dependencies {
-                implementation(libs.kotest.junit5)
-            }
-        }
+        nonAndroidMain.dependsOn(commonMain.get())
+
+        jvmMain.get().dependsOn(nonAndroidMain)
+        appleMain.get().dependsOn(nonAndroidMain)
+        linuxMain.get().dependsOn(nonAndroidMain)
     }
 }
 
 android {
-    namespace = "io.github.taetae98coding.codelab.library.paging.common"
+    namespace = "io.github.taetae98coding.codelab.library.paging.compose"
 
     defaultConfig {
         compileSdk = 35
     }
-}
-
-tasks.withType<Test>().configureEach {
-    useJUnitPlatform()
 }

@@ -20,7 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import io.github.taetae98coding.codelab.domain.poke.entity.Poke
-import io.github.taetae98coding.codelab.feature.poke.LazyPagingItems
+import io.github.taetae98coding.codelab.library.paging.compose.LazyPagingItems
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

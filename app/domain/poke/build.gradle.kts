@@ -38,7 +38,7 @@ kotlin {
                 implementation(project.dependencies.platform(libs.koin.annotations.bom))
                 implementation(libs.koin.annotations)
 
-                api(libs.androidx.paging.common)
+                api(project(":library:paging-common"))
             }
         }
     }
