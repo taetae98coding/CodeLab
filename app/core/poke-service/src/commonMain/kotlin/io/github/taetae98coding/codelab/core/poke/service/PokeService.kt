@@ -1,5 +1,6 @@
 package io.github.taetae98coding.codelab.core.poke.service
 
+import io.github.taetae98coding.codelab.core.poke.service.entity.PokeDetailEntity
 import io.github.taetae98coding.codelab.core.poke.service.entity.PokePageResponseEntity
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -20,5 +21,11 @@ public class PokeService internal constructor(
         }
 
         return response.body<PokePageResponseEntity>()
+    }
+
+    public suspend fun getDetail(id: Int): PokeDetailEntity {
+        val response = client.get("pokemon/$id")
+
+        return response.body()
     }
 }
