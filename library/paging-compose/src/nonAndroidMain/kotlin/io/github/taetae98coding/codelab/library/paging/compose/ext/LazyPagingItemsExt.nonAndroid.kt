@@ -14,3 +14,13 @@ public actual fun <T : Any> LazyPagingItems<T>.itemKey(
         }
     }
 }
+
+public actual fun <T : Any> LazyPagingItems<T>.itemContentType(contentType: ((@JvmSuppressWildcards T) -> Any?)?): (Int) -> Any? {
+    return { index ->
+        if (contentType == null) {
+            null
+        } else {
+            peek(index)?.let { contentType(it) } ?: index
+        }
+    }
+}
