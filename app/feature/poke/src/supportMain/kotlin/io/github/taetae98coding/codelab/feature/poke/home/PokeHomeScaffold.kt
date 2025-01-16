@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.paging.LoadState
 import coil3.compose.AsyncImage
 import io.github.taetae98coding.codelab.domain.poke.entity.Poke
 import io.github.taetae98coding.codelab.library.paging.compose.LazyPagingItems
@@ -60,16 +61,28 @@ private fun Content(
         verticalArrangement = Arrangement.spacedBy(6.dp),
         horizontalArrangement = Arrangement.spacedBy(6.dp),
     ) {
-        items(
-            count = pagingItems.itemCount,
-            key = pagingItems.itemKey { it.id },
-            contentType = pagingItems.itemContentType { PokeContentType },
-        ) { index ->
-            PokeItem(
-                uiState = pagingItems[index],
-                onClick = { pagingItems[index]?.id?.let(onPoke) },
-                modifier = Modifier.fillMaxSize(),
-            )
+        if (pagingItems.loadState.refresh is LoadState.Loading) {
+            items(
+                count = 5,
+            ) {
+                PokeItem(
+                    uiState = null,
+                    onClick = { },
+                    modifier = Modifier.fillMaxSize(),
+                )
+            }
+        } else {
+            items(
+                count = pagingItems.itemCount,
+                key = pagingItems.itemKey { it.id },
+                contentType = pagingItems.itemContentType { PokeContentType },
+            ) { index ->
+                PokeItem(
+                    uiState = pagingItems[index],
+                    onClick = { pagingItems[index]?.id?.let(onPoke) },
+                    modifier = Modifier.fillMaxSize(),
+                )
+            }
         }
     }
 }

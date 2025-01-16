@@ -26,5 +26,15 @@ public actual fun <T : Any> Flow<PagingData<T>>.collectAsLazyPagingItems(
         }
     }
 
+    LaunchedEffect(lazyPagingItems) {
+        if (context == EmptyCoroutineContext) {
+            lazyPagingItems.collectLoadState()
+        } else {
+            withContext(context) {
+                lazyPagingItems.collectLoadState()
+            }
+        }
+    }
+
     return lazyPagingItems
 }
