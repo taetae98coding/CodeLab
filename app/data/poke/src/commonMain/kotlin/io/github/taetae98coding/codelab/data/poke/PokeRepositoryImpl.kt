@@ -6,6 +6,7 @@ import androidx.paging.PagingData
 import io.github.taetae98coding.codelab.core.poke.service.PokeService
 import io.github.taetae98coding.codelab.data.poke.paging.PokePagingSource
 import io.github.taetae98coding.codelab.domain.poke.entity.Poke
+import io.github.taetae98coding.codelab.domain.poke.entity.PokeDetail
 import io.github.taetae98coding.codelab.domain.poke.repository.PokeRepository
 import kotlinx.coroutines.flow.Flow
 import org.koin.core.annotation.Factory
@@ -28,5 +29,9 @@ internal class PokeRepositoryImpl(
         )
 
         return pager.flow
+    }
+
+    override fun getPokeDetail(id: Int): Flow<PokeDetail> {
+        TODO("Not yet implemented")
     }
 }
