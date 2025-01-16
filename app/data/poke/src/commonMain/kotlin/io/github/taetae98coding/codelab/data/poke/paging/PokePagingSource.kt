@@ -11,7 +11,7 @@ internal class PokePagingSource(
     private val remoteDataSource: PokeService,
 ) : OffsetPagingSource<Poke>() {
     override suspend fun page(limit: Int, offset: Int): OffsetPage<Poke> {
-        val entity = remoteDataSource.page(limit, offset)
+        val entity = remoteDataSource.paging(limit, offset)
 
         return OffsetPage(
             count = entity.count,

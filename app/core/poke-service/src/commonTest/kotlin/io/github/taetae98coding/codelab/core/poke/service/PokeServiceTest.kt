@@ -4,7 +4,6 @@ import io.kotest.core.spec.style.FunSpec
 import io.kotest.inspectors.shouldForAll
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.shouldHave
 import io.kotest.matchers.string.shouldNotBeBlank
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -14,7 +13,7 @@ import org.koin.ksp.generated.module
 
 class PokeServiceTest : FunSpec(), KoinComponent {
     init {
-        test("Test page") {
+        test("Test paging") {
             startKoin {
                 modules(
                     PokeServiceModule().module,
@@ -23,7 +22,7 @@ class PokeServiceTest : FunSpec(), KoinComponent {
             }
 
             val service by inject<PokeService>()
-            val entity = service.page(20, 0)
+            val entity = service.paging(20, 0)
 
             entity.count shouldBe 1302
             entity.results.shouldHaveSize(20)

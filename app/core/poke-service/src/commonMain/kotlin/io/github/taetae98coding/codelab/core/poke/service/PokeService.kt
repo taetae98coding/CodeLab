@@ -14,7 +14,7 @@ public class PokeService internal constructor(
     @Named(PokeServiceModule.POKE_HTTP_CLIENT)
     private val client: HttpClient,
 ) {
-    public suspend fun page(limit: Int, offset: Int): PokePageResponseEntity {
+    public suspend fun paging(limit: Int, offset: Int): PokePageResponseEntity {
         val response = client.get("pokemon") {
             parameter("limit", limit)
             parameter("offset", offset)
