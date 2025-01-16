@@ -51,4 +51,8 @@ public actual class LazyPagingItems<T : Any> internal constructor(
         pagingDataPresenter[index]
         return itemSnapshotList[index]
     }
+
+    public actual fun peek(index: Int): T? {
+        return itemSnapshotList[index]
+    }
 }

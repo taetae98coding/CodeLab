@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import io.github.taetae98coding.codelab.domain.poke.entity.Poke
 import io.github.taetae98coding.codelab.library.paging.compose.LazyPagingItems
+import io.github.taetae98coding.codelab.library.paging.compose.ext.itemKey
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -57,6 +58,7 @@ private fun Content(
     ) {
         items(
             count = pagingItems.itemCount,
+            key = pagingItems.itemKey { it.id },
         ) { index ->
             PokeItem(
                 uiState = pagingItems[index],
