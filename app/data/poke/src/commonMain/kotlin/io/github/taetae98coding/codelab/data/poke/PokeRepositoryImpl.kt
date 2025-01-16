@@ -4,11 +4,13 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import io.github.taetae98coding.codelab.core.poke.service.PokeService
+import io.github.taetae98coding.codelab.data.poke.mapper.toDetail
 import io.github.taetae98coding.codelab.data.poke.paging.PokePagingSource
 import io.github.taetae98coding.codelab.domain.poke.entity.Poke
 import io.github.taetae98coding.codelab.domain.poke.entity.PokeDetail
 import io.github.taetae98coding.codelab.domain.poke.repository.PokeRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import org.koin.core.annotation.Factory
 
 @Factory
@@ -32,6 +34,6 @@ internal class PokeRepositoryImpl(
     }
 
     override fun getPokeDetail(id: Int): Flow<PokeDetail> {
-        TODO("Not yet implemented")
+        return flow { emit(remoteDataSource.getDetail(id).toDetail()) }
     }
 }
