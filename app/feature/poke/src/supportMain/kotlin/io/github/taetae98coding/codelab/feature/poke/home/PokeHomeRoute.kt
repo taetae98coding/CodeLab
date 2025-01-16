@@ -2,7 +2,6 @@ package io.github.taetae98coding.codelab.feature.poke.home
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import io.github.taetae98coding.codelab.feature.poke.PokeViewModel
 import io.github.taetae98coding.codelab.library.paging.compose.runtime.collectAsLazyPagingItems
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -10,7 +9,7 @@ import org.koin.compose.viewmodel.koinViewModel
 internal fun PokeHomeRoute(
     navigateToDetail: (Int) -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: PokeViewModel = koinViewModel(),
+    viewModel: PokeHomeViewModel = koinViewModel(),
 ) {
     val pagingItems = viewModel.paging.collectAsLazyPagingItems()
 
