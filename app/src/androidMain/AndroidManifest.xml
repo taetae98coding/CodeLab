@@ -1,6 +1,9 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <application android:theme="@style/Theme.Material3.DayNight.NoActionBar">
+    <application
+        android:label="CodeLab"
+        android:theme="@style/Theme.Material3.DayNight.NoActionBar">
         <activity
             android:name=".CodeLabActivity"
             android:exported="true">
@@ -9,5 +12,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="io.github.taetae98coding.codelab.initializer.GoogleCredentialInitializer"
+                android:value="androidx.startup" />
+        </provider>
     </application>
 </manifest>

@@ -1,4 +1,4 @@
-package io.github.taetae98coding.codelab.compose
+package io.github.taetae98coding.codelab.compose.theme
 
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme

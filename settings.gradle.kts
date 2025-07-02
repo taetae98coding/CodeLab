@@ -9,6 +9,12 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        maven {
+            url = uri("https://androidx.dev/snapshots/builds/13729941/artifacts/repository")
+            content {
+                includeGroupByRegex("androidx.*")
+            }
+        }
     }
 }
 
@@ -22,6 +28,12 @@ dependencyResolutionManagement {
             }
         }
         mavenCentral()
+        maven {
+            url = uri("https://androidx.dev/snapshots/builds/13729941/artifacts/repository")
+            content {
+                includeGroupByRegex("androidx.*")
+            }
+        }
     }
 }
 
@@ -31,3 +43,8 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(":app")
 include(":compose")
+include(":core:navigation")
+include(":feature:auth")
+include(":feature:home")
+include(":library:google-credentials")
+include(":library:google-credentials-compose")
